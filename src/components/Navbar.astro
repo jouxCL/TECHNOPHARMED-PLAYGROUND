@@ -1,0 +1,127 @@
+---
+// src/components/Navbar.astro
+---
+
+<style>
+  .navbar {
+    background: #fff;
+    border-bottom: 1px solid #e5e5e5;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+
+  .navbar__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    height: 72px;
+  }
+
+  /* ─── LOGO ─── */
+  .navbar__logo {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+  }
+  .navbar__logo img {
+    height: 48px;
+    width: auto;
+    display: block;
+  }
+
+  /* ─── NAV LINKS ─── */
+  .navbar__nav {
+    display: flex;
+    align-items: center;
+    gap: 0;            /* separación controlada por los propios links */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .navbar__nav a {
+    display: block;
+    padding: 0 1.1rem;
+    height: 72px;
+    line-height: 72px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: #333;
+    text-decoration: none;
+    white-space: nowrap;
+    border-bottom: 3px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .navbar__nav a:hover {
+    color: #0054a6;
+    border-bottom-color: #0054a6;
+  }
+
+  /* ─── CONTACTENOS: destaque sutil (como "Contact Us" en la referencia) ─── */
+  .navbar__nav a.nav--highlight {
+    color: #0054a6;
+  }
+  .navbar__nav a.nav--highlight:hover {
+    color: #003d80;
+    border-bottom-color: #003d80;
+  }
+
+  /* ─── MOBILE TOGGLE ─── */
+  .navbar__toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    color: #333;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .navbar__nav { display: none; }
+    .navbar__toggle { display: flex; align-items: center; }
+  }
+</style>
+
+<header class="navbar">
+  <div class="navbar__inner">
+
+    <!-- Logo -->
+    <div class="navbar__logo">
+      <a href="/">
+        <img
+          src="/logos/we%20are%20in%20development.svg"
+          alt="Technopharmed"
+        />
+      </a>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+      <ul class="navbar__nav">
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Punzonería</a></li>
+        <li><a href="#">Llenadoras de Líquidos</a></li>
+        <li><a href="#">Tableteadoras</a></li>
+        <li><a href="#">Respaldo Técnico</a></li>
+        <li><a href="#contacto" class="nav--highlight">Contáctenos</a></li>
+      </ul>
+    </nav>
+
+    <!-- Mobile menu button (skeleton) -->
+    <button class="navbar__toggle" type="button" aria-label="Menú">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <path d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+
+  </div>
+</header>
