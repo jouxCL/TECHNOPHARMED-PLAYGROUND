@@ -1,0 +1,220 @@
+---
+/**
+ * HeroPage.astro
+ * Reutilizable para: Punzonería, Tableteadoras, Llenadoras, Respaldo Técnico.
+ *
+ * Props:
+ *   eyebrow  – pequeño label superior (ej. "Línea de Punzonería")
+ *   title    – título principal (puede tener HTML)
+ *   subtitle – párrafo descriptivo
+ *   videoSrc – (opcional) ruta al video de fondo. Si no se da, usa placeholder.
+ *   ctaLabel – (opcional) texto del botón primario. Default: "Conocer más"
+ *   ctaHref  – (opcional) href del botón primario. Default: "#"
+ */
+interface Props {
+  eyebrow?: string;
+  title: string;
+  subtitle?: string;
+  videoSrc?: string;
+  ctaLabel?: string;
+  ctaHref?: string;
+}
+
+const {
+  eyebrow,
+  title,
+  subtitle,
+  videoSrc,
+  ctaLabel = 'Conocer más',
+  ctaHref = '#',
+} = Astro.props;
+---
+
+<style>
+  /* ══ HERO PAGE ══ */
+  .hero-page {
+    position: relative;
+    min-height: 68vh;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+  }
+
+  /* ── Video / Placeholder background ── */
+  .hero-page__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  /* CSS checkerboard placeholder (magenta + black) */
+  .hero-page__placeholder {
+    width: 100%; height: 100%;
+    background-color: #1a0020;
+    background-image:
+      linear-gradient(45deg, #d000a0 25%, transparent 25%),
+      linear-gradient(-45deg, #d000a0 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, #d000a0 75%),
+      linear-gradient(-45deg, transparent 75%, #d000a0 75%);
+    background-size: 40px 40px;
+    background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+    opacity: 0.85;
+    animation: bgBreath 6s ease-in-out infinite;
+  }
+
+  @keyframes bgBreath { 0%,100%{opacity:.85} 50%{opacity:.65} }
+
+  .hero-page__video {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* ── M3 Blue Overlay ── */
+  .hero-page__overlay {
+    position: absolute; inset: 0; z-index: 1;
+    background:
+      radial-gradient(ellipse 70% 70% at 60% 50%, rgba(0,82,154,0.55) 0%, transparent 70%),
+      linear-gradient(160deg, rgba(0,29,54,0.88) 0%, rgba(0,53,112,0.75) 50%, rgba(0,82,154,0.60) 100%);
+    backdrop-filter: blur(2px);
+  }
+
+
+
+  /* Animated SVG wave at bottom */
+  .hp-wave {
+    position: absolute; bottom: 0; left: 0; right: 0; z-index: 2; pointer-events: none;
+    line-height: 0;
+  }
+
+  @keyframes slowSpin   { to { transform: rotate(360deg); } }
+  @keyframes linePulse  { 0%,100%{opacity:.3} 50%{opacity:1} }
+  @keyframes floatY     { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-16px)} }
+  @keyframes floatX     { 0%,100%{transform:translateX(0)} 50%{transform:translateX(12px)} }
+
+  /* ── Content ── */
+  .hero-page__content {
+    position: relative; z-index: 3;
+    width: 100%; max-width: 1200px;
+    margin: 0 auto;
+    padding: 5rem 2rem 5rem;
+  }
+
+  .hp-eyebrow {
+    display: inline-flex; align-items: center; gap: .5rem;
+    background: rgba(158,202,255,.12);
+    border: 1px solid rgba(158,202,255,.28);
+    padding: .35rem 1.1rem; border-radius: 9999px;
+    color: #9ECAFF;
+    font-size: .72rem; font-weight: 600; letter-spacing: .12em;
+    text-transform: uppercase; margin-bottom: 1.4rem;
+    backdrop-filter: blur(8px);
+    animation: hpFadeUp .7s cubic-bezier(0,0,0,1) .1s both;
+  }
+  .hp-eyebrow svg { opacity: .75; }
+
+  .hp-title {
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 900; line-height: 1.1;
+    color: #fff; letter-spacing: -.01em;
+    margin-bottom: 1.2rem;
+    max-width: 680px;
+    animation: hpFadeUp .7s cubic-bezier(0,0,0,1) .25s both;
+  }
+  .hp-title em { font-style: normal; color: #9ECAFF; }
+
+  .hp-subtitle {
+    font-size: 1.05rem; color: rgba(255,255,255,.78);
+    line-height: 1.75; max-width: 520px;
+    margin-bottom: 2rem;
+    animation: hpFadeUp .7s cubic-bezier(0,0,0,1) .4s both;
+  }
+
+  .hp-actions {
+    display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;
+    animation: hpFadeUp .7s cubic-bezier(0,0,0,1) .55s both;
+  }
+  .hp-actions md-filled-button {
+    --md-filled-button-container-color: #fff;
+    --md-filled-button-label-text-color: var(--md-primary);
+  }
+  .hp-actions md-outlined-button {
+    --md-outlined-button-outline-color: rgba(255,255,255,.5);
+    --md-outlined-button-label-text-color: #fff;
+  }
+
+  /* Breadcrumb */
+  .hp-breadcrumb {
+    display: flex; gap: .4rem; align-items: center;
+    font-size: .72rem; color: rgba(255,255,255,.5);
+    margin-bottom: 1.5rem;
+    animation: hpFadeUp .7s cubic-bezier(0,0,0,1) .05s both;
+  }
+  .hp-breadcrumb a { color: rgba(255,255,255,.6); transition: color .2s; }
+  .hp-breadcrumb a:hover { color: #fff; }
+  .hp-breadcrumb svg { opacity: .4; flex-shrink: 0; }
+
+  @keyframes hpFadeUp {
+    from { opacity:0; transform: translateY(28px); }
+    to   { opacity:1; transform: translateY(0); }
+  }
+</style>
+
+<section class="hero-page">
+
+  <!-- Background: video or placeholder -->
+  <div class="hero-page__bg">
+    {videoSrc ? (
+      <video class="hero-page__video" autoplay muted loop playsinline>
+        <source src={videoSrc} type="video/mp4" />
+      </video>
+    ) : (
+      <div class="hero-page__placeholder" aria-hidden="true"></div>
+    )}
+  </div>
+
+  <!-- M3 Blue overlay -->
+  <div class="hero-page__overlay" aria-hidden="true"></div>
+
+
+
+  <!-- Content -->
+  <div class="hero-page__content">
+    <!-- Breadcrumb -->
+    <nav class="hp-breadcrumb" aria-label="Ruta de navegación">
+      <a href="/">Inicio</a>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M9 18l6-6-6-6"/>
+      </svg>
+      <span>{eyebrow ?? title}</span>
+    </nav>
+
+    {eyebrow && (
+      <div class="hp-eyebrow">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77 5.82 21.02 7 14.14 2 9.27l6.91-1.01L12 2z"/>
+        </svg>
+        {eyebrow}
+      </div>
+    )}
+
+    <h1 class="hp-title" set:html={title} />
+
+    {subtitle && <p class="hp-subtitle">{subtitle}</p>}
+
+    <div class="hp-actions">
+      <md-filled-button href={ctaHref}>{ctaLabel}</md-filled-button>
+      <md-outlined-button href="/contactenos">Contactar Asesor</md-outlined-button>
+    </div>
+  </div>
+
+  <!-- Wave divider at bottom -->
+  <div class="hp-wave">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 64" preserveAspectRatio="none" height="64">
+      <path fill="var(--md-bg, #F8F9FC)" d="M0,32 C360,64 1080,0 1440,32 L1440,64 L0,64 Z"/>
+    </svg>
+  </div>
+
+</section>
+
+
