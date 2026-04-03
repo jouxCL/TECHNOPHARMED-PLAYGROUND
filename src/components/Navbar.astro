@@ -44,8 +44,10 @@ function isActive(href: string): boolean {
     align-items: center;
   }
   .navbar__logo img {
-    height: 48px;
+    height: 54px; /* Aumentado para mejor visualización de logo1.svg */
+    max-height: 100%;
     width: auto;
+    object-fit: contain;
     display: block;
   }
 
@@ -64,10 +66,10 @@ function isActive(href: string): boolean {
     padding: 0 1.1rem;
     height: 72px;
     line-height: 72px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
     color: #333;
     text-decoration: none;
     white-space: nowrap;
@@ -84,7 +86,7 @@ function isActive(href: string): boolean {
   .navbar__nav a.is-active {
     color: #0054a6;
     border-bottom-color: #0054a6;
-    font-weight: 700;
+    font-weight: 900;
   }
 
   /* ─── ÚLTIMO LINK (Contáctenos): siempre destaca ─── */
@@ -120,7 +122,7 @@ function isActive(href: string): boolean {
     <div class="navbar__logo">
       <a href="/">
         <img
-          src="/logos/we%20are%20in%20development.svg"
+          src="/logos/logo1.svg"
           alt="Technopharmed"
         />
       </a>
