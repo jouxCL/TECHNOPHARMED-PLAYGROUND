@@ -93,16 +93,39 @@ const { title, description = "Technopharmed – Soluciones farmacéuticas de alt
         --md-filled-button-container-color:    var(--md-primary);
         --md-filled-button-label-text-color:   var(--md-on-primary);
         --md-filled-button-container-shape:    var(--r-full);
+        --md-filled-button-leading-space:      2rem;
+        --md-filled-button-trailing-space:     2rem;
+
         --md-outlined-button-outline-color:    var(--md-outline);
         --md-outlined-button-label-text-color: var(--md-primary);
         --md-outlined-button-container-shape:  var(--r-full);
+        --md-outlined-button-leading-space:    1.5rem;
+        --md-outlined-button-trailing-space:   1.5rem;
+
         --md-text-button-label-text-color:     var(--md-primary);
+        --md-text-button-leading-space:        1rem;
+        --md-text-button-trailing-space:       1rem;
+
         --md-elevated-card-container-color:    var(--md-surface);
         --md-elevated-card-container-shape:    var(--r-lg);
       }
 
+      /* Global Button Padding Fix */
+      md-filled-button, md-outlined-button {
+        padding-inline: 2rem !important;
+        min-width: 180px;
+        display: inline-flex !important;
+        justify-content: center;
+      }
+      md-text-button {
+        padding-inline: 1rem !important;
+        display: inline-flex !important;
+      }
+
+
       /* ── BASE ── */
-      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      *, *::before, *::after { box-sizing: border-box; }
+      body, h1, h2, h3, h4, h5, h6, p, ul, ol, li, figure, blockquote, dl, dd { margin: 0; padding: 0; }
       html { scroll-behavior: smooth; }
       body { font-family: 'Roboto', sans-serif; background: var(--md-bg); color: var(--md-on-bg); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
       a { color: inherit; text-decoration: none; }

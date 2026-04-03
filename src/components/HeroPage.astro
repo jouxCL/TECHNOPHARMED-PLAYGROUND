@@ -82,8 +82,12 @@ const {
 
   /* Animated SVG wave at bottom */
   .hp-wave {
-    position: absolute; bottom: 0; left: 0; right: 0; z-index: 2; pointer-events: none;
-    line-height: 0;
+    position: absolute; bottom: -1px; left: 0; right: 0; z-index: 5; pointer-events: none;
+    line-height:0; width: 100%; overflow: hidden;
+  }
+  .hp-wave svg {
+    width: 100%;
+    display: block;
   }
 
   @keyframes slowSpin   { to { transform: rotate(360deg); } }
@@ -136,6 +140,11 @@ const {
   .hp-actions md-filled-button {
     --md-filled-button-container-color: #fff;
     --md-filled-button-label-text-color: var(--md-primary);
+    --md-filled-button-container-shape: 9999px;
+    padding-inline: 32px !important;
+    display: inline-flex;
+    min-width: 220px;
+    justify-content: center;
   }
   .hp-actions md-outlined-button {
     --md-outlined-button-outline-color: rgba(255,255,255,.5);
@@ -203,13 +212,12 @@ const {
 
     <div class="hp-actions">
       <md-filled-button href={ctaHref}>{ctaLabel}</md-filled-button>
-      <md-outlined-button href="/contactenos">Contactar Asesor</md-outlined-button>
     </div>
   </div>
 
   <!-- Wave divider at bottom -->
   <div class="hp-wave">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 64" preserveAspectRatio="none" height="64">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 64" preserveAspectRatio="none" width="100%" height="64">
       <path fill="var(--md-bg, #F8F9FC)" d="M0,32 C360,64 1080,0 1440,32 L1440,64 L0,64 Z"/>
     </svg>
   </div>

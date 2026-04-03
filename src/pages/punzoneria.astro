@@ -17,7 +17,7 @@ import HeroPage from '../components/HeroPage.astro';
     title="Punzones, Matrices y Segmentos de <em>Alta Precisión.</em>"
     subtitle="I Holland se ha consolidado como el principal proveedor mundial de punzones, matrices y segmentos para fabricantes de tabletas. Casi 80 años de experiencia en la industria."
     ctaLabel="Solicitar Asesoría Técnica"
-    ctaHref="#contacto"
+    ctaHref="/contactenos"
     videoSrc="/videos/Punzones.mp4"
   />
 
@@ -149,17 +149,14 @@ import HeroPage from '../components/HeroPage.astro';
           </div>
         </div>
 
-        <!-- Imagen placeholder semántica -->
-        <figure
-          class="img-placeholder img-placeholder--tall reveal reveal-right stagger-2"
-          aria-label="Foto macro de un Segmento de Matriz siendo instalado en la torreta, mostrando las múltiples cavidades mecanizadas en el bloque de acero curvo."
-          role="img"
-        >
-          <div class="img-placeholder__inner">
-            <svg class="img-placeholder__icon" width="40" height="40" viewBox="0 0 24 24" fill="none"><rect x="2" y="7" width="20" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="7" cy="12" r="1.5" fill="currentColor" opacity=".5"/><circle cx="12" cy="12" r="1.5" fill="currentColor" opacity=".5"/><circle cx="17" cy="12" r="1.5" fill="currentColor" opacity=".5"/></svg>
-            <span class="img-placeholder__desc">Foto en primer plano (macro) de un <strong>Segmento de Matriz</strong> — bloque mecanizado de acero curvo con múltiples orificios — siendo instalado en la torreta.</span>
-          </div>
-        </figure>
+        <!-- Imagen real con animación de hover -->
+        <div class="segment-container reveal reveal-right stagger-2">
+          <img
+            src="/images/punzones/SegmentodeMatriz.png"
+            alt="Foto macro de un Segmento de Matriz siendo instalado en la torreta"
+            class="segmento-img"
+          />
+        </div>
       </div>
     </div>
   </section>
@@ -173,27 +170,23 @@ import HeroPage from '../components/HeroPage.astro';
       <p class="eyebrow-shimmer reveal">Multipunzones · Máxima Producción</p>
       <h2 id="s3-title" class="pg-title reveal stagger-1">Multipunzones: Multiplicando su Producción.</h2>
 
-      <!-- Placeholder de video/imagen -->
-      <figure
-        class="img-placeholder img-placeholder--wide reveal stagger-2"
-        aria-label="Foto detallada o video demostrativo de un Multipunzón: un solo cuerpo de punzón que en su punta se divide en múltiples cabezales más pequeños (ej. 4 u 8 micro-puntas)."
-        role="img"
-        style="margin-bottom: 2.5rem;"
-      >
-        <div class="img-placeholder__inner">
-          <svg class="img-placeholder__icon" width="40" height="40" viewBox="0 0 24 24" fill="none"><path d="M12 20V4M8 16l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="8" cy="6" r="2" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="4" r="2" stroke="currentColor" stroke-width="1.5"/><circle cx="16" cy="6" r="2" stroke="currentColor" stroke-width="1.5"/></svg>
-          <span class="img-placeholder__desc">Video corto demostrativo o foto muy detallada de un <strong>Multipunzón</strong>: un solo cuerpo que en su punta se divide en múltiples cabezales (ej. 4 u 8 micro-puntas simultáneas).</span>
-        </div>
+      <!-- Imagen real con animación de hover -->
+      <figure class="multipunzon-container reveal stagger-2" style="margin-bottom: 2.5rem;">
+        <img
+          src="/images/punzones/Multipunzon.png"
+          alt="Foto detallada de un Multipunzón: un solo cuerpo que en su punta se divide en múltiples cabezales (ej. 4 u 8 micro-puntas simultáneas)."
+          class="multipunzon-img"
+        />
       </figure>
 
       <div class="two-col two-col--text">
-        <div class="reveal reveal-left stagger-3">
+        <div class="reveal stagger-3">
           <p class="pg-body">
             Si necesita aumentar su capacidad de salida sin adquirir nuevas tableteadoras, el multipunzón es la solución.
             Un solo juego de herramientas puede producir entre <strong class="text-primary">2 y 40 tabletas simultáneamente</strong> por cada rotación.
           </p>
         </div>
-        <div class="reveal reveal-right stagger-4">
+        <div class="reveal stagger-3">
           <p class="pg-body">
             Equipar una máquina de alto rendimiento con punzones de doble punta puede elevar la producción de
             <strong class="text-primary">665,000 a más de 1,000,000 de tabletas por hora</strong>, reduciendo el desgaste de la prensa.
@@ -224,29 +217,31 @@ import HeroPage from '../components/HeroPage.astro';
         las propiedades de la punta del punzón para maximizar el rendimiento.
       </p>
 
-      <!-- Split-screen de placeholders -->
+      <!-- Split-screen con imagen real -->
       <div class="split-placeholder reveal stagger-3">
         <figure
-          class="img-placeholder img-placeholder--split"
+          class="punzon-corroido-container"
           aria-label="Punzón sufriendo adherencia (sticking) de polvo durante la compresión — situación problemática sin recubrimiento."
           role="img"
         >
-          <div class="img-placeholder__inner">
-            <div class="split-placeholder__badge split-placeholder__badge--problem">Problema</div>
-            <svg class="img-placeholder__icon" width="36" height="36" viewBox="0 0 24 24" fill="none"><path d="M12 9v4M12 17h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" stroke="currentColor" stroke-width="1.5"/></svg>
-            <span class="img-placeholder__desc">Punzón <strong>sin recubrimiento</strong> sufriendo adherencia (<em>sticking</em>) de polvo del granulado durante la compresión.</span>
+          <div class="punzon-corroido-wrapper">
+            <div class="punzon-corroido-badge">Problema</div>
+            <img
+              src="/images/punzones/PunzonCorroido.png"
+              alt="Punzón sin recubrimiento sufriendo adherencia (sticking) de polvo del granulado durante la compresión."
+              class="punzon-corroido-img"
+            />
           </div>
         </figure>
 
-        <figure
-          class="img-placeholder img-placeholder--split img-placeholder--solution"
-          aria-label="Punzón con recubrimiento PharmaCote® totalmente limpio tras la compresión — sin adherencia de polvo."
-          role="img"
-        >
-          <div class="img-placeholder__inner">
-            <div class="split-placeholder__badge split-placeholder__badge--solution">Solución PharmaCote®</div>
-            <svg class="img-placeholder__icon" width="36" height="36" viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 11-5.93-9.14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M22 4L12 14.01l-3-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span class="img-placeholder__desc">Punzón <strong>con recubrimiento PharmaCote®</strong> totalmente limpio tras la compresión. Cero adherencia de polvo.</span>
+        <figure class="punzon-solucion-container">
+          <div class="punzon-solucion-wrapper">
+            <div class="punzon-solucion-badge">Solución PharmaCote®</div>
+            <img
+              src="/images/punzones/PunzonNoCorroido.png"
+              alt="Punzón con recubrimiento PharmaCote® totalmente limpio tras la compresión. Cero adherencia de polvo."
+              class="punzon-solucion-img"
+            />
           </div>
         </figure>
       </div>
@@ -295,81 +290,309 @@ import HeroPage from '../components/HeroPage.astro';
     <div class="pg-inner">
       <p class="eyebrow-shimmer reveal">Mantenimiento Preventivo · PharmaCare®</p>
 
-      <div class="two-col two-col--img-left">
-        <!-- Placeholder de video -->
-        <figure
-          class="img-placeholder img-placeholder--tall reveal reveal-left stagger-1"
-          aria-label="VIDEO corporativo mostrando técnicos de Technopharmed ejecutando los 7 pasos PharmaCare® con lavadoras de ultrasonido, cámaras de inspección y pulidoras automáticas."
-          role="img"
-        >
-          <div class="img-placeholder__inner">
-            <div class="video-badge">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-              VIDEO
+      <div class="pharmacare-intro reveal stagger-1" style="max-width: 800px; margin: 0 auto 3rem auto; text-align: center;">
+        <h2 id="s5-title" class="pg-title">El Proceso PharmaCare® de 7 Pasos.</h2>
+        <p class="pg-body" style="margin: 0 auto;">
+          El rendimiento sostenido de sus herramientas depende de un protocolo de cuidado riguroso. Este sistema estandarizado reduce el tiempo de inactividad, previene defectos y maximiza su inversión.
+        </p>
+      </div>
+
+      <div class="pharmacare-carousel-wrapper reveal stagger-2">
+        <div class="pharmacare-grid" id="pharmacare-carousel">
+          <button class="carousel-btn carousel-btn--prev" aria-label="Paso anterior" id="btn-prev">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          
+          <button class="carousel-btn carousel-btn--next" aria-label="Paso siguiente" id="btn-next">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <!-- 01. Clean -->
+          <div class="pharmacare-card">
+            <div class="pharmacare-card__header">
+              <div class="pharmacare-card__header-left">
+                <div class="pharmacare-card__icon-wrapper">
+                  <svg class="pharmacare-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 16a4 4 0 100-8 4 4 0 000 8z"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M4.93 4.93l1.41 1.41"/><path d="M17.66 17.66l1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M6.34 17.66l-1.41 1.41"/><path d="M19.07 4.93l-1.41 1.41"/></svg>
+                </div>
+                <div class="pharmacare-card__titles">
+                  <p class="pharmacare-card__title">Limpiar</p>
+                  <p class="pharmacare-card__subtitle">Clean</p>
+                </div>
+              </div>
+              <span class="pharmacare-card__num">01</span>
             </div>
-            <svg class="img-placeholder__icon" width="40" height="40" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="4" stroke="currentColor" stroke-width="1.5"/><path d="M10 8l6 4-6 4V8z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
-            <span class="img-placeholder__desc">VIDEO corporativo de técnicos ejecutando los <strong>7 pasos PharmaCare®</strong>: lavadoras de ultrasonido, cámaras de inspección y pulidoras automáticas.</span>
+
+            <div class="pharmacare-card__body">
+              <p class="pharmacare-card__text">
+                <strong>Descontaminación Profunda:</strong> Eliminación de cualquier residuo de producto mediante tecnología de cavitación generada por ondas sonoras, la cual limpia profundamente grietas, grabados y chaveteros inaccesibles.
+              </p>
+              <div class="pharmacare-card__equipos">
+                <span class="pharmacare-card__label">EQUIPOS CLAVE</span>
+                <p>Lavadoras de ultrasonido.</p>
+              </div>
+              <div class="pharmacare-card__tip">
+                <div class="pharmacare-card__tip-header">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21h6M12 22v-1M12 2a5 5 0 015 5c0 1.25-.5 2.5-1.5 3.5-.5.5-1 1.5-1 2.5v2H9v-2c0-1-.5-2-1-2.5C7 9.5 6.5 8.25 6.5 7A5 5 0 0112 2z"/></svg>
+                  <span>Tip de Experto</span>
+                </div>
+                <p>El secado posterior a la limpieza es crítico; omitir este paso acelera drásticamente la corrosión prematura del acero.</p>
+              </div>
+            </div>
+
+            <div class="pharmacare-card__footer">
+              <div class="pharmacare-card__progress">
+                <div class="progress-bar"><div class="progress-fill" style="width: 14%"></div></div>
+                <span>1/7</span>
+              </div>
+              <span class="pharmacare-card__next">Evaluar ➔</span>
+            </div>
           </div>
-        </figure>
 
-        <!-- Lista de 7 pasos -->
-        <div class="reveal reveal-right stagger-2">
-          <h2 id="s5-title" class="pg-title">El Proceso PharmaCare® de 7 Pasos.</h2>
-          <p class="pg-body">
-            El rendimiento sostenido de sus herramientas depende de un protocolo de cuidado riguroso. Este sistema estandarizado reduce el tiempo de inactividad, previene defectos y maximiza su inversión.
-          </p>
+          <!-- 02. Assess -->
+          <div class="pharmacare-card">
+            <div class="pharmacare-card__header">
+              <div class="pharmacare-card__header-left">
+                <div class="pharmacare-card__icon-wrapper">
+                  <svg class="pharmacare-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                </div>
+                <div class="pharmacare-card__titles">
+                  <p class="pharmacare-card__title">Evaluar</p>
+                  <p class="pharmacare-card__subtitle">Assess</p>
+                </div>
+              </div>
+              <span class="pharmacare-card__num">02</span>
+            </div>
 
-          <ol class="steps-list">
-            <li class="step-item reveal">
-              <span class="step-item__num">01</span>
-              <div class="step-item__body">
-                <p class="step-item__title">Limpiar <em>(Clean)</em></p>
-                <p class="step-item__text">Uso de lavadoras de ultrasonido para cavitación profunda y eliminación de residuos.</p>
+            <div class="pharmacare-card__body">
+              <p class="pharmacare-card__text">
+                <strong>Inspección de Integridad:</strong> Inspección visual exhaustiva para identificar signos tempranos de daño en el herramental, tales como desgaste de la punta, corrosión incipiente o mellas mecánicas.
+              </p>
+              <div class="pharmacare-card__equipos">
+                <span class="pharmacare-card__label">EQUIPOS CLAVE</span>
+                <p>Mini cámaras y lupas de inspección técnica.</p>
               </div>
-            </li>
-            <li class="step-item reveal">
-              <span class="step-item__num">02</span>
-              <div class="step-item__body">
-                <p class="step-item__title">Evaluar <em>(Assess)</em></p>
-                <p class="step-item__text">Inspección visual con mini cámaras para detectar desgaste temprano antes de que afecte la producción.</p>
+              <div class="pharmacare-card__tip">
+                <div class="pharmacare-card__tip-header">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21h6M12 22v-1M12 2a5 5 0 015 5c0 1.25-.5 2.5-1.5 3.5-.5.5-1 1.5-1 2.5v2H9v-2c0-1-.5-2-1-2.5C7 9.5 6.5 8.25 6.5 7A5 5 0 0112 2z"/></svg>
+                  <span>Tip de Experto</span>
+                </div>
+                <p>Documentar el estado de cada herramienta antes de montarla en la torreta evita fallas catastróficas y detenciones no programadas en plena producción.</p>
               </div>
-            </li>
-            <li class="step-item reveal">
-              <span class="step-item__num">03</span>
-              <div class="step-item__body">
-                <p class="step-item__title">Reparar <em>(Repair)</em></p>
-                <p class="step-item__text">Pulido correctivo de daños menores sin alterar dimensiones críticas de la herramienta.</p>
+            </div>
+
+            <div class="pharmacare-card__footer">
+              <div class="pharmacare-card__progress">
+                <div class="progress-bar"><div class="progress-fill" style="width: 28%"></div></div>
+                <span>2/7</span>
               </div>
-            </li>
-            <li class="step-item reveal">
-              <span class="step-item__num">04</span>
-              <div class="step-item__body">
-                <p class="step-item__title">Medir <em>(Measure)</em></p>
-                <p class="step-item__text">Sistemas de medición para verificar que la longitud de trabajo sea uniforme en todo el juego.</p>
+              <span class="pharmacare-card__next">Reparar ➔</span>
+            </div>
+          </div>
+
+          <!-- 03. Repair -->
+          <div class="pharmacare-card">
+            <div class="pharmacare-card__header">
+              <div class="pharmacare-card__header-left">
+                <div class="pharmacare-card__icon-wrapper">
+                  <svg class="pharmacare-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 9.36l-7.53 7.53a1 1 0 01-1.42-1.42l7.53-7.53a6 6 0 019.36-7.94L17.7 9.3a1 1 0 00-1.4 0l-1.6-1.6a1 1 0 000-1.4l1.6-1.6a1 1 0 00-1.4 0z"/></svg>
+                </div>
+                <div class="pharmacare-card__titles">
+                  <p class="pharmacare-card__title">Reparar</p>
+                  <p class="pharmacare-card__subtitle">Repair</p>
+                </div>
               </div>
-            </li>
-            <li class="step-item reveal">
-              <span class="step-item__num">05</span>
-              <div class="step-item__body">
-                <p class="step-item__title">Pulir <em>(Polish)</em></p>
-                <p class="step-item__text">Uso de pulidores automáticos para lograr un acabado de espejo perfecto en la punta del punzón.</p>
+              <span class="pharmacare-card__num">03</span>
+            </div>
+
+            <div class="pharmacare-card__body">
+              <p class="pharmacare-card__text">
+                <strong>Restauración Superficial:</strong> Proceso de corrección de daños superficiales menores ejecutado por técnicos capacitados para restaurar la funcionalidad completa de la herramienta.
+              </p>
+              <div class="pharmacare-card__equipos">
+                <span class="pharmacare-card__label">EQUIPOS CLAVE</span>
+                <p>Kits de pulido correctivo y eliminación de corrosión.</p>
               </div>
-            </li>
-            <li class="step-item reveal">
-              <span class="step-item__num">06</span>
-              <div class="step-item__body">
-                <p class="step-item__title">Lubricar <em>(Lubricate)</em></p>
-                <p class="step-item__text">Aplicación de lubricantes de grado farmacéutico para proteger las superficies de metal.</p>
+              <div class="pharmacare-card__tip">
+                <div class="pharmacare-card__tip-header">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21h6M12 22v-1M12 2a5 5 0 015 5c0 1.25-.5 2.5-1.5 3.5-.5.5-1 1.5-1 2.5v2H9v-2c0-1-.5-2-1-2.5C7 9.5 6.5 8.25 6.5 7A5 5 0 0112 2z"/></svg>
+                  <span>Tip de Experto</span>
+                </div>
+                <p>La regla de oro de la reparación es realizar el pulido manual sin alterar jamás las dimensiones críticas o las tolerancias originales de la pieza.</p>
               </div>
-            </li>
-            <li class="step-item reveal">
-              <span class="step-item__num">07</span>
-              <div class="step-item__body">
-                <p class="step-item__title">Almacenar <em>(Store)</em></p>
-                <p class="step-item__text">Guardado en gabinetes especializados para evitar contacto mecánico y contaminación cruzada.</p>
+            </div>
+
+            <div class="pharmacare-card__footer">
+              <div class="pharmacare-card__progress">
+                <div class="progress-bar"><div class="progress-fill" style="width: 42%"></div></div>
+                <span>3/7</span>
               </div>
-            </li>
-          </ol>
+              <span class="pharmacare-card__next">Medir ➔</span>
+            </div>
+          </div>
+
+          <!-- 04. Measure -->
+          <div class="pharmacare-card">
+            <div class="pharmacare-card__header">
+              <div class="pharmacare-card__header-left">
+                <div class="pharmacare-card__icon-wrapper">
+                  <svg class="pharmacare-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 6v4"/><path d="M10 6v2"/><path d="M14 6v4"/><path d="M18 6v2"/></svg>
+                </div>
+                <div class="pharmacare-card__titles">
+                  <p class="pharmacare-card__title">Medir</p>
+                  <p class="pharmacare-card__subtitle">Measure</p>
+                </div>
+              </div>
+              <span class="pharmacare-card__num">04</span>
+            </div>
+
+            <div class="pharmacare-card__body">
+              <p class="pharmacare-card__text">
+                <strong>Control Dimensional:</strong> Verificación técnica de la "longitud de trabajo" (working length) de todos los punzones en un juego, contrastándola con las especificaciones originales.
+              </p>
+              <div class="pharmacare-card__equipos">
+                <span class="pharmacare-card__label">EQUIPOS CLAVE</span>
+                <p>Sistemas de medición de longitud (manuales o automatizados).</p>
+              </div>
+              <div class="pharmacare-card__tip">
+                <div class="pharmacare-card__tip-header">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21h6M12 22v-1M12 2a5 5 0 015 5c0 1.25-.5 2.5-1.5 3.5-.5.5-1 1.5-1 2.5v2H9v-2c0-1-.5-2-1-2.5C7 9.5 6.5 8.25 6.5 7A5 5 0 0112 2z"/></svg>
+                  <span>Tip de Experto</span>
+                </div>
+                <p>Un solo punzón fuera de tolerancia en la torreta causará variaciones inaceptables en el peso y la dureza de las tabletas de todo el lote.</p>
+              </div>
+            </div>
+
+            <div class="pharmacare-card__footer">
+              <div class="pharmacare-card__progress">
+                <div class="progress-bar"><div class="progress-fill" style="width: 57%"></div></div>
+                <span>4/7</span>
+              </div>
+              <span class="pharmacare-card__next">Pulir ➔</span>
+            </div>
+          </div>
+
+          <!-- 05. Polish -->
+          <div class="pharmacare-card">
+            <div class="pharmacare-card__header">
+              <div class="pharmacare-card__header-left">
+                <div class="pharmacare-card__icon-wrapper">
+                  <svg class="pharmacare-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l-1.5 5.5L5 9l5.5 1.5L12 16l1.5-5.5L19 9l-5.5-1.5z"/><path d="M20 20l-1 3.5L15.5 24.5l3.5-1L20 20z"/></svg>
+                </div>
+                <div class="pharmacare-card__titles">
+                  <p class="pharmacare-card__title">Pulir</p>
+                  <p class="pharmacare-card__subtitle">Polish</p>
+                </div>
+              </div>
+              <span class="pharmacare-card__num">05</span>
+            </div>
+
+            <div class="pharmacare-card__body">
+              <p class="pharmacare-card__text">
+                <strong>Acabado de Espejo:</strong> Tratamiento superficial regular que mantiene el micro-pulido necesario para evitar que el granulado se adhiera a las caras del punzón durante la compresión.
+              </p>
+              <div class="pharmacare-card__equipos">
+                <span class="pharmacare-card__label">EQUIPOS CLAVE</span>
+                <p>Pulidores automáticos y pastas de diamante.</p>
+              </div>
+              <div class="pharmacare-card__tip">
+                <div class="pharmacare-card__tip-header">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21h6M12 22v-1M12 2a5 5 0 015 5c0 1.25-.5 2.5-1.5 3.5-.5.5-1 1.5-1 2.5v2H9v-2c0-1-.5-2-1-2.5C7 9.5 6.5 8.25 6.5 7A5 5 0 0112 2z"/></svg>
+                  <span>Tip de Experto</span>
+                </div>
+                <p>El pulido automatizado es muy superior al manual, ya que previene el redondeo excesivo de los bordes de la punta y mantiene la compresión limpia.</p>
+              </div>
+            </div>
+
+            <div class="pharmacare-card__footer">
+              <div class="pharmacare-card__progress">
+                <div class="progress-bar"><div class="progress-fill" style="width: 71%"></div></div>
+                <span>5/7</span>
+              </div>
+              <span class="pharmacare-card__next">Lubricar ➔</span>
+            </div>
+          </div>
+
+          <!-- 06. Lubricate -->
+          <div class="pharmacare-card">
+            <div class="pharmacare-card__header">
+              <div class="pharmacare-card__header-left">
+                <div class="pharmacare-card__icon-wrapper">
+                  <svg class="pharmacare-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22a7 7 0 007-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 007 7z"/></svg>
+                </div>
+                <div class="pharmacare-card__titles">
+                  <p class="pharmacare-card__title">Lubricar</p>
+                  <p class="pharmacare-card__subtitle">Lubricate</p>
+                </div>
+              </div>
+              <span class="pharmacare-card__num">06</span>
+            </div>
+
+            <div class="pharmacare-card__body">
+              <p class="pharmacare-card__text">
+                <strong>Protección Activa:</strong> Aplicación de una capa protectora sobre el metal una vez que las herramientas están limpias y medidas, para protegerlas contra la humedad ambiental.
+              </p>
+              <div class="pharmacare-card__equipos">
+                <span class="pharmacare-card__label">EQUIPOS CLAVE</span>
+                <p>Lubricantes de grado farmacéutico, aplicadores de barrera.</p>
+              </div>
+              <div class="pharmacare-card__tip">
+                <div class="pharmacare-card__tip-header">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21h6M12 22v-1M12 2a5 5 0 015 5c0 1.25-.5 2.5-1.5 3.5-.5.5-1 1.5-1 2.5v2H9v-2c0-1-.5-2-1-2.5C7 9.5 6.5 8.25 6.5 7A5 5 0 0112 2z"/></svg>
+                  <span>Tip de Experto</span>
+                </div>
+                <p>El lubricante debe formar una barrera protectora robusta, pero sin dejar residuos que interfieran o contaminen la formulación del siguiente ciclo.</p>
+              </div>
+            </div>
+
+            <div class="pharmacare-card__footer">
+              <div class="pharmacare-card__progress">
+                <div class="progress-bar"><div class="progress-fill" style="width: 85%"></div></div>
+                <span>6/7</span>
+              </div>
+              <span class="pharmacare-card__next">Almacenar ➔</span>
+            </div>
+          </div>
+
+          <!-- 07. Store -->
+          <div class="pharmacare-card">
+            <div class="pharmacare-card__header">
+              <div class="pharmacare-card__header-left">
+                <div class="pharmacare-card__icon-wrapper">
+                  <svg class="pharmacare-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M2 10h20"/><path d="M12 10v10"/></svg>
+                </div>
+                <div class="pharmacare-card__titles">
+                  <p class="pharmacare-card__title">Almacenar</p>
+                  <p class="pharmacare-card__subtitle">Store</p>
+                </div>
+              </div>
+              <span class="pharmacare-card__num">07</span>
+            </div>
+
+            <div class="pharmacare-card__body">
+              <p class="pharmacare-card__text">
+                <strong>Resguardo Seguro:</strong> Alojamiento de punzones y matrices en condiciones óptimas y controladas para prevenir la contaminación externa y el daño mecánico.
+              </p>
+              <div class="pharmacare-card__equipos">
+                <span class="pharmacare-card__label">EQUIPOS CLAVE</span>
+                <p>Sistemas de almacenamiento seguro y gabinetes especializados.</p>
+              </div>
+              <div class="pharmacare-card__tip">
+                <div class="pharmacare-card__tip-header">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21h6M12 22v-1M12 2a5 5 0 015 5c0 1.25-.5 2.5-1.5 3.5-.5.5-1 1.5-1 2.5v2H9v-2c0-1-.5-2-1-2.5C7 9.5 6.5 8.25 6.5 7A5 5 0 0112 2z"/></svg>
+                  <span>Tip de Experto</span>
+                </div>
+                <p>El contacto "metal-con-metal" en los cajones es la causa #1 de daño accidental. Un almacenamiento diseñado a medida es la mejor póliza de seguro.</p>
+              </div>
+            </div>
+
+            <div class="pharmacare-card__footer">
+              <div class="pharmacare-card__progress">
+                <div class="progress-bar"><div class="progress-fill" style="width: 100%"></div></div>
+                <span>7/7</span>
+              </div>
+              <span class="pharmacare-card__next" style="color: var(--md-primary)">Ciclo Completado ✔</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -403,16 +626,13 @@ import HeroPage from '../components/HeroPage.astro';
           </div>
         </div>
 
-        <!-- Imagen placeholder semántica -->
-        <figure
-          class="img-placeholder img-placeholder--medium reveal reveal-right stagger-4"
-          aria-label="Operario sosteniendo una tablet o mirando un monitor en la planta farmacéutica, mostrando en pantalla la interfaz del software IH-TMS con gráficos y datos de punzones."
-          role="img"
-        >
-          <div class="img-placeholder__inner">
-            <svg class="img-placeholder__icon" width="40" height="40" viewBox="0 0 24 24" fill="none"><rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M8 21h8M12 17v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M6 7h6M6 11h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-            <span class="img-placeholder__desc">Operario en planta mostrando la interfaz del <strong>software IH-TMS</strong> en tablet/monitor, con gráficos de ciclo de vida de punzones y datos de producción.</span>
-          </div>
+        <!-- Imagen real con animación de hover -->
+        <figure class="macthecno-container reveal reveal-right stagger-4">
+          <img
+            src="/images/punzones/macthecno.png"
+            alt="Operario mostrando la interfaz del software IH-TMS en tablet/monitor, con gráficos de ciclo de vida de punzones y datos de producción."
+            class="macthecno-img"
+          />
         </figure>
       </div>
     </div>
@@ -426,8 +646,8 @@ import HeroPage from '../components/HeroPage.astro';
     <div class="pg-inner">
       <p class="eyebrow-shimmer reveal">Soporte Técnico · In Situ</p>
 
-      <div class="two-col two-col--img-right">
-        <div class="reveal reveal-left stagger-1">
+      <div class="support-content">
+        <div class="reveal stagger-1">
           <h2 id="s7-title" class="pg-title">Asesoría Técnica en Sitio.</h2>
           <p class="pg-body">
             Nuestro equipo le asiste <em>in situ</em> para resolver problemas complejos de producción como el
@@ -442,18 +662,6 @@ import HeroPage from '../components/HeroPage.astro';
             <span class="m3-chip">Montaje de Punzones</span>
           </div>
         </div>
-
-        <!-- Imagen placeholder semántica -->
-        <figure
-          class="img-placeholder img-placeholder--tall reveal reveal-right stagger-2"
-          aria-label="Ingeniero de Technopharmed brindando soporte técnico frente a una máquina tableteadora abierta, junto al personal del cliente en la planta farmacéutica."
-          role="img"
-        >
-          <div class="img-placeholder__inner">
-            <svg class="img-placeholder__icon" width="40" height="40" viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="1.5"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-            <span class="img-placeholder__desc">Ingeniero de <strong>Technopharmed</strong> brindando soporte técnico frente a una tableteadora abierta, junto al personal del cliente en planta.</span>
-          </div>
-        </figure>
       </div>
     </div>
   </section>
@@ -473,7 +681,7 @@ import HeroPage from '../components/HeroPage.astro';
           <span class="m3-chip" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:#fff;">Montaje de punzones</span>
           <span class="m3-chip" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:#fff;">Resolución de problemas</span>
         </div>
-        <md-filled-button href="mailto:gerencia@technopharmed.com">Consultar Programas</md-filled-button>
+        <md-filled-button href="mailto:gerencia@technopharmed.com">Contáctenos</md-filled-button>
       </div>
     </div>
   </section>
@@ -499,25 +707,13 @@ import HeroPage from '../components/HeroPage.astro';
   .two-col--img-left  { grid-template-columns: 1fr 1fr; }
   .two-col--img-right { grid-template-columns: 1fr 1fr; }
   .two-col--text      { grid-template-columns: 1fr 1fr; }
-  @media (max-width: 768px) {
+   @media (max-width: 768px) {
     .two-col--img-left  { grid-template-columns: 1fr; }
     .two-col--img-right { grid-template-columns: 1fr; }
     .two-col--text      { grid-template-columns: 1fr; }
     /* On mobile, image-right flips so text comes first */
     .two-col--img-right figure { order: -1; }
-  }
-
-  /* ──────────────────────────────────────────────────
-     IMAGE PLACEHOLDERS (accessibles, reemplazables)
-  ────────────────────────────────────────────────── */
-  .img-placeholder {
-    width: 100%;
-    border-radius: var(--r-lg);
-    background: #9aa5b1;
-    border: 2px dashed #7a8794;
-    display: flex; align-items: stretch;
-    overflow: hidden;
-    margin: 0; /* reset figure defaults */
+    .support-content { text-align: center; }
   }
   .img-placeholder__inner {
     width: 100%; padding: 2rem 1.5rem;
@@ -610,6 +806,54 @@ import HeroPage from '../components/HeroPage.astro';
     transition-delay: 0s !important;
   }
 
+   /* Segmento de Matriz Animation (3:4 aspect ratio) */
+   .segment-container {
+     width: 100%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     padding: 1rem 0;
+   }
+   .segmento-img {
+     width: 100%;
+     max-width: 420px;
+     height: auto;
+     aspect-ratio: 3 / 4;
+     object-fit: cover;
+     border-radius: var(--r-lg);
+     transition: transform 400ms var(--ease-emphasized), filter 400ms;
+     cursor: pointer;
+     filter: drop-shadow(0 4px 12px rgba(0,0,0,0.15));
+   }
+   .segmento-img:hover {
+     transform: translateY(-12px) scale(1.05);
+     filter: drop-shadow(0 20px 40px rgba(0,82,154,0.3));
+   }
+
+   /* Multipunzón Animation (16:9 aspect ratio with transparent background) */
+   .multipunzon-container {
+     width: 100%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     padding: 1rem 0;
+   }
+   .multipunzon-img {
+     width: 100%;
+     max-width: 612px;
+     height: auto;
+     aspect-ratio: 16 / 9;
+     object-fit: contain;
+     border-radius: var(--r-lg);
+     transition: transform 450ms var(--ease-emphasized), filter 450ms;
+     cursor: pointer;
+     filter: drop-shadow(0 6px 16px rgba(0,0,0,0.12));
+   }
+   .multipunzon-img:hover {
+     transform: translateY(-13.6px) scale(1.06);
+     filter: drop-shadow(0 20.4px 40.8px rgba(0,82,154,0.35));
+   }
+
   .keypoint {
     display: flex; gap: 1rem; align-items: flex-start;
     background: var(--md-surface); border-radius: var(--r-md);
@@ -684,9 +928,400 @@ import HeroPage from '../components/HeroPage.astro';
   .step-item__title em { font-style: normal; font-weight: 400; color: var(--md-on-surface-variant); font-size: .85rem; }
   .step-item__text  { font-size: .87rem; color: var(--md-on-surface-variant); line-height: 1.55; }
 
-  /* Stagger delays para los 7 pasos */
-  .stagger-6 { transition-delay: 480ms; }
-  .stagger-7 { transition-delay: 560ms; }
+   /* Stagger delays para los 7 pasos */
+   .stagger-6 { transition-delay: 480ms; }
+   .stagger-7 { transition-delay: 560ms; }
+
+   /* Punzón Corroido Animation (1:1 aspect ratio) */
+   .punzon-corroido-container {
+     width: 100%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+   }
+   .punzon-corroido-wrapper {
+     position: relative;
+     width: 100%;
+     max-width: 300px;
+   }
+   .punzon-corroido-badge {
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     z-index: 2;
+     display: inline-flex;
+     align-items: center;
+     font-size: .68rem;
+     font-weight: 700;
+     letter-spacing: .1em;
+     text-transform: uppercase;
+     padding: .35rem .85rem;
+     border-radius: var(--r-full);
+     background: rgba(179,38,30);
+     color: #fff;
+     backdrop-filter: blur(4px);
+   }
+   .punzon-corroido-img {
+     width: 100%;
+     height: auto;
+     aspect-ratio: 1 / 1;
+     object-fit: contain;
+     border-radius: var(--r-lg);
+     transition: transform 450ms var(--ease-emphasized), filter 450ms;
+     cursor: pointer;
+     filter: drop-shadow(0 6px 16px rgba(179,38,30,0.15));
+   }
+   .punzon-corroido-img:hover {
+     transform: translateY(-14px) scale(1.06);
+     filter: drop-shadow(0 22px 44px rgba(179,38,30,0.35));
+   }
+
+   /* Punzón Solución Animation (1:1 aspect ratio) */
+   .punzon-solucion-container {
+     width: 100%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+   }
+   .punzon-solucion-wrapper {
+     position: relative;
+     width: 100%;
+     max-width: 300px;
+   }
+   .punzon-solucion-badge {
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     z-index: 2;
+     display: inline-flex;
+     align-items: center;
+     font-size: .75rem;
+     font-weight: 700;
+     letter-spacing: .08em;
+     text-transform: uppercase;
+     padding: .3rem .7rem;
+     border-radius: var(--r-full);
+     background: rgb(30,120,60);
+     color: #fff;
+     white-space: nowrap;
+   }
+   .punzon-solucion-img {
+     width: 100%;
+     height: auto;
+     aspect-ratio: 1 / 1;
+     object-fit: contain;
+     border-radius: var(--r-lg);
+     transition: transform 450ms var(--ease-emphasized), filter 450ms;
+     cursor: pointer;
+     filter: drop-shadow(0 6px 16px rgba(30,120,60,0.15));
+   }
+   .punzon-solucion-img:hover {
+     transform: translateY(-14px) scale(1.06);
+     filter: drop-shadow(0 22px 44px rgba(30,120,60,0.35));
+   }
+
+   /* Macthecno Animation (1:1 aspect ratio) */
+   .macthecno-container {
+     width: 100%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+   }
+   .macthecno-img {
+     width: 100%;
+     max-width: 400px;
+     height: auto;
+     aspect-ratio: 1 / 1;
+     object-fit: contain;
+     border-radius: var(--r-lg);
+     transition: transform 450ms var(--ease-emphasized), filter 450ms;
+     cursor: pointer;
+     filter: drop-shadow(0 6px 16px rgba(0,0,0,0.12));
+   }
+   .macthecno-img:hover {
+     transform: translateY(-16px) scale(1.06);
+     filter: drop-shadow(0 24px 48px rgba(0,82,154,0.35));
+   }
+
+   /* ──────────────────────────────────────────────────
+      PHARMACARE 7-STEP CAROUSEL (Sección 5)
+   ────────────────────────────────────────────────── */
+   .pharmacare-carousel-wrapper {
+     position: relative;
+     width: 100%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+   }
+   
+   .pharmacare-grid {
+     position: relative;
+     width: 100%;
+     max-width: 400px;
+     height: 600px;
+     display: flex;
+     justify-content: center;
+     overflow: visible;
+   }
+
+   .carousel-btn {
+     position: absolute;
+     top: 50%;
+     transform: translateY(-50%);
+     z-index: 20;
+     width: 48px;
+     height: 48px;
+     border-radius: 50%;
+     background: var(--md-surface-container);
+     color: var(--md-on-surface);
+     border: 1px solid var(--md-outline-variant);
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     cursor: pointer;
+     box-shadow: var(--el-2);
+     transition: background 300ms, transform 300ms, box-shadow 300ms;
+   }
+   .carousel-btn:hover {
+     background: var(--md-primary-container);
+     color: var(--md-primary);
+     transform: translateY(-50%) scale(1.1);
+     box-shadow: var(--el-3);
+   }
+    /* Buttons at a balanced distance from the card edges */
+    .carousel-btn--prev { left: -72px; }
+    .carousel-btn--next { right: -72px; }
+      @media (max-width: 580px) {
+      .carousel-btn { display: none; } 
+    }
+
+   .pharmacare-card {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 540px; /* Precise 3:4 aspect ratio for 400px width */
+     background: var(--md-surface);
+     border-radius: var(--r-xl);
+     border: 1px solid var(--md-outline-variant);
+     padding: 1.5rem 2rem; /* Consistent 2-space indentation and more room */
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+     box-shadow: var(--el-1);
+     transition: transform 500ms var(--ease-emphasized), opacity 500ms, box-shadow 500ms, border-color 300ms;
+     cursor: default;
+     overflow: hidden;
+     opacity: 0;
+     pointer-events: none;
+     transform: translateY(40px) scale(0.9);
+     z-index: 1;
+   }
+   
+   /* Active Card State */
+   .pharmacare-card--active {
+     opacity: 1;
+     pointer-events: auto;
+     transform: translateY(0) scale(1);
+     z-index: 10;
+     box-shadow: var(--el-2);
+   }
+   /* The card immediately behind the active one (Depth illusion) */
+   .pharmacare-card--next-1 {
+     opacity: 0.6;
+     transform: translateY(15px) scale(0.95);
+     z-index: 9;
+     pointer-events: none;
+   }
+   .pharmacare-card--next-2 {
+     opacity: 0.2;
+     transform: translateY(30px) scale(0.9);
+     z-index: 8;
+     pointer-events: none;
+   }
+
+   .pharmacare-card__header {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     margin-bottom: 1.5rem;
+   }
+   
+   .pharmacare-card__header-left {
+     display: flex;
+     align-items: center;
+     gap: 1.25rem;
+   }
+   
+   .pharmacare-card__titles {
+     display: flex;
+     flex-direction: column;
+   }
+
+   .pharmacare-card__icon-wrapper {
+     width: 64px;
+     height: 64px;
+     flex-shrink: 0;
+     border-radius: 18px;
+     background: var(--md-primary-container);
+     color: var(--md-primary);
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     transition: background-color 300ms, color 300ms, transform 300ms;
+   }
+   .pharmacare-card__icon {
+     width: 32px;
+     height: 32px;
+   }
+   .pharmacare-card:hover .pharmacare-card__icon-wrapper {
+     background: var(--md-primary);
+     color: var(--md-on-primary);
+     transform: scale(1.1) rotate(5deg);
+   }
+
+   .pharmacare-card__num {
+     font-size: 3.5rem;
+     font-weight: 900;
+     color: var(--md-on-surface);
+     opacity: 0.08;
+     line-height: 1;
+     transition: opacity 300ms, color 300ms;
+   }
+   .pharmacare-card:hover .pharmacare-card__num {
+     opacity: 0.15;
+     color: var(--md-primary);
+   }
+
+   .pharmacare-card__title {
+     font-size: 1.5rem;
+     font-weight: 800;
+     color: var(--md-on-surface);
+     margin: 0;
+     line-height: 1.1;
+   }
+   .pharmacare-card__subtitle {
+     font-size: 0.95rem;
+     font-style: italic;
+     color: var(--md-primary);
+     opacity: 0.8;
+     margin: 0.25rem 0 0 0;
+   }
+
+   .pharmacare-card__body {
+     flex-grow: 1;
+     display: flex;
+     flex-direction: column;
+     gap: 1rem;
+   }
+
+   .pharmacare-card__text {
+     font-size: 1rem;
+     color: var(--md-on-surface-variant);
+     line-height: 1.5;
+     margin: 0;
+   }
+   .pharmacare-card__text strong {
+     color: var(--md-on-surface);
+   }
+
+   .pharmacare-card__equipos {
+     background: var(--md-surface-container-low);
+     padding: 0.85rem 1rem;
+     border-radius: var(--r-md);
+     border-left: 4px solid var(--md-primary);
+   }
+   .pharmacare-card__label {
+     font-size: 0.65rem;
+     font-weight: 800;
+     letter-spacing: 0.12em;
+     color: var(--md-primary);
+     display: block;
+     margin-bottom: 0.35rem;
+   }
+   .pharmacare-card__equipos p {
+     font-size: 0.9rem;
+     font-weight: 600;
+     color: var(--md-on-surface);
+     margin: 0;
+   }
+
+   .pharmacare-card__tip {
+     background: var(--md-surface-container);
+     color: var(--md-on-surface);
+     padding: 1rem 1.25rem;
+     border-radius: var(--r-lg);
+     font-size: 0.9rem;
+     line-height: 1.5;
+     margin-bottom: auto; /* Pushes progress bar down if there is space */
+   }
+   .pharmacare-card:hover .pharmacare-card__tip {
+     background: rgba(0,82,154, 0.08); /* Subtle blue tint on hover */
+   }
+   .pharmacare-card__tip-header {
+     display: flex;
+     align-items: center;
+     gap: 0.4rem;
+     font-weight: 800;
+     font-size: 0.85rem;
+     margin-bottom: 0.4rem;
+     color: var(--md-primary);
+   }
+   .pharmacare-card__tip p {
+     margin: 0;
+   }
+
+   .pharmacare-card__footer {
+     margin-top: 1.5rem;
+     padding-top: 1.25rem;
+     border-top: 1px solid var(--md-outline-variant);
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+   }
+
+   .pharmacare-card__progress {
+     display: flex;
+     align-items: center;
+     gap: 0.75rem;
+   }
+   .progress-bar {
+     width: 80px;
+     height: 8px;
+     background: var(--md-surface-container-highest);
+     border-radius: 4px;
+     overflow: hidden;
+   }
+   .progress-fill {
+     height: 100%;
+     background: var(--md-primary);
+     border-radius: 4px;
+     transition: width 0.3s ease;
+   }
+   .pharmacare-card__progress span {
+     font-size: 0.8rem;
+     font-weight: 800;
+     color: var(--md-on-surface-variant);
+   }
+
+   .pharmacare-card__next {
+     font-size: 0.85rem;
+     font-weight: 800;
+     text-transform: uppercase;
+     letter-spacing: 0.05em;
+     color: var(--md-on-surface-variant);
+     transition: color 300ms, transform 300ms;
+     cursor: pointer;
+     user-select: none;
+   }
+   .pharmacare-card:hover .pharmacare-card__next {
+     color: var(--md-primary);
+   }
+   .pharmacare-card__next:hover {
+     transform: translateX(4px);
+   }
 
   /* ──────────────────────────────────────────────────
      REUSED UTILITIES (col-cards, chips, highlight, CTA)
@@ -719,7 +1354,12 @@ import HeroPage from '../components/HeroPage.astro';
   .blue-cta { text-align: center; }
   .blue-cta__title { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 800; color: #fff; margin-bottom: .75rem; }
   .blue-cta__body  { font-size: .98rem; color: rgba(255,255,255,.78); line-height: 1.7; margin-bottom: 1.5rem; max-width: 560px; margin-left: auto; margin-right: auto; }
-  .blue-cta md-filled-button { --md-filled-button-container-color: #fff; --md-filled-button-label-text-color: var(--md-primary); }
+  .blue-cta md-filled-button {
+    --md-filled-button-container-color: #fff;
+    --md-filled-button-label-text-color: var(--md-primary);
+    --md-filled-button-leading-space: 2.5rem;
+    --md-filled-button-trailing-space: 2.5rem;
+  }
 
   /* ──────────────────────────────────────────────────
      GLOBAL KEYFRAMES (reutilizados del Layout)
@@ -756,5 +1396,126 @@ import HeroPage from '../components/HeroPage.astro';
       b.addEventListener('mouseenter', () => syncHover(b.dataset.part, true));
       b.addEventListener('mouseleave', () => syncHover(b.dataset.part, false));
     });
+
+    /* ══ PHARMACARE DECK NAVIGATION (SWIPE & DYNAMIC HEIGHT) ══ */
+    const deckContainer = document.getElementById('pharmacare-carousel');
+    const cards = document.querySelectorAll('.pharmacare-card');
+    const btnPrev = document.getElementById('btn-prev');
+    const btnNext = document.getElementById('btn-next');
+
+    if (deckContainer && cards.length > 0 && btnPrev && btnNext) {
+      let currentIndex = 0;
+
+      // 1. DYNAMIC HEIGHT CALCULATION
+      const syncDeckHeight = () => {
+        let maxHeight = 0;
+        
+        // Temporarily prepare cards for measurement without disrupting layout
+        cards.forEach(card => {
+          card.style.transition = 'none'; // Prevent animation glitch
+          card.style.height = 'auto'; // Let it expand to content naturally
+        });
+
+        // Measure
+        cards.forEach(card => {
+          if (card.scrollHeight > maxHeight) {
+            maxHeight = card.scrollHeight;
+          }
+        });
+
+        // Apply max height and restore fixed height so flex space-between works correctly inside
+        deckContainer.style.height = `${maxHeight + 60}px`; // Add leeway for deck shadow/offset stack
+        cards.forEach(card => {
+          card.style.height = `${maxHeight}px`; 
+          // Re-enable transitions on the next frame
+          requestAnimationFrame(() => {
+            card.style.transition = ''; 
+          });
+        });
+      };
+
+      // 2. DECK UPDATE LOGIC
+      const updateDeck = () => {
+        cards.forEach((card, index) => {
+          card.classList.remove('pharmacare-card--active', 'pharmacare-card--next-1', 'pharmacare-card--next-2');
+          
+          if (index === currentIndex) {
+            card.classList.add('pharmacare-card--active');
+          } else if (index === currentIndex + 1) {
+            card.classList.add('pharmacare-card--next-1');
+          } else if (index === currentIndex + 2) {
+            card.classList.add('pharmacare-card--next-2');
+          }
+        });
+
+        // Update button states
+        btnPrev.style.opacity = currentIndex === 0 ? '0.3' : '1';
+        btnPrev.style.pointerEvents = currentIndex === 0 ? 'none' : 'auto';
+
+        btnNext.style.opacity = currentIndex === cards.length - 1 ? '0.3' : '1';
+        btnNext.style.pointerEvents = currentIndex === cards.length - 1 ? 'none' : 'auto';
+      };
+
+      // Button listeners
+      btnPrev.addEventListener('click', () => {
+        if (currentIndex > 0) {
+          currentIndex--;
+          updateDeck();
+        }
+      });
+
+      btnNext.addEventListener('click', () => {
+        if (currentIndex < cards.length - 1) {
+          currentIndex++;
+          updateDeck();
+        }
+      });
+
+      // 3. FOOTER LINKS INTERACTION
+      const nextLabels = document.querySelectorAll('.pharmacare-card__next');
+      nextLabels.forEach(label => {
+        label.addEventListener('click', () => {
+          if (currentIndex < cards.length - 1) {
+            currentIndex++;
+            updateDeck();
+          }
+        });
+      });
+      
+      // 4. SWIPE LOGIC
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      deckContainer.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, {passive: true});
+
+      deckContainer.addEventListener('touchend', e => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+      }, {passive: true});
+
+      const handleSwipe = () => {
+        const threshold = 40; // minimum pixels to be considered a swipe
+        const swipedLeft = touchStartX - touchEndX > threshold;
+        const swipedRight = touchEndX - touchStartX > threshold;
+
+        if (swipedLeft && currentIndex < cards.length - 1) {
+          currentIndex++;
+          updateDeck();
+        } else if (swipedRight && currentIndex > 0) {
+          currentIndex--;
+          updateDeck();
+        }
+      };
+
+      // Initialize
+      window.addEventListener('load', syncDeckHeight);
+      window.addEventListener('resize', syncDeckHeight);
+      
+      // Run immediately in case load already fired
+      syncDeckHeight();
+      updateDeck();
+    }
   });
 </script>
