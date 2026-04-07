@@ -6,14 +6,17 @@ var define_ROUTES_default = {
   ],
   exclude: [
     "/_astro/*",
-    "/logos/.gitkeep",
-    "/logos/logo1.svg",
-    "/logos/we are in development.svg",
-    "/icons/.gitkeep",
-    "/fonts/.gitkeep",
     "/images/.gitkeep",
     "/videos/.gitkeep",
     "/videos/Punzones.mp4",
+    "/fonts/.gitkeep",
+    "/icons/.gitkeep",
+    "/logos/.gitkeep",
+    "/logos/logo1.svg",
+    "/logos/we are in development.svg",
+    "/images/inicio/dab-8-4.png",
+    "/images/inicio/Punzon.png",
+    "/images/inicio/tableteadora.png",
     "/images/punzones/macthecno.png",
     "/images/punzones/Matriz.png",
     "/images/punzones/Multipunzon.png",
@@ -21,17 +24,14 @@ var define_ROUTES_default = {
     "/images/punzones/PunzonInferior.png",
     "/images/punzones/PunzonNoCorroido.png",
     "/images/punzones/PunzonSuperior.png",
-    "/images/punzones/SegmentodeMatriz.png",
-    "/images/inicio/dab-8-4.png",
-    "/images/inicio/Punzon.png",
-    "/images/inicio/tableteadora.png"
+    "/images/punzones/SegmentodeMatriz.png"
   ]
 };
 
 // node_modules/wrangler/templates/pages-dev-pipeline.ts
-import worker from "C:\\Users\\juans\\Downloads\\Micelaneas\\Legion Web\\Repositorios\\Technopharmed playground\\.wrangler\\tmp\\pages-PjbCnM\\bundledWorker-0.7298817924432864.mjs";
+import worker from "C:\\Users\\juans\\Downloads\\Micelaneas\\Legion Web\\Repositorios\\Technopharmed playground\\.wrangler\\tmp\\pages-PjbCnM\\bundledWorker-0.7650408801285163.mjs";
 import { isRoutingRuleMatch } from "C:\\Users\\juans\\Downloads\\Micelaneas\\Legion Web\\Repositorios\\Technopharmed playground\\node_modules\\wrangler\\templates\\pages-dev-util.ts";
-export * from "C:\\Users\\juans\\Downloads\\Micelaneas\\Legion Web\\Repositorios\\Technopharmed playground\\.wrangler\\tmp\\pages-PjbCnM\\bundledWorker-0.7298817924432864.mjs";
+export * from "C:\\Users\\juans\\Downloads\\Micelaneas\\Legion Web\\Repositorios\\Technopharmed playground\\.wrangler\\tmp\\pages-PjbCnM\\bundledWorker-0.7650408801285163.mjs";
 var routes = define_ROUTES_default;
 var pages_dev_pipeline_default = {
   fetch(request, env, context) {
