@@ -44,8 +44,10 @@ function isActive(href: string): boolean {
     align-items: center;
   }
   .navbar__logo img {
-    height: 48px;
+    height: 54px; /* Aumentado para mejor visualización de logo1.svg */
+    max-height: 100%;
     width: auto;
+    object-fit: contain;
     display: block;
   }
 
@@ -64,10 +66,10 @@ function isActive(href: string): boolean {
     padding: 0 1.1rem;
     height: 72px;
     line-height: 72px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
     color: #333;
     text-decoration: none;
     white-space: nowrap;
@@ -84,7 +86,7 @@ function isActive(href: string): boolean {
   .navbar__nav a.is-active {
     color: #0054a6;
     border-bottom-color: #0054a6;
-    font-weight: 700;
+    font-weight: 900;
   }
 
   /* ─── ÚLTIMO LINK (Contáctenos): siempre destaca ─── */
@@ -108,8 +110,34 @@ function isActive(href: string): boolean {
   }
 
   @media (max-width: 900px) {
-    .navbar__nav { display: none; }
     .navbar__toggle { display: flex; align-items: center; }
+    
+    .navbar__nav {
+      position: absolute;
+      top: 73px;
+      left: 0;
+      width: 100%;
+      background: #fff;
+      flex-direction: column;
+      border-bottom: 1px solid #e5e5e5;
+      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+      display: none; /* Hidden by default */
+    }
+
+    .navbar__nav.is-open {
+      display: flex !important;
+    }
+
+    .navbar__nav a {
+      height: 60px;
+      line-height: 60px;
+      padding: 0 2rem;
+      border-bottom: 1px solid #f5f5f5;
+    }
+    
+    .navbar__nav a:last-child {
+      border-bottom: none;
+    }
   }
 </style>
 
@@ -120,7 +148,7 @@ function isActive(href: string): boolean {
     <div class="navbar__logo">
       <a href="/">
         <img
-          src="/logos/we%20are%20in%20development.svg"
+          src="/logos/logo1.svg"
           alt="Technopharmed"
         />
       </a>
@@ -128,7 +156,7 @@ function isActive(href: string): boolean {
 
     <!-- Navigation -->
     <nav>
-      <ul class="navbar__nav">
+      <ul class="navbar__nav" id="mobile-menu">
         {links.map(({ href, label }) => (
           <li>
             <a
@@ -145,8 +173,8 @@ function isActive(href: string): boolean {
       </ul>
     </nav>
 
-    <!-- Mobile button (skeleton) -->
-    <button class="navbar__toggle" type="button" aria-label="Menú">
+    <!-- Mobile button -->
+    <button class="navbar__toggle" id="mobile-toggle" type="button" aria-label="Menú" aria-expanded="false" aria-controls="mobile-menu">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
         <path d="M4 6h16M4 12h16M4 18h16"/>
       </svg>
@@ -154,3 +182,17 @@ function isActive(href: string): boolean {
 
   </div>
 </header>
+
+<script>
+  // Simple script to toggle the mobile navigation
+  const toggleBtn = document.getElementById('mobile-toggle');
+  const navMenu = document.getElementById('mobile-menu');
+
+  if (toggleBtn && navMenu) {
+    toggleBtn.addEventListener('click', () => {
+      const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+      toggleBtn.setAttribute('aria-expanded', String(!isExpanded));
+      navMenu.classList.toggle('is-open');
+    });
+  }
+</script>

@@ -1,302 +1,46 @@
 ---
-import Navbar from '../components/Navbar.astro';
+import Layout from '../layouts/Layout.astro';
 ---
 
-<html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Tableteadoras – Technopharmed</title>
-    <style>
-      /* ─── RESET MINIMAL ─── */
-      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-      body { font-family: Arial, Helvetica, sans-serif; color: #111; background: #fff; }
-      a { color: inherit; text-decoration: none; }
-      img { display: block; max-width: 100%; }
+<Layout title="Tableteadoras – Technopharmed" description="Soluciones avanzadas en compresión de tabletas farmacéuticas para toda escala.">
 
-      /* ─── PLACEHOLDER (patrón missing-texture magenta/negro) ─── */
-      .img-placeholder {
-        width: 100%;
-        background-image: repeating-conic-gradient(#000 0% 25%, #ff00ff 0% 50%);
-        background-size: 32px 32px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #fff;
-        font-size: 0.75rem;
-        letter-spacing: 0.05em;
-        text-shadow: 0 1px 3px #000;
-      }
-      .img-placeholder--hero   { aspect-ratio: 21 / 9; }
-      .img-placeholder--medium { aspect-ratio: 4 / 3; }
+  <div class="development-page">
+    <div class="development-content">
+      <img src="/logos/logo1.svg" alt="Technopharmed Logo" class="development-logo" />
+      <p class="development-title">Página en construcción</p>
+    </div>
+  </div>
 
-      /* ─── BOTÓN ─── */
-      .btn {
-        display: inline-block;
-        padding: 0.6rem 1.4rem;
-        border: 2px solid #333;
-        cursor: pointer;
-        font-size: 0.9rem;
-        font-weight: bold;
-        background: transparent;
-      }
+</Layout>
 
-      /* ─── SECCIÓN ─── */
-      .section { padding: 3rem 2rem; }
-      .section--shaded { background: #f8f8f8; }
-      .section__inner { max-width: 1100px; margin: 0 auto; }
-      .section-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 1.25rem; }
-      .section-text  { font-size: 0.95rem; line-height: 1.65; color: #333; margin-bottom: 0.75rem; }
-
-      /* ─── HERO ─── */
-      .hero { position: relative; overflow: hidden; }
-      .hero__overlay {
-        position: absolute; inset: 0;
-        background: rgba(0,0,0,0.52);
-        display: flex; flex-direction: column;
-        align-items: center; justify-content: center;
-        text-align: center; color: #fff; padding: 2rem; gap: 1rem;
-      }
-      .hero__restriction {
-        font-size: 0.7rem; letter-spacing: 0.08em;
-        background: rgba(180,0,0,0.5);
-        border: 1px solid rgba(255,100,100,0.5);
-        padding: 0.2rem 0.75rem;
-        color: #ffd0d0;
-      }
-      .hero__title    { font-size: clamp(1.4rem, 3.5vw, 2.5rem); font-weight: 800; max-width: 800px; }
-      .hero__subtitle { font-size: clamp(0.95rem, 1.8vw, 1.2rem); max-width: 700px; line-height: 1.6; }
-
-      /* ─── CARACTERÍSTICAS (CHECKS) ─── */
-      .feature-list {
-        list-style: none; padding: 0; margin: 0.75rem 0 1rem;
-        display: flex; flex-direction: column; gap: 0.5rem;
-      }
-      .feature-list li {
-        display: flex; gap: 0.6rem; align-items: flex-start;
-        font-size: 0.9rem; line-height: 1.55; color: #333;
-      }
-      .feature-list li::before {
-        content: "▸"; color: #444; flex-shrink: 0; margin-top: 0.05rem;
-      }
-
-      /* ─── SUB-BLOQUES DE CAPACIDAD ─── */
-      .capacity-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-        gap: 1.5rem;
-        margin-top: 1.5rem;
-      }
-      .capacity-card {
-        border: 1px solid #ccc;
-        padding: 1.25rem;
-        display: flex; flex-direction: column; gap: 0.75rem;
-      }
-      .capacity-card__header {
-        display: flex; align-items: center; gap: 0.65rem;
-      }
-      .capacity-card__badge {
-        font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;
-        text-transform: uppercase; background: #eee;
-        border: 1px solid #bbb; padding: 0.15rem 0.55rem; white-space: nowrap;
-      }
-      .capacity-card__title { font-size: 1rem; font-weight: 700; }
-      .capacity-card p { font-size: 0.88rem; line-height: 1.6; color: #333; }
-      .capacity-number {
-        font-size: 1.1rem; font-weight: 800; color: #111;
-        border-left: 3px solid #333; padding-left: 0.65rem;
-        line-height: 1.4;
-      }
-
-      /* ─── SECCIÓN 3: APLICACIONES ESPECIALES ─── */
-      .special-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 1.5rem;
-        margin-top: 1.5rem;
-      }
-      .special-card {
-        border-left: 4px solid #333;
-        padding: 1rem 1.25rem;
-        display: flex; flex-direction: column; gap: 0.5rem;
-      }
-      .special-card__label {
-        font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em;
-        text-transform: uppercase; color: #666;
-      }
-      .special-card__title { font-size: 1rem; font-weight: 700; }
-      .special-card p { font-size: 0.9rem; line-height: 1.6; color: #333; }
-    </style>
-  </head>
-
-  <body>
-
-    <!-- ════════════ NAVBAR ════════════ -->
-    <Navbar />
-
-    <!-- ════════════ HERO ════════════ -->
-    <section class="hero">
-      <div class="img-placeholder img-placeholder--hero"><span>IMAGEN PLACEHOLDER</span></div>
-      <div class="hero__overlay">
-        <!-- Sin logos de marcas: restricción de diseño -->
-        <span class="hero__restriction">SIN LOGOTIPOS DE PROVEEDORES EN ESTA SECCIÓN</span>
-        <h1 class="hero__title">Soluciones Avanzadas en Compresión de Tabletas.</h1>
-        <p class="hero__subtitle">
-          Nuestras tableteadoras combinan versatilidad y tecnología avanzada para garantizar precisión, eficiencia y alta calidad. Ofrecemos soluciones desde equipos de desarrollo hasta máquinas de alta velocidad con automatización y cabezales intercambiables.
-        </p>
-        <a href="#contacto" class="btn" style="color:#fff; border-color:#fff;">Solicitar Asesoría Técnica</a>
-      </div>
-    </section>
-
-    <!-- ════════════ SECCIÓN 1: COMPRESIÓN DE ALTA PRECISIÓN ════════════ -->
-    <section class="section">
-      <div class="section__inner">
-        <h2 class="section-title">Tecnología de Compresión Farmacéutica.</h2>
-
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:start;">
-          <div>
-            <p class="section-text">
-              Una máquina de compresión de tabletas es un dispositivo especializado utilizado en la industria farmacéutica para comprimir polvo en tabletas de tamaño y peso uniformes. Esta máquina funciona aplicando alta presión a través de punzones y matrices, transformando el polvo en tabletas sólidas.
-            </p>
-            <ul class="feature-list">
-              <li>Garantiza precisión, eficiencia y producción de alta velocidad, lo que la hace esencial para la fabricación a gran escala.</li>
-              <li>Equipadas con controles automatizados que permiten una calidad constante y el cumplimiento de los estándares de la industria.</li>
-              <li>Cumplimiento estricto con <strong>CFR 21 Parte 11</strong> para procesos farmacéuticos seguros.</li>
-            </ul>
-          </div>
-          <div class="img-placeholder img-placeholder--medium"><span>IMAGEN PLACEHOLDER</span></div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ════════════ SECCIÓN 2: LÍNEAS POR CAPACIDAD ════════════ -->
-    <section class="section section--shaded">
-      <div class="section__inner">
-        <h2 class="section-title">Equipos para Cada Necesidad de Producción.</h2>
-        <p class="section-text">
-          Nuestras máquinas de prensado de tabletas automáticas pueden satisfacer los requisitos de varios tamaños, formas y capacidades de producción.
-        </p>
-
-        <div class="capacity-grid">
-
-          <!-- SUB-BLOQUE A: I+D / ESCALA PILOTO -->
-          <div class="capacity-card">
-            <div class="capacity-card__header">
-              <!-- Ícono genérico: microscopio / laboratorio -->
-              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="9" y="2" width="6" height="10" rx="1" stroke="#333" stroke-width="1.8"/>
-                <path d="M7 12h10M12 12v4M8 20h8" stroke="#333" stroke-width="1.8" stroke-linecap="round"/>
-              </svg>
-              <span class="capacity-card__badge">I+D / Piloto</span>
-            </div>
-            <h3 class="capacity-card__title">Investigación, Desarrollo y Escala Piloto.</h3>
-            <p>Máquinas rotativas de una sola capa, ideales para producción a escala piloto y fines de investigación. Sistemas equipados con compresión principal y precompresión.</p>
-            <div class="capacity-number">+21,000 – 36,000<br /><span style="font-size:0.78rem; font-weight:400; color:#555;">tabletas / hora</span></div>
-          </div>
-
-          <!-- SUB-BLOQUE B: SINGLE SIDED -->
-          <div class="capacity-card">
-            <div class="capacity-card__header">
-              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="12" cy="12" r="9" stroke="#333" stroke-width="1.8"/>
-                <path d="M12 8v4l3 3" stroke="#333" stroke-width="1.8" stroke-linecap="round"/>
-              </svg>
-              <span class="capacity-card__badge">Single Sided</span>
-            </div>
-            <h3 class="capacity-card__title">Rotativas de Una Sola Cara.</h3>
-            <p>Máquinas de prensado de tabletas rotativas de una sola cara, altamente eficientes. Equipadas con sistemas de compresión principal y precompresión.</p>
-            <div class="capacity-number">+70,000 – 450,000<br /><span style="font-size:0.78rem; font-weight:400; color:#555;">tabletas / hora</span></div>
-          </div>
-
-          <!-- SUB-BLOQUE C: DOUBLE SIDED -->
-          <div class="capacity-card">
-            <div class="capacity-card__header">
-              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="12" cy="12" r="9" stroke="#333" stroke-width="1.8"/>
-                <path d="M8 12h8M12 8v8" stroke="#333" stroke-width="1.8" stroke-linecap="round"/>
-              </svg>
-              <span class="capacity-card__badge">Double Sided</span>
-            </div>
-            <h3 class="capacity-card__title">Rotativas de Doble Cara.</h3>
-            <p>Máquinas de prensado de tabletas rotativas de doble cara para producción a gran escala.</p>
-            <div class="capacity-number">+250,000 – 583,000<br /><span style="font-size:0.78rem; font-weight:400; color:#555;">tabletas / hora</span></div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ════════════ SECCIÓN 3: APLICACIONES ESPECIALES ════════════ -->
-    <section class="section">
-      <div class="section__inner">
-        <h2 class="section-title">Soluciones Específicas de Compresión.</h2>
-
-        <div class="special-grid">
-
-          <!-- DOBLE CAPA -->
-          <div class="special-card">
-            <span class="special-card__label">Aplicación Especial</span>
-            <h3 class="special-card__title">Tabletas de Doble Capa (Double Layer).</h3>
-            <div class="img-placeholder img-placeholder--medium" style="margin: 0.5rem 0;"><span>IMAGEN PLACEHOLDER</span></div>
-            <p>
-              Máquinas de prensado rotativas de doble capa con sistemas de precompresión para la primera capa y compresión principal para la tableta final.
-            </p>
-          </div>
-
-          <!-- BOLUS -->
-          <div class="special-card">
-            <span class="special-card__label">Aplicación Especial</span>
-            <h3 class="special-card__title">Tabletas Bolus.</h3>
-            <div class="img-placeholder img-placeholder--medium" style="margin: 0.5rem 0;"><span>IMAGEN PLACEHOLDER</span></div>
-            <p>
-              Máquinas rotativas de alta compresión para tabletas con diámetros de hasta <strong>70 mm</strong>.
-            </p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ════════════ FOOTER ════════════ -->
-    <footer id="contacto" style="background:#111; color:#eee; padding:3rem 2rem;">
-      <div style="max-width:1100px; margin:0 auto; display:flex; flex-direction:column; gap:1.5rem;">
-
-        <div>
-          <div style="font-size:1.4rem; font-weight:800; letter-spacing:0.1em; color:#fff;">TECHNOPHARMED</div>
-          <p style="font-size:0.95rem; color:#bbb; margin-top:0.25rem;">Compromiso, Respaldo e Innovación.</p>
-        </div>
-
-        <hr style="border:none; border-top:1px solid #333;" />
-
-        <div style="display:flex; flex-direction:column; gap:0.5rem;">
-          <div style="display:flex; align-items:center; gap:0.6rem; font-size:0.9rem;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.134 2 5 5.134 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.866-3.134-7-7-7z" stroke="#eee" stroke-width="2"/><circle cx="12" cy="9" r="2.5" stroke="#eee" stroke-width="2"/></svg>
-            Carrera 3F Nº 32A - 13, Manizales - Colombia.
-          </div>
-          <div style="display:flex; align-items:center; gap:0.6rem; font-size:0.9rem;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" stroke="#eee" stroke-width="2"/></svg>
-            (+57) 313 831 1426
-          </div>
-          <div style="display:flex; align-items:center; gap:0.6rem; font-size:0.9rem;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#eee" stroke-width="2"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20" stroke="#eee" stroke-width="2"/></svg>
-            <a href="https://www.technopharmed.com" target="_blank" style="color:#eee;">www.technopharmed.com</a>
-          </div>
-        </div>
-
-        <hr style="border:none; border-top:1px solid #333;" />
-
-        <div style="font-size:0.85rem; line-height:1.8; color:#ccc;">
-          <p><strong style="color:#fff;">Directorio de Soporte</strong></p>
-          <p>Gerencia: Ing. Juan Quintero &nbsp;|&nbsp; <a href="mailto:gerencia@technopharmed.com" style="color:#bbb;">gerencia@technopharmed.com</a> &nbsp;|&nbsp; Tel: 313 831 1426</p>
-          <p>Administrativo: Claudia Santa &nbsp;|&nbsp; <a href="mailto:administrativo@technopharmed.com" style="color:#bbb;">administrativo@technopharmed.com</a> &nbsp;|&nbsp; Tel: 313 627 36 94</p>
-          <p>Asistencia: Laura Uribe &nbsp;|&nbsp; <a href="mailto:asistente@technopharmed.com" style="color:#bbb;">asistente@technopharmed.com</a> &nbsp;|&nbsp; Tel: 318 837 6804</p>
-        </div>
-
-      </div>
-    </footer>
-
-  </body>
-</html>
+<style is:global>
+  .development-page {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    padding: 2rem;
+  }
+  
+  .development-content {
+    text-align: center;
+  }
+  
+  .development-logo {
+    width: 240px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .development-title {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 800;
+    color: var(--md-on-surface);
+    line-height: 1.2;
+    letter-spacing: -.02em;
+    margin-top: 0;
+    padding: 0;
+  }
+</style>
