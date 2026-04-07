@@ -6,17 +6,14 @@ var define_ROUTES_default = {
   ],
   exclude: [
     "/_astro/*",
-    "/images/.gitkeep",
-    "/fonts/.gitkeep",
-    "/icons/.gitkeep",
     "/logos/.gitkeep",
     "/logos/logo1.svg",
     "/logos/we are in development.svg",
+    "/icons/.gitkeep",
+    "/fonts/.gitkeep",
+    "/images/.gitkeep",
     "/videos/.gitkeep",
     "/videos/Punzones.mp4",
-    "/images/inicio/dab-8-4.png",
-    "/images/inicio/Punzon.png",
-    "/images/inicio/tableteadora.png",
     "/images/punzones/macthecno.png",
     "/images/punzones/Matriz.png",
     "/images/punzones/Multipunzon.png",
@@ -24,7 +21,10 @@ var define_ROUTES_default = {
     "/images/punzones/PunzonInferior.png",
     "/images/punzones/PunzonNoCorroido.png",
     "/images/punzones/PunzonSuperior.png",
-    "/images/punzones/SegmentodeMatriz.png"
+    "/images/punzones/SegmentodeMatriz.png",
+    "/images/inicio/dab-8-4.png",
+    "/images/inicio/Punzon.png",
+    "/images/inicio/tableteadora.png"
   ]
 };
 
