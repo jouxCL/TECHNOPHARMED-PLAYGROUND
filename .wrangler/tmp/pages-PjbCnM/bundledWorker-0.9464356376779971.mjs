@@ -1,0 +1,151 @@
+var __defProp = Object.defineProperty;
+var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
+
+// _worker.js/index.js
+import { renderers } from "./renderers.mjs";
+import { c as createExports, s as serverEntrypointModule } from "./chunks/_@astrojs-ssr-adapter_C3a5m-hZ.mjs";
+
+// _worker.js/manifest_Brnuc2yo.mjs
+import { p as decodeKey } from "./chunks/astro/server_Cfu44OFc.mjs";
+import "./chunks/astro-designed-error-pages_CDeNRIqd.mjs";
+import { N as NOOP_MIDDLEWARE_FN } from "./chunks/noop-middleware_D08CfXkQ.mjs";
+globalThis.process ??= {};
+globalThis.process.env ??= {};
+function sanitizeParams(params) {
+  return Object.fromEntries(
+    Object.entries(params).map(([key, value]) => {
+      if (typeof value === "string") {
+        return [key, value.normalize().replace(/#/g, "%23").replace(/\?/g, "%3F")];
+      }
+      return [key, value];
+    })
+  );
+}
+__name(sanitizeParams, "sanitizeParams");
+function getParameter(part, params) {
+  if (part.spread) {
+    return params[part.content.slice(3)] || "";
+  }
+  if (part.dynamic) {
+    if (!params[part.content]) {
+      throw new TypeError(`Missing parameter: ${part.content}`);
+    }
+    return params[part.content];
+  }
+  return part.content.normalize().replace(/\?/g, "%3F").replace(/#/g, "%23").replace(/%5B/g, "[").replace(/%5D/g, "]");
+}
+__name(getParameter, "getParameter");
+function getSegment(segment, params) {
+  const segmentPath = segment.map((part) => getParameter(part, params)).join("");
+  return segmentPath ? "/" + segmentPath : "";
+}
+__name(getSegment, "getSegment");
+function getRouteGenerator(segments, addTrailingSlash) {
+  return (params) => {
+    const sanitizedParams = sanitizeParams(params);
+    let trailing = "";
+    if (addTrailingSlash === "always" && segments.length) {
+      trailing = "/";
+    }
+    const path = segments.map((segment) => getSegment(segment, sanitizedParams)).join("") + trailing;
+    return path || "/";
+  };
+}
+__name(getRouteGenerator, "getRouteGenerator");
+function deserializeRouteData(rawRouteData) {
+  return {
+    route: rawRouteData.route,
+    type: rawRouteData.type,
+    pattern: new RegExp(rawRouteData.pattern),
+    params: rawRouteData.params,
+    component: rawRouteData.component,
+    generate: getRouteGenerator(rawRouteData.segments, rawRouteData._meta.trailingSlash),
+    pathname: rawRouteData.pathname || void 0,
+    segments: rawRouteData.segments,
+    prerender: rawRouteData.prerender,
+    redirect: rawRouteData.redirect,
+    redirectRoute: rawRouteData.redirectRoute ? deserializeRouteData(rawRouteData.redirectRoute) : void 0,
+    fallbackRoutes: rawRouteData.fallbackRoutes.map((fallback) => {
+      return deserializeRouteData(fallback);
+    }),
+    isIndex: rawRouteData.isIndex,
+    origin: rawRouteData.origin
+  };
+}
+__name(deserializeRouteData, "deserializeRouteData");
+function deserializeManifest(serializedManifest) {
+  const routes = [];
+  for (const serializedRoute of serializedManifest.routes) {
+    routes.push({
+      ...serializedRoute,
+      routeData: deserializeRouteData(serializedRoute.routeData)
+    });
+    const route = serializedRoute;
+    route.routeData = deserializeRouteData(serializedRoute.routeData);
+  }
+  const assets = new Set(serializedManifest.assets);
+  const componentMetadata = new Map(serializedManifest.componentMetadata);
+  const inlinedScripts = new Map(serializedManifest.inlinedScripts);
+  const clientDirectives = new Map(serializedManifest.clientDirectives);
+  const serverIslandNameMap = new Map(serializedManifest.serverIslandNameMap);
+  const key = decodeKey(serializedManifest.key);
+  return {
+    // in case user middleware exists, this no-op middleware will be reassigned (see plugin-ssr.ts)
+    middleware() {
+      return { onRequest: NOOP_MIDDLEWARE_FN };
+    },
+    ...serializedManifest,
+    assets,
+    componentMetadata,
+    inlinedScripts,
+    clientDirectives,
+    routes,
+    serverIslandNameMap,
+    key
+  };
+}
+__name(deserializeManifest, "deserializeManifest");
+var manifest = deserializeManifest({ "hrefRoot": "file:///C:/Users/juans/Downloads/Micelaneas/Legion%20Web/Repositorios/Technopharmed%20playground/", "cacheDir": "file:///C:/Users/juans/Downloads/Micelaneas/Legion%20Web/Repositorios/Technopharmed%20playground/node_modules/.astro/", "outDir": "file:///C:/Users/juans/Downloads/Micelaneas/Legion%20Web/Repositorios/Technopharmed%20playground/dist/", "srcDir": "file:///C:/Users/juans/Downloads/Micelaneas/Legion%20Web/Repositorios/Technopharmed%20playground/src/", "publicDir": "file:///C:/Users/juans/Downloads/Micelaneas/Legion%20Web/Repositorios/Technopharmed%20playground/public/", "buildClientDir": "file:///C:/Users/juans/Downloads/Micelaneas/Legion%20Web/Repositorios/Technopharmed%20playground/dist/", "buildServerDir": "file:///C:/Users/juans/Downloads/Micelaneas/Legion%20Web/Repositorios/Technopharmed%20playground/dist/_worker.js/", "adapterName": "@astrojs/cloudflare", "routes": [{ "file": "", "links": [], "scripts": [], "styles": [], "routeData": { "type": "page", "component": "_server-islands.astro", "params": ["name"], "segments": [[{ "content": "_server-islands", "dynamic": false, "spread": false }], [{ "content": "name", "dynamic": true, "spread": false }]], "pattern": "^\\/_server-islands\\/([^/]+?)\\/?$", "prerender": false, "isIndex": false, "fallbackRoutes": [], "route": "/_server-islands/[name]", "origin": "internal", "_meta": { "trailingSlash": "ignore" } } }, { "file": "", "links": [], "scripts": [], "styles": [], "routeData": { "type": "endpoint", "isIndex": false, "route": "/_image", "pattern": "^\\/_image\\/?$", "segments": [[{ "content": "_image", "dynamic": false, "spread": false }]], "params": [], "component": "node_modules/@astrojs/cloudflare/dist/entrypoints/image-endpoint.js", "pathname": "/_image", "prerender": false, "fallbackRoutes": [], "origin": "internal", "_meta": { "trailingSlash": "ignore" } } }, { "file": "", "links": [], "scripts": [], "styles": [], "routeData": { "route": "/api/contact", "isIndex": false, "type": "endpoint", "pattern": "^\\/api\\/contact\\/?$", "segments": [[{ "content": "api", "dynamic": false, "spread": false }], [{ "content": "contact", "dynamic": false, "spread": false }]], "params": [], "component": "src/pages/api/contact.ts", "pathname": "/api/contact", "prerender": false, "fallbackRoutes": [], "distURL": [], "origin": "project", "_meta": { "trailingSlash": "ignore" } } }, { "file": "", "links": [], "scripts": [], "styles": [{ "type": "external", "src": "/_astro/contactenos.cNdpfYtw.css" }, { "type": "external", "src": "/_astro/contactenos.DPw8E_0i.css" }], "routeData": { "route": "/contactenos", "isIndex": false, "type": "page", "pattern": "^\\/contactenos\\/?$", "segments": [[{ "content": "contactenos", "dynamic": false, "spread": false }]], "params": [], "component": "src/pages/contactenos.astro", "pathname": "/contactenos", "prerender": false, "fallbackRoutes": [], "distURL": [], "origin": "project", "_meta": { "trailingSlash": "ignore" } } }, { "file": "", "links": [], "scripts": [], "styles": [{ "type": "inline", "content": ".development-page{min-height:60vh;display:flex;align-items:center;justify-content:center;background:#fff;padding:2rem}.development-content{text-align:center}.development-logo{width:240px;height:auto;display:block;margin:0 auto}.development-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;color:var(--md-on-surface);line-height:1.2;letter-spacing:-.02em;margin-top:0;padding:0}\n" }, { "type": "external", "src": "/_astro/contactenos.DPw8E_0i.css" }], "routeData": { "route": "/llenadoras", "isIndex": false, "type": "page", "pattern": "^\\/llenadoras\\/?$", "segments": [[{ "content": "llenadoras", "dynamic": false, "spread": false }]], "params": [], "component": "src/pages/llenadoras.astro", "pathname": "/llenadoras", "prerender": false, "fallbackRoutes": [], "distURL": [], "origin": "project", "_meta": { "trailingSlash": "ignore" } } }, { "file": "", "links": [], "scripts": [], "styles": [{ "type": "external", "src": "/_astro/contactenos.DPw8E_0i.css" }, { "type": "external", "src": "/_astro/punzoneria.BCkRuPsn.css" }], "routeData": { "route": "/punzoneria", "isIndex": false, "type": "page", "pattern": "^\\/punzoneria\\/?$", "segments": [[{ "content": "punzoneria", "dynamic": false, "spread": false }]], "params": [], "component": "src/pages/punzoneria.astro", "pathname": "/punzoneria", "prerender": false, "fallbackRoutes": [], "distURL": [], "origin": "project", "_meta": { "trailingSlash": "ignore" } } }, { "file": "", "links": [], "scripts": [], "styles": [{ "type": "inline", "content": ".development-page{min-height:60vh;display:flex;align-items:center;justify-content:center;background:#fff;padding:2rem}.development-content{text-align:center}.development-logo{width:240px;height:auto;display:block;margin:0 auto}.development-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;color:var(--md-on-surface);line-height:1.2;letter-spacing:-.02em;margin-top:0;padding:0}\n" }, { "type": "external", "src": "/_astro/contactenos.DPw8E_0i.css" }], "routeData": { "route": "/respaldo-tecnico", "isIndex": false, "type": "page", "pattern": "^\\/respaldo-tecnico\\/?$", "segments": [[{ "content": "respaldo-tecnico", "dynamic": false, "spread": false }]], "params": [], "component": "src/pages/respaldo-tecnico.astro", "pathname": "/respaldo-tecnico", "prerender": false, "fallbackRoutes": [], "distURL": [], "origin": "project", "_meta": { "trailingSlash": "ignore" } } }, { "file": "", "links": [], "scripts": [], "styles": [{ "type": "inline", "content": ".development-page{min-height:60vh;display:flex;align-items:center;justify-content:center;background:#fff;padding:2rem}.development-content{text-align:center}.development-logo{width:240px;height:auto;display:block;margin:0 auto}.development-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;color:var(--md-on-surface);line-height:1.2;letter-spacing:-.02em;margin-top:0;padding:0}\n" }, { "type": "external", "src": "/_astro/contactenos.DPw8E_0i.css" }], "routeData": { "route": "/tableteadoras", "isIndex": false, "type": "page", "pattern": "^\\/tableteadoras\\/?$", "segments": [[{ "content": "tableteadoras", "dynamic": false, "spread": false }]], "params": [], "component": "src/pages/tableteadoras.astro", "pathname": "/tableteadoras", "prerender": false, "fallbackRoutes": [], "distURL": [], "origin": "project", "_meta": { "trailingSlash": "ignore" } } }, { "file": "", "links": [], "scripts": [], "styles": [{ "type": "external", "src": "/_astro/index.I48ygwkH.css" }, { "type": "external", "src": "/_astro/contactenos.DPw8E_0i.css" }], "routeData": { "route": "/", "isIndex": true, "type": "page", "pattern": "^\\/$", "segments": [], "params": [], "component": "src/pages/index.astro", "pathname": "/", "prerender": false, "fallbackRoutes": [], "distURL": [], "origin": "project", "_meta": { "trailingSlash": "ignore" } } }], "base": "/", "trailingSlash": "ignore", "compressHTML": true, "componentMetadata": [["C:/Users/juans/Downloads/Micelaneas/Legion Web/Repositorios/Technopharmed playground/src/pages/contactenos.astro", { "propagation": "none", "containsHead": true }], ["C:/Users/juans/Downloads/Micelaneas/Legion Web/Repositorios/Technopharmed playground/src/pages/index.astro", { "propagation": "none", "containsHead": true }], ["C:/Users/juans/Downloads/Micelaneas/Legion Web/Repositorios/Technopharmed playground/src/pages/llenadoras.astro", { "propagation": "none", "containsHead": true }], ["C:/Users/juans/Downloads/Micelaneas/Legion Web/Repositorios/Technopharmed playground/src/pages/punzoneria.astro", { "propagation": "none", "containsHead": true }], ["C:/Users/juans/Downloads/Micelaneas/Legion Web/Repositorios/Technopharmed playground/src/pages/respaldo-tecnico.astro", { "propagation": "none", "containsHead": true }], ["C:/Users/juans/Downloads/Micelaneas/Legion Web/Repositorios/Technopharmed playground/src/pages/tableteadoras.astro", { "propagation": "none", "containsHead": true }]], "renderers": [], "clientDirectives": [["idle", '(()=>{var l=(n,t)=>{let i=async()=>{await(await n())()},e=typeof t.value=="object"?t.value:void 0,s={timeout:e==null?void 0:e.timeout};"requestIdleCallback"in window?window.requestIdleCallback(i,s):setTimeout(i,s.timeout||200)};(self.Astro||(self.Astro={})).idle=l;window.dispatchEvent(new Event("astro:idle"));})();'], ["load", '(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();'], ["media", '(()=>{var n=(a,t)=>{let i=async()=>{await(await a())()};if(t.value){let e=matchMedia(t.value);e.matches?i():e.addEventListener("change",i,{once:!0})}};(self.Astro||(self.Astro={})).media=n;window.dispatchEvent(new Event("astro:media"));})();'], ["only", '(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).only=e;window.dispatchEvent(new Event("astro:only"));})();'], ["visible", '(()=>{var a=(s,i,o)=>{let r=async()=>{await(await s())()},t=typeof i.value=="object"?i.value:void 0,c={rootMargin:t==null?void 0:t.rootMargin},n=new IntersectionObserver(e=>{for(let l of e)if(l.isIntersecting){n.disconnect(),r();break}},c);for(let e of o.children)n.observe(e)};(self.Astro||(self.Astro={})).visible=a;window.dispatchEvent(new Event("astro:visible"));})();']], "entryModules": { "\0astro-internal:middleware": "_astro-internal_middleware.mjs", "\0virtual:astro:actions/noop-entrypoint": "noop-entrypoint.mjs", "\0@astro-page:src/pages/api/contact@_@ts": "pages/api/contact.astro.mjs", "\0@astro-page:src/pages/contactenos@_@astro": "pages/contactenos.astro.mjs", "\0@astro-page:src/pages/llenadoras@_@astro": "pages/llenadoras.astro.mjs", "\0@astro-page:src/pages/punzoneria@_@astro": "pages/punzoneria.astro.mjs", "\0@astro-page:src/pages/respaldo-tecnico@_@astro": "pages/respaldo-tecnico.astro.mjs", "\0@astro-page:src/pages/tableteadoras@_@astro": "pages/tableteadoras.astro.mjs", "\0@astro-page:src/pages/index@_@astro": "pages/index.astro.mjs", "\0@astrojs-ssr-virtual-entry": "index.js", "\0@astro-renderers": "renderers.mjs", "\0@astro-page:node_modules/@astrojs/cloudflare/dist/entrypoints/image-endpoint@_@js": "pages/_image.astro.mjs", "\0@astrojs-ssr-adapter": "_@astrojs-ssr-adapter.mjs", "\0@astrojs-manifest": "manifest_Brnuc2yo.mjs", "C:/Users/juans/Downloads/Micelaneas/Legion Web/Repositorios/Technopharmed playground/node_modules/unstorage/drivers/cloudflare-kv-binding.mjs": "chunks/cloudflare-kv-binding_DMly_2Gl.mjs", "C:/Users/juans/Downloads/Micelaneas/Legion Web/Repositorios/Technopharmed playground/node_modules/astro/dist/assets/services/sharp.js": "chunks/sharp_DULFE-Mt.mjs", "C:/Users/juans/Downloads/Micelaneas/Legion Web/Repositorios/Technopharmed playground/src/pages/contactenos.astro?astro&type=script&index=0&lang.ts": "_astro/contactenos.astro_astro_type_script_index_0_lang.B5n-96WY.js", "C:/Users/juans/Downloads/Micelaneas/Legion Web/Repositorios/Technopharmed playground/src/pages/index.astro?astro&type=script&index=0&lang.ts": "_astro/index.astro_astro_type_script_index_0_lang.inB2tZQI.js", "C:/Users/juans/Downloads/Micelaneas/Legion Web/Repositorios/Technopharmed playground/src/layouts/Layout.astro?astro&type=script&index=0&lang.ts": "_astro/Layout.astro_astro_type_script_index_0_lang.DDwjEaSk.js", "C:/Users/juans/Downloads/Micelaneas/Legion Web/Repositorios/Technopharmed playground/src/layouts/Layout.astro?astro&type=script&index=1&lang.ts": "_astro/Layout.astro_astro_type_script_index_1_lang.B6Dkj5kG.js", "C:/Users/juans/Downloads/Micelaneas/Legion Web/Repositorios/Technopharmed playground/src/components/Navbar.astro?astro&type=script&index=0&lang.ts": "_astro/Navbar.astro_astro_type_script_index_0_lang.CH_pqjxK.js", "astro:scripts/before-hydration.js": "" }, "inlinedScripts": [["C:/Users/juans/Downloads/Micelaneas/Legion Web/Repositorios/Technopharmed playground/src/pages/contactenos.astro?astro&type=script&index=0&lang.ts", `const l=new IntersectionObserver(t=>{t.forEach(e=>{e.isIntersecting&&(e.target.classList.add("visible"),l.unobserve(e.target))})},{threshold:.1});document.querySelectorAll(".reveal").forEach(t=>l.observe(t));const r=document.getElementById("contact-form"),o=document.getElementById("ct-submit"),a=document.getElementById("ct-success");function s(t){const e=t.closest(".ct-field"),n=t.checkValidity();return e.classList.toggle("has-error",!n),n}r?.querySelectorAll(".ct-input").forEach(t=>{t.addEventListener("blur",e=>s(e.target)),t.addEventListener("input",e=>{e.target.closest(".ct-field").classList.contains("has-error")&&s(e.target)})});r?.addEventListener("submit",async t=>{t.preventDefault();let e=!0;if(r.querySelectorAll(".ct-input").forEach(n=>{n.required&&(s(n)||(e=!1))}),!!e){o.disabled=!0,o.textContent="Enviando\u2026";try{const n=await fetch("/api/contact",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({name:document.getElementById("f-name").value,email:document.getElementById("f-email").value,phone:document.getElementById("f-phone").value,message:document.getElementById("f-note").value})}),i=await n.json();n.ok&&i.success?(r.style.display="none",a.hidden=!1):(alert("Error al enviar el mensaje: "+(i.error||"Intente de nuevo.")),o.disabled=!1,o.innerHTML='<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><line x1="22" y1="2" x2="11" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><polygon points="22 2 15 22 11 13 2 9 22 2" stroke="currentColor" stroke-width="2" stroke-linejoin="round" fill="none"/></svg> Enviar Mensaje')}catch{alert("Error de red. Por favor verifique su conexi\xF3n e intente de nuevo."),o.disabled=!1,o.innerHTML='<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><line x1="22" y1="2" x2="11" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><polygon points="22 2 15 22 11 13 2 9 22 2" stroke="currentColor" stroke-width="2" stroke-linejoin="round" fill="none"/></svg> Enviar Mensaje'}}});`], ["C:/Users/juans/Downloads/Micelaneas/Legion Web/Repositorios/Technopharmed playground/src/pages/index.astro?astro&type=script&index=0&lang.ts", 'const r=document.querySelector(".hero");if(r){const e=document.createElement("canvas");Object.assign(e.style,{position:"absolute",inset:"0",width:"100%",height:"100%",pointerEvents:"none",zIndex:"1"}),r.appendChild(e);const n=e.getContext("2d"),i=()=>{e.width=r.offsetWidth,e.height=r.offsetHeight};i(),window.addEventListener("resize",i);const a={x:-9999,y:-9999};r.addEventListener("mousemove",t=>{const o=r.getBoundingClientRect();a.x=t.clientX-o.left,a.y=t.clientY-o.top}),r.addEventListener("mouseleave",()=>{a.x=-9999,a.y=-9999});const s=Array.from({length:80},()=>({x:Math.random()*e.width,y:Math.random()*e.height,baseR:Math.random()*3+.6,r:1,vy:-(Math.random()*.55+.08),vx:(Math.random()-.5)*.3,alpha:Math.random()*.55+.15,phase:Math.random()*Math.PI*2,speed:Math.random()*.02+.015,hue:Math.random()*30-15})),y=100,l=90,f=1.8,x=()=>{n.clearRect(0,0,e.width,e.height);for(let t=0;t<s.length;t++)for(let o=t+1;o<s.length;o++){const d=s[t].x-s[o].x,h=s[t].y-s[o].y,c=Math.sqrt(d*d+h*h);if(c<y){const g=(1-c/y)*.18;n.beginPath(),n.moveTo(s[t].x,s[t].y),n.lineTo(s[o].x,s[o].y),n.strokeStyle=`rgba(158,202,255,${g})`,n.lineWidth=.7,n.stroke()}}s.forEach(t=>{t.phase+=t.speed,t.r=t.baseR+Math.sin(t.phase)*(t.baseR*.5);const o=t.x-a.x,d=t.y-a.y,h=Math.sqrt(o*o+d*d);if(h<l&&h>0){const c=(l-h)/l*f;t.x+=o/h*c,t.y+=d/h*c}t.y+=t.vy,t.x+=t.vx,t.y<-10&&(t.y=e.height+10,t.x=Math.random()*e.width),t.x<-10&&(t.x=e.width+10),t.x>e.width+10&&(t.x=-10),n.save(),n.shadowColor=`hsla(${210+t.hue}, 100%, 80%, 0.7)`,n.shadowBlur=t.r*5,n.beginPath(),n.arc(t.x,t.y,t.r,0,Math.PI*2),n.fillStyle=`hsla(${210+t.hue}, 100%, 85%, ${t.alpha})`,n.fill(),n.restore()}),requestAnimationFrame(x)};x()}document.querySelectorAll(".commitment-card").forEach(e=>{e.addEventListener("mousemove",n=>{const i=e.getBoundingClientRect(),a=(n.clientX-i.left)/i.width-.5,m=(n.clientY-i.top)/i.height-.5;e.style.transform=`translateY(-5px) rotateY(${a*6}deg) rotateX(${-m*6}deg)`}),e.addEventListener("mouseleave",()=>{e.style.transform=""})});'], ["C:/Users/juans/Downloads/Micelaneas/Legion Web/Repositorios/Technopharmed playground/src/layouts/Layout.astro?astro&type=script&index=0&lang.ts", 'const o=new IntersectionObserver(e=>{e.forEach(t=>{t.isIntersecting&&(t.target.classList.add("revealed"),o.unobserve(t.target))})},{threshold:.12,rootMargin:"0px 0px -40px 0px"});document.querySelectorAll(".reveal, .reveal-left, .reveal-right, .reveal-scale").forEach(e=>o.observe(e));const a=new IntersectionObserver(e=>{e.forEach(t=>{if(!t.isIntersecting)return;const r=t.target,c=parseInt(r.dataset.target||"0",10),i=r.dataset.prefix||"",l=r.dataset.suffix||"",u=1600,f=performance.now(),s=d=>{const n=Math.min((d-f)/u,1),h=1-Math.pow(1-n,3);r.textContent=i+Math.round(h*c)+l,n<1&&requestAnimationFrame(s)};requestAnimationFrame(s),a.unobserve(r)})},{threshold:.5});document.querySelectorAll(".counter").forEach(e=>a.observe(e));'], ["C:/Users/juans/Downloads/Micelaneas/Legion Web/Repositorios/Technopharmed playground/src/components/Navbar.astro?astro&type=script&index=0&lang.ts", 'const e=document.getElementById("mobile-toggle"),t=document.getElementById("mobile-menu");e&&t&&e.addEventListener("click",()=>{const n=e.getAttribute("aria-expanded")==="true";e.setAttribute("aria-expanded",String(!n)),t.classList.toggle("is-open")});']], "assets": ["/_astro/contactenos.DPw8E_0i.css", "/_astro/contactenos.cNdpfYtw.css", "/_astro/punzoneria.BCkRuPsn.css", "/_astro/index.I48ygwkH.css", "/logos/logo1.svg", "/logos/we are in development.svg", "/_astro/Layout.astro_astro_type_script_index_1_lang.B6Dkj5kG.js", "/_worker.js/index.js", "/_worker.js/noop-entrypoint.mjs", "/_worker.js/renderers.mjs", "/_worker.js/_@astrojs-ssr-adapter.mjs", "/_worker.js/_astro-internal_middleware.mjs", "/videos/Punzones.mp4", "/images/inicio/dab-8-4.png", "/images/inicio/Punzon.png", "/images/inicio/tableteadora.png", "/images/punzones/macthecno.png", "/images/punzones/Matriz.png", "/images/punzones/Multipunzon.png", "/images/punzones/PunzonCorroido.png", "/images/punzones/PunzonInferior.png", "/images/punzones/PunzonNoCorroido.png", "/images/punzones/PunzonSuperior.png", "/images/punzones/SegmentodeMatriz.png", "/_worker.js/pages/contactenos.astro.mjs", "/_worker.js/pages/index.astro.mjs", "/_worker.js/pages/llenadoras.astro.mjs", "/_worker.js/pages/punzoneria.astro.mjs", "/_worker.js/pages/respaldo-tecnico.astro.mjs", "/_worker.js/pages/tableteadoras.astro.mjs", "/_worker.js/pages/_image.astro.mjs", "/_worker.js/_astro/contactenos.cNdpfYtw.css", "/_worker.js/_astro/contactenos.DPw8E_0i.css", "/_worker.js/_astro/index.I48ygwkH.css", "/_worker.js/_astro/punzoneria.BCkRuPsn.css", "/_worker.js/chunks/astro-designed-error-pages_CDeNRIqd.mjs", "/_worker.js/chunks/astro_BMtMCzhU.mjs", "/_worker.js/chunks/cloudflare-kv-binding_DMly_2Gl.mjs", "/_worker.js/chunks/image-endpoint_D2gfu4bq.mjs", "/_worker.js/chunks/index_Sk5nLoPF.mjs", "/_worker.js/chunks/Layout_BhGolOyy.mjs", "/_worker.js/chunks/noop-middleware_D08CfXkQ.mjs", "/_worker.js/chunks/path_CH3auf61.mjs", "/_worker.js/chunks/remote_CVXTZJrr.mjs", "/_worker.js/chunks/sharp_DULFE-Mt.mjs", "/_worker.js/chunks/_@astrojs-ssr-adapter_C3a5m-hZ.mjs", "/_worker.js/pages/api/contact.astro.mjs", "/_worker.js/chunks/astro/server_Cfu44OFc.mjs"], "buildFormat": "directory", "checkOrigin": true, "allowedDomains": [], "actionBodySizeLimit": 1048576, "serverIslandNameMap": [], "key": "lxrTW4dux6GlQkaeiAd+/wcIAiRF0O+ikETeFwb47TE=", "sessionConfig": { "driver": "cloudflare-kv-binding", "options": { "binding": "SESSION" } } });
+if (manifest.sessionConfig) manifest.sessionConfig.driverModule = () => import("./chunks/cloudflare-kv-binding_DMly_2Gl.mjs");
+
+// _worker.js/index.js
+globalThis.process ??= {};
+globalThis.process.env ??= {};
+var serverIslandMap = /* @__PURE__ */ new Map();
+var _page0 = /* @__PURE__ */ __name(() => import("./pages/_image.astro.mjs"), "_page0");
+var _page1 = /* @__PURE__ */ __name(() => import("./pages/api/contact.astro.mjs"), "_page1");
+var _page2 = /* @__PURE__ */ __name(() => import("./pages/contactenos.astro.mjs"), "_page2");
+var _page3 = /* @__PURE__ */ __name(() => import("./pages/llenadoras.astro.mjs"), "_page3");
+var _page4 = /* @__PURE__ */ __name(() => import("./pages/punzoneria.astro.mjs"), "_page4");
+var _page5 = /* @__PURE__ */ __name(() => import("./pages/respaldo-tecnico.astro.mjs"), "_page5");
+var _page6 = /* @__PURE__ */ __name(() => import("./pages/tableteadoras.astro.mjs"), "_page6");
+var _page7 = /* @__PURE__ */ __name(() => import("./pages/index.astro.mjs"), "_page7");
+var pageMap = /* @__PURE__ */ new Map([
+  ["node_modules/@astrojs/cloudflare/dist/entrypoints/image-endpoint.js", _page0],
+  ["src/pages/api/contact.ts", _page1],
+  ["src/pages/contactenos.astro", _page2],
+  ["src/pages/llenadoras.astro", _page3],
+  ["src/pages/punzoneria.astro", _page4],
+  ["src/pages/respaldo-tecnico.astro", _page5],
+  ["src/pages/tableteadoras.astro", _page6],
+  ["src/pages/index.astro", _page7]
+]);
+var _manifest = Object.assign(manifest, {
+  pageMap,
+  serverIslandMap,
+  renderers,
+  actions: /* @__PURE__ */ __name(() => import("./noop-entrypoint.mjs"), "actions"),
+  middleware: /* @__PURE__ */ __name(() => import("./_astro-internal_middleware.mjs"), "middleware")
+});
+var _args = void 0;
+var _exports = createExports(_manifest);
+var __astrojsSsrVirtualEntry = _exports.default;
+var _start = "start";
+if (Object.prototype.hasOwnProperty.call(serverEntrypointModule, _start)) {
+  serverEntrypointModule[_start](_manifest, _args);
+}
+export {
+  __astrojsSsrVirtualEntry as default,
+  pageMap
+};
+//# sourceMappingURL=bundledWorker-0.9464356376779971.mjs.map

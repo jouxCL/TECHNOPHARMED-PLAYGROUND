@@ -6,11 +6,11 @@ var define_ROUTES_default = {
   ],
   exclude: [
     "/_astro/*",
+    "/icons/.gitkeep",
+    "/fonts/.gitkeep",
     "/images/.gitkeep",
     "/videos/.gitkeep",
     "/videos/Punzones.mp4",
-    "/fonts/.gitkeep",
-    "/icons/.gitkeep",
     "/logos/.gitkeep",
     "/logos/logo1.svg",
     "/logos/we are in development.svg",
@@ -29,9 +29,9 @@ var define_ROUTES_default = {
 };
 
 // node_modules/wrangler/templates/pages-dev-pipeline.ts
-import worker from "C:\\Users\\juans\\Downloads\\Micelaneas\\Legion Web\\Repositorios\\Technopharmed playground\\.wrangler\\tmp\\pages-PjbCnM\\bundledWorker-0.7650408801285163.mjs";
+import worker from "C:\\Users\\juans\\Downloads\\Micelaneas\\Legion Web\\Repositorios\\Technopharmed playground\\.wrangler\\tmp\\pages-PjbCnM\\bundledWorker-0.6497601278510555.mjs";
 import { isRoutingRuleMatch } from "C:\\Users\\juans\\Downloads\\Micelaneas\\Legion Web\\Repositorios\\Technopharmed playground\\node_modules\\wrangler\\templates\\pages-dev-util.ts";
-export * from "C:\\Users\\juans\\Downloads\\Micelaneas\\Legion Web\\Repositorios\\Technopharmed playground\\.wrangler\\tmp\\pages-PjbCnM\\bundledWorker-0.7650408801285163.mjs";
+export * from "C:\\Users\\juans\\Downloads\\Micelaneas\\Legion Web\\Repositorios\\Technopharmed playground\\.wrangler\\tmp\\pages-PjbCnM\\bundledWorker-0.6497601278510555.mjs";
 var routes = define_ROUTES_default;
 var pages_dev_pipeline_default = {
   fetch(request, env, context) {
