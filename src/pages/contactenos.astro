@@ -115,12 +115,21 @@ import Layout from '../layouts/Layout.astro';
             <p class="ct-disclaimer">* Al enviar, acepta que nos comuniquemos con usted para brindarle atención técnica y comercial.</p>
           </div>
 
-          <!-- Estado enviado -->
+           <!-- Estado enviado -->
           <div id="ct-success" class="ct-success" hidden>
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#1D6B3A" stroke-width="2"/><path d="M7 12l4 4 6-6" stroke="#1D6B3A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <div>
               <p class="ct-success__title">¡Mensaje enviado!</p>
               <p class="ct-success__body">Le responderemos pronto. Gracias por contactarnos.</p>
+            </div>
+          </div>
+
+          <!-- Estado error -->
+          <div id="ct-error" class="ct-error" hidden>
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#B91C1C" stroke-width="2"/><path d="M15 9l-6 6M9 9l6 6" stroke="#B91C1C" stroke-width="2.5" stroke-linecap="round"/></svg>
+            <div>
+              <p class="ct-error__title" id="error-title">Error al enviar</p>
+              <p class="ct-error__body" id="error-message">Por favor intente de nuevo más tarde.</p>
             </div>
           </div>
         </form>
@@ -316,6 +325,7 @@ import Layout from '../layouts/Layout.astro';
   }
 
   @keyframes ctFadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes spin { to { transform: rotate(360deg); } }
 
   /* ══════════════════════════════════
      MAIN (formulario + info)
@@ -407,6 +417,7 @@ import Layout from '../layouts/Layout.astro';
   .ct-btn-submit:hover { background: #003B7A; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,82,154,.3); }
   .ct-btn-submit:active { transform: translateY(0); }
   .ct-btn-submit:disabled { opacity: .55; cursor: not-allowed; transform: none; }
+  .ct-btn-submit .spinner { animation: spin 1s linear infinite; }
 
   .ct-disclaimer { font-size: .76rem; color: var(--md-outline); line-height: 1.5; }
 
@@ -420,6 +431,17 @@ import Layout from '../layouts/Layout.astro';
   .ct-success[hidden] { display: none; }
   .ct-success__title { font-size: 1rem; font-weight: 700; color: #1D6B3A; }
   .ct-success__body  { font-size: .88rem; color: #2C7A4B; margin-top: .2rem; }
+
+  /* Estado error */
+  .ct-error {
+    display: flex; align-items: center; gap: 1rem;
+    background: #FEF2F2; border: 1.5px solid #FCA5A5;
+    border-radius: var(--r-lg, 16px); padding: 1.25rem 1.5rem;
+    animation: ctFadeUp .4s both;
+  }
+  .ct-error[hidden] { display: none; }
+  .ct-error__title { font-size: 1rem; font-weight: 700; color: #B91C1C; }
+  .ct-error__body  { font-size: .88rem; color: #7F1D1D; margin-top: .2rem; }
 
   /* ── DIRECTORIO ── */
   .ct-dir-card, .ct-sede-card {
@@ -477,10 +499,38 @@ import Layout from '../layouts/Layout.astro';
   const form = document.getElementById('contact-form') as HTMLFormElement;
   const btn  = document.getElementById('ct-submit') as HTMLButtonElement;
   const success = document.getElementById('ct-success') as HTMLElement;
+  const error = document.getElementById('ct-error') as HTMLElement;
+  const errorTitle = document.getElementById('error-title') as HTMLElement;
+  const errorMessage = document.getElementById('error-message') as HTMLElement;
 
   function validate(el: HTMLInputElement | HTMLTextAreaElement) {
     const field = el.closest('.ct-field')!;
-    const ok = el.checkValidity();
+    let ok = el.checkValidity();
+    
+    // Validación adicional para email
+    if (el.type === 'email' && el.value) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(el.value)) {
+        ok = false;
+        el.setCustomValidity('Ingrese un correo electrónico válido');
+      } else {
+        el.setCustomValidity('');
+      }
+    }
+    
+    // Validación de longitud para mensaje
+    if (el.id === 'f-note' && el.value) {
+      if (el.value.length < 10) {
+        ok = false;
+        el.setCustomValidity('El mensaje debe tener al menos 10 caracteres');
+      } else if (el.value.length > 1000) {
+        ok = false;
+        el.setCustomValidity('El mensaje no puede exceder 1000 caracteres');
+      } else {
+        el.setCustomValidity('');
+      }
+    }
+    
     field.classList.toggle('has-error', !ok);
     return ok;
   }
@@ -495,6 +545,12 @@ import Layout from '../layouts/Layout.astro';
 
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
+    
+    // Ocultar mensajes anteriores
+    success.hidden = true;
+    error.hidden = true;
+    
+    // Validar todos los campos
     let valid = true;
     form.querySelectorAll('.ct-input').forEach(inp => {
       if (!(inp as HTMLInputElement).required) return;
@@ -502,18 +558,26 @@ import Layout from '../layouts/Layout.astro';
     });
     if (!valid) return;
 
+    // Deshabilitar botón y mostrar estado de carga
+    const originalBtnHTML = btn.innerHTML;
     btn.disabled = true;
-    btn.textContent = 'Enviando…';
+    btn.innerHTML = `
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="spinner">
+        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.25"/>
+        <path d="M12 2a10 10 0 0 1 10 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+      </svg>
+      Enviando…
+    `;
 
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          name:    (document.getElementById('f-name')    as HTMLInputElement).value,
-          email:   (document.getElementById('f-email')   as HTMLInputElement).value,
-          phone:   (document.getElementById('f-phone')   as HTMLInputElement).value,
-          message: (document.getElementById('f-note')    as HTMLTextAreaElement).value,
+          name:    (document.getElementById('f-name')    as HTMLInputElement).value.trim(),
+          email:   (document.getElementById('f-email')   as HTMLInputElement).value.trim(),
+          phone:   (document.getElementById('f-phone')   as HTMLInputElement).value.trim() || '',
+          message: (document.getElementById('f-note')    as HTMLTextAreaElement).value.trim(),
         }),
       });
 
@@ -523,14 +587,24 @@ import Layout from '../layouts/Layout.astro';
         form.style.display = 'none';
         success.hidden = false;
       } else {
-        alert('Error al enviar el mensaje: ' + (data.error || 'Intente de nuevo.'));
+        // Mostrar error específico
+        errorTitle.textContent = 'Error al enviar';
+        errorMessage.textContent = data.error || 'Por favor intente de nuevo.';
+        error.hidden = false;
+        
+        // Restaurar botón
         btn.disabled = false;
-        btn.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><line x1="22" y1="2" x2="11" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><polygon points="22 2 15 22 11 13 2 9 22 2" stroke="currentColor" stroke-width="2" stroke-linejoin="round" fill="none"/></svg> Enviar Mensaje`;
+        btn.innerHTML = originalBtnHTML;
       }
     } catch (err) {
-      alert('Error de red. Por favor verifique su conexión e intente de nuevo.');
+      // Mostrar error de red
+      errorTitle.textContent = 'Error de conexión';
+      errorMessage.textContent = 'Verifique su conexión a internet e intente de nuevo.';
+      error.hidden = false;
+      
+      // Restaurar botón
       btn.disabled = false;
-      btn.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><line x1="22" y1="2" x2="11" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><polygon points="22 2 15 22 11 13 2 9 22 2" stroke="currentColor" stroke-width="2" stroke-linejoin="round" fill="none"/></svg> Enviar Mensaje`;
+      btn.innerHTML = originalBtnHTML;
     }
   });
 </script>
