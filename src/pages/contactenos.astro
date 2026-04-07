@@ -48,7 +48,7 @@ import Layout from '../layouts/Layout.astro';
 
     <!-- Wave inferior -->
     <div class="ct-hero__wave">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 72" preserveAspectRatio="none" height="72">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 72" preserveAspectRatio="none" style="width: 100%; height: 72px; display: block;">
         <path fill="var(--md-bg,#F8F9FC)" d="M0,36 C480,72 960,0 1440,36 L1440,72 L0,72 Z"/>
       </svg>
     </div>
@@ -155,18 +155,6 @@ import Layout from '../layouts/Layout.astro';
               <p class="ct-person__name">Claudia Santa</p>
               <a class="ct-person__link" href="mailto:administrativo@technopharmed.net">administrativo@technopharmed.net</a>
               <a class="ct-person__link" href="tel:+573136273694">313 627 36 94</a>
-            </div>
-          </div>
-          <div class="ct-divider"></div>
-          <div class="ct-person">
-            <div class="ct-person__avatar">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/><path d="M4 22c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="currentColor" stroke-width="2"/></svg>
-            </div>
-            <div>
-              <p class="ct-person__role">Asistente Técnica y Comercial</p>
-              <p class="ct-person__name">Laura Uribe</p>
-              <a class="ct-person__link" href="mailto:asistente@technopharmed.net">asistente@technopharmed.net</a>
-              <a class="ct-person__link" href="tel:+573188376804">318 837 6804</a>
             </div>
           </div>
         </div>
@@ -517,10 +505,32 @@ import Layout from '../layouts/Layout.astro';
     btn.disabled = true;
     btn.textContent = 'Enviando…';
 
-    // Simulación: reemplazar por fetch a tu endpoint real
-    await new Promise(r => setTimeout(r, 1600));
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name:    (document.getElementById('f-name')    as HTMLInputElement).value,
+          email:   (document.getElementById('f-email')   as HTMLInputElement).value,
+          phone:   (document.getElementById('f-phone')   as HTMLInputElement).value,
+          message: (document.getElementById('f-note')    as HTMLTextAreaElement).value,
+        }),
+      });
 
-    form.style.display = 'none';
-    success.hidden = false;
+      const data = await res.json();
+
+      if (res.ok && data.success) {
+        form.style.display = 'none';
+        success.hidden = false;
+      } else {
+        alert('Error al enviar el mensaje: ' + (data.error || 'Intente de nuevo.'));
+        btn.disabled = false;
+        btn.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><line x1="22" y1="2" x2="11" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><polygon points="22 2 15 22 11 13 2 9 22 2" stroke="currentColor" stroke-width="2" stroke-linejoin="round" fill="none"/></svg> Enviar Mensaje`;
+      }
+    } catch (err) {
+      alert('Error de red. Por favor verifique su conexión e intente de nuevo.');
+      btn.disabled = false;
+      btn.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><line x1="22" y1="2" x2="11" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><polygon points="22 2 15 22 11 13 2 9 22 2" stroke="currentColor" stroke-width="2" stroke-linejoin="round" fill="none"/></svg> Enviar Mensaje`;
+    }
   });
 </script>

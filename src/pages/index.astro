@@ -44,7 +44,7 @@ import Layout from '../layouts/Layout.astro';
             Garantizamos estándares internacionales de calidad con equipos de última generación y soporte técnico sin igual.
           </p>
           <div class="hero__actions">
-            <md-filled-button href="#contacto">Solicitar Asesoría</md-filled-button>
+            <md-filled-button href="/contactenos">Solicitar Asesoría</md-filled-button>
             <md-outlined-button href="#soluciones">Ver Soluciones</md-outlined-button>
           </div>
         </div>
@@ -104,7 +104,9 @@ import Layout from '../layouts/Layout.astro';
                 <span class="m3-chip">I Holland</span>
                 <span class="m3-chip">Technopharmed</span>
               </div>
-              <div class="img-placeholder"><span>Imagen Placeholder</span></div>
+              <div class="img-placeholder">
+                <img src="/images/inicio/Punzon.png" alt="Punzones y Matrices I Holland" class="sol-img" />
+              </div>
               <h3 class="card-title">Punzones, Matrices y Mantenimiento.</h3>
               <p class="card-body">Proveedor líder mundial con más de 75 años en I+D. Los 7 Pasos del Mantenimiento para extender la vida útil. Sistema IH-TMS compatible con CFR 21 Parte 11.</p>
               <div class="card-action"><md-text-button href="#">Conocer I Holland →</md-text-button></div>
@@ -114,7 +116,9 @@ import Layout from '../layouts/Layout.astro';
           <md-elevated-card class="sol-card reveal stagger-2">
             <div class="sol-card-inner">
               <div class="chip-row"><span class="m3-chip">Filamatic</span></div>
-              <div class="img-placeholder"><span>Imagen Placeholder</span></div>
+              <div class="img-placeholder">
+                <img src="/images/inicio/dab-8-4.png" alt="Llenadora Filamatic DAB-8-4" class="sol-img" />
+              </div>
               <h3 class="card-title">Llenadoras de Líquidos.</h3>
               <p class="card-body">Desde sistemas semiautomáticos Benchtop hasta monobloques integrados Fusion 2 y FlexFIL. Dosificación controlada de productos líquidos, viscosos y fundidos.</p>
               <div class="card-action"><md-text-button href="#">Explorar Filamatic →</md-text-button></div>
@@ -124,7 +128,9 @@ import Layout from '../layouts/Layout.astro';
           <md-elevated-card class="sol-card reveal stagger-3">
             <div class="sol-card-inner">
               <div class="chip-row"><span class="m3-chip m3-chip--tertiary">Nueva Línea</span></div>
-              <div class="img-placeholder"><span>Imagen Placeholder</span></div>
+              <div class="img-placeholder">
+                <img src="/images/inicio/tableteadora.png" alt="Máquina Tableteadora Rotativa" class="sol-img" />
+              </div>
               <h3 class="card-title">Máquinas Tableteadoras.</h3>
               <p class="card-body">Desde escala piloto hasta rotativas de alta velocidad. Automatización avanzada, cabezales intercambiables y cumplimiento normativo CFR 21 Parte 11.</p>
               <div class="card-action"><md-text-button href="#">Ver Tableteadoras →</md-text-button></div>
@@ -232,8 +238,7 @@ import Layout from '../layouts/Layout.astro';
         <h2 class="cta-title reveal stagger-1">¿Listo para optimizar su producción?</h2>
         <p class="cta-subtitle reveal stagger-2">Nuestro equipo de expertos está listo para asesorarle y encontrar la solución perfecta para sus necesidades farmacéuticas.</p>
         <div class="cta-actions reveal stagger-3">
-          <md-filled-button href="mailto:gerencia@technopharmed.com">Contactar Ahora</md-filled-button>
-          <md-outlined-button href="https://www.technopharmed.com" target="_blank">Visitar Sitio Web</md-outlined-button>
+          <md-filled-button href="/contactenos">Contáctenos</md-filled-button>
         </div>
         </div> <!-- /cta-glow -->
       </div>
@@ -699,6 +704,7 @@ import Layout from '../layouts/Layout.astro';
         position: relative;
         transition: transform var(--dur-medium) var(--ease-standard),
                     box-shadow var(--dur-medium) var(--ease-standard);
+        overflow: visible !important;
       }
       /* Animated gradient border on hover */
       .sol-card::before {
@@ -718,6 +724,7 @@ import Layout from '../layouts/Layout.astro';
 
       .sol-card-inner {
         display:flex; flex-direction:column; gap:1.1rem; padding:1.5rem;
+        position: relative; overflow: visible;
       }
       .chip-row { display:flex; gap:.4rem; flex-wrap:wrap; }
       .m3-chip {
@@ -734,16 +741,26 @@ import Layout from '../layouts/Layout.astro';
       }
       .img-placeholder {
         width:100%; aspect-ratio:4/3;
-        background: linear-gradient(135deg,
-          color-mix(in srgb, var(--md-primary) 12%, var(--md-surface-container)) 0%,
-          color-mix(in srgb, var(--md-secondary) 15%, var(--md-surface-container-high)) 100%
-        );
+        background: radial-gradient(circle at center, #E3F2FD 0%, #F0F4F8 100%); /* Blueish core glow */
         border-radius: var(--r-md);
         display:flex; align-items:center; justify-content:center;
-        border: 1px dashed var(--md-outline-variant);
-        color: var(--md-on-surface-variant);
-        font-size:.72rem; font-weight:500; letter-spacing:.08em; text-transform:uppercase;
-        position: relative; overflow:hidden;
+        border: 1.5px solid var(--md-outline-variant);
+        position: relative;
+        /* No overflow hidden to let image pop out */
+        padding: 1.5rem;
+        z-index: 1;
+        box-shadow: inset 0 0 20px rgba(0,82,154,0.05); /* Soft inner blue glow */
+      }
+      .sol-img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        filter: drop-shadow(0 8px 16px rgba(0,82,154,0.18)); /* Blueish drop shadow */
+        transition: transform var(--dur-medium) var(--ease-emphasized), filter var(--dur-medium);
+      }
+      .sol-card:hover .sol-img {
+        transform: scale(1.22) translateY(-12px);
+        filter: drop-shadow(0 20px 40px rgba(0,82,154,0.35)); /* Stronger blueish glow on hover */
       }
       /* Shimmer on hover */
       .sol-card:hover .img-placeholder::after {
