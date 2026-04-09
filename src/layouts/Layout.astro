@@ -110,12 +110,21 @@ const { title, description = "Technopharmed – Soluciones farmacéuticas de alt
         --md-elevated-card-container-shape:    var(--r-lg);
       }
 
-      /* Global Button Padding Fix */
+      /* Global Button Padding & Hover Fix */
       md-filled-button, md-outlined-button {
         padding-inline: 2rem !important;
         min-width: 180px;
         display: inline-flex !important;
         justify-content: center;
+        transition: transform 0.25s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.25s cubic-bezier(0.2, 0, 0, 1) !important;
+      }
+      md-filled-button:not(:disabled):hover, md-outlined-button:not(:disabled):hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+      }
+      md-filled-button:not(:disabled):active, md-outlined-button:not(:disabled):active {
+        transform: translateY(0);
+        box-shadow: var(--el-1);
       }
       md-text-button {
         padding-inline: 1rem !important;

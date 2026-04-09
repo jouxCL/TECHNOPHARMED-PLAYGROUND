@@ -1,9 +1,9 @@
 import type { APIRoute } from 'astro';
 import { appendToSheet } from '../../utils/google-sheets';
 
-export const POST: APIRoute = async ({ request, locals }) => {
+export const POST: APIRoute = async ({ request }) => {
   try {
-    const runtimeEnv = (locals as any).runtime?.env || import.meta.env;
+    const runtimeEnv = import.meta.env;
     const { name, email, phone, message } = await request.json();
 
     // Validación básica

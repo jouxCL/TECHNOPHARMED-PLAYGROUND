@@ -3,7 +3,6 @@ image: node:20
 stages:
   - install
   - build
-  - deploy
 
 cache:
   paths:
@@ -27,18 +26,15 @@ build_project:
   artifacts:
     paths:
       - dist/
+    expire_in: 1 week
   only:
     - main
     - master
-    - develop
 
-pages:
-  stage: deploy
-  script:
-    - npm run build
-  artifacts:
-    paths:
-      - dist
-  only:
-    - main
-    - master
+# ──────────────────────────────────────────────────────────────────
+# DigitalOcean App Platform detecta automáticamente el repositorio.
+# Configura lo siguiente en el panel de DigitalOcean:
+#   Build Command : npm run build
+#   Run Command   : node ./dist/server/entry.mjs
+#   HTTP Port     : 4321  (o la variable PORT que DO asigne)
+# ──────────────────────────────────────────────────────────────────

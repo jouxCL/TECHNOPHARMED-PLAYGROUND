@@ -5,7 +5,7 @@
   "description": "",
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev",
+    "start": "node ./dist/server/entry.mjs",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.6",
-    "@astrojs/cloudflare": "^12.6.12",
+    "@astrojs/node": "^8.3.4",
     "@astrojs/react": "^4.1.0",
     "@material/web": "^2.4.1",
     "@tailwindcss/vite": "^4.2.1",
@@ -31,7 +31,8 @@
     "@types/react-dom": "^19.2.3",
     "prettier": "^3.4.0",
     "prettier-plugin-astro": "^0.14.0",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vite": "^5.4.21"
   },
   "engines": {
     "node": ">=20.0.0"

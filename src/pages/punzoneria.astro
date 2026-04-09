@@ -21,6 +21,19 @@ import HeroPage from '../components/HeroPage.astro';
     videoSrc="/videos/Punzones.mp4"
   />
 
+
+  <!-- Logos bar -->
+  <div class="pun-logos-bar reveal">
+    <span class="pun-logos-bar__label">Una alianza entre</span>
+    <img src="/logos/logo1.svg" alt="Technopharmed" class="pun-logo pun-logo--tech" />
+    <span class="pun-logos-bar__sep" aria-hidden="true">×</span>
+    <img
+      src="/images/punzones/IHollandLogo.png"
+      alt="i-Holland"
+      class="pun-logo pun-logo--iholland"
+    />
+  </div>
+
   <!-- ═══════════════════════════════════════════════════
        SECCIÓN 1: ANATOMÍA DEL JUEGO DE PUNZONES
        ═══════════════════════════════════════════════════ -->
@@ -701,6 +714,21 @@ import HeroPage from '../components/HeroPage.astro';
   .text-primary { color: var(--md-primary); }
 
   /* ──────────────────────────────────────────────────
+     LOGOS BAR (Technopharmed × i-Holland)
+  ────────────────────────────────────────────────── */
+  .pun-logos-bar {
+    display: flex; align-items: center; justify-content: center;
+    gap: 1.5rem; padding: 1.25rem 2rem;
+    background: var(--md-surface); border-bottom: 1px solid var(--md-outline-variant);
+    flex-wrap: wrap;
+  }
+  .pun-logos-bar__label { font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--md-on-surface-variant); }
+  .pun-logo--tech     { height: 36px; width: auto; object-fit: contain; filter: drop-shadow(0 1px 3px rgba(0,0,0,.1)); }
+  .pun-logo--iholland { height: 36px; width: auto; object-fit: contain; filter: drop-shadow(0 1px 3px rgba(0,0,0,.1)); }
+  .pun-logos-bar__sep { font-size: 1.4rem; font-weight: 300; color: var(--md-outline); line-height: 1; }
+
+
+  /* ──────────────────────────────────────────────────
      TWO-COLUMN LAYOUTS
   ────────────────────────────────────────────────── */
   .two-col { display: grid; gap: 2.5rem; align-items: center; margin-top: 1.75rem; }
@@ -1356,7 +1384,9 @@ import HeroPage from '../components/HeroPage.astro';
   .blue-cta__body  { font-size: .98rem; color: rgba(255,255,255,.78); line-height: 1.7; margin-bottom: 1.5rem; max-width: 560px; margin-left: auto; margin-right: auto; }
   .blue-cta md-filled-button {
     --md-filled-button-container-color: #fff;
+    --md-filled-button-hover-container-color: #F0F4F8;
     --md-filled-button-label-text-color: var(--md-primary);
+    --md-filled-button-hover-label-text-color: var(--md-primary);
     --md-filled-button-leading-space: 2.5rem;
     --md-filled-button-trailing-space: 2.5rem;
   }
