@@ -2,45 +2,946 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Respaldo Técnico – Technopharmed" description="Asistencia técnica, capacitación y mantenimiento preventivo para la industria farmacéutica.">
+<Layout
+  title="Servicio al Cliente – Technopharmed"
+  description="Soporte especializado 24/7, capacitación en planta, mantenimiento preventivo y cumplimiento FDA. Más de 20 años de experiencia en la industria farmacéutica."
+>
 
-  <div class="development-page">
-    <div class="development-content">
-      <img src="/logos/logo1.svg" alt="Technopharmed Logo" class="development-logo" />
-      <p class="development-title">Página en construcción</p>
+  <!-- ═══════════════════════════════════════════════════
+       HERO — Centered M3 Splash
+       ═══════════════════════════════════════════════════ -->
+  <section class="rt-hero" id="inicio" aria-label="Servicio al Cliente y Respaldo Técnico">
+    <div class="rt-hero__grid-bg" aria-hidden="true"></div>
+
+    <div class="rt-hero__center">
+      <div class="rt-icon-wrap" aria-hidden="true">
+        <div class="rt-icon-ring rt-icon-ring--outer"></div>
+        <div class="rt-icon-ring rt-icon-ring--mid"></div>
+        <div class="rt-icon-badge">
+          <svg width="44" height="44" viewBox="0 0 24 24" fill="none">
+            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+
+      <span class="rt-eyebrow">Respaldo Técnico · Servicio al Cliente</span>
+
+      <h1 class="rt-title">
+        Tecnología Mundial
+        <em>Respaldada por Expertos.</em>
+      </h1>
+
+      <p class="rt-subtitle">
+        Nuestra filosofía va más allá de la venta de equipos. Somos su socio estratégico a largo plazo. Con más de 20 años de experiencia, brindamos asesoría personalizada, ingeniería innovadora y soporte técnico las 24 horas para maximizar la productividad de su planta.
+      </p>
+
+      <div class="rt-hero-stats" role="list">
+        <div class="rt-hero-stat" role="listitem">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <span class="rt-hero-stat__val">+20</span>
+          <span class="rt-hero-stat__lbl">Años</span>
+        </div>
+        <div class="rt-hero-stat-div" aria-hidden="true"></div>
+        <div class="rt-hero-stat" role="listitem">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M13 2.05V4.05C17.39 4.59 20.5 8.58 19.96 12.97C19.5 16.61 16.64 19.5 13 19.93V21.93C18.5 21.38 22.5 16.5 21.95 11C21.5 6.25 17.73 2.5 13 2.05M11 2.06C9.05 2.25 7.19 3 5.67 4.26L7.1 5.74C8.22 4.84 9.57 4.26 11 4.06V2.06M4.26 5.67C3 7.19 2.25 9.04 2.05 11H4.05C4.24 9.58 4.8 8.23 5.69 7.1L4.26 5.67M2.06 13C2.26 14.96 3.03 16.81 4.27 18.33L5.69 16.9C4.81 15.77 4.24 14.42 4.06 13H2.06" fill="currentColor" opacity=".9"/></svg>
+          <span class="rt-hero-stat__val">24/7</span>
+          <span class="rt-hero-stat__lbl">Soporte</span>
+        </div>
+        <div class="rt-hero-stat-div" aria-hidden="true"></div>
+        <div class="rt-hero-stat" role="listitem">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="2" y="6" width="20" height="12" rx="2" stroke="currentColor" stroke-width="2"/><path d="M6 6v4M10 6v2M14 6v4M18 6v2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <span class="rt-hero-stat__val">±0.5%</span>
+          <span class="rt-hero-stat__lbl">Precisión</span>
+        </div>
+        <div class="rt-hero-stat-div" aria-hidden="true"></div>
+        <div class="rt-hero-stat" role="listitem">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          <span class="rt-hero-stat__val">FDA</span>
+          <span class="rt-hero-stat__lbl">Compliant</span>
+        </div>
+      </div>
+
+      <div class="rt-hero-actions">
+        <md-filled-button href="/contactenos">Solicitar Asistencia Inmediata</md-filled-button>
+        <md-outlined-button href="#s1-title">Ver Servicios</md-outlined-button>
+      </div>
     </div>
-  </div>
+
+    <div class="rt-hero__wave">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 64" preserveAspectRatio="none" width="100%" height="64">
+        <path fill="var(--md-bg, #F8F9FC)" d="M0,32 C360,64 1080,0 1440,32 L1440,64 L0,64 Z"/>
+      </svg>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════
+       SECCIÓN 1: ASISTENCIA TÉCNICA 24/7
+       ═══════════════════════════════════════════════════ -->
+  <section class="pg-section" aria-labelledby="s1-heading" id="s1-title">
+    <div class="pg-inner">
+
+      <p class="eyebrow-shimmer reveal">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77 5.82 21.02 7 14.14 2 9.27l6.91-1.01L12 2z" fill="currentColor"/></svg>
+        Asistencia Técnica · In Situ y Remota
+      </p>
+
+      <div class="rt-s1-header reveal stagger-1">
+        <h2 id="s1-heading" class="pg-title">Soporte Especializado <em class="text-primary">24/7.</em></h2>
+        <p class="pg-body">Entendemos que en la industria farmacéutica cada minuto de inactividad cuenta. Contamos con un equipo de ingenieros altamente capacitados listos para intervenir y garantizar la continuidad de sus operaciones.</p>
+      </div>
+
+      <!-- M3 Metric counters row -->
+      <div class="rt-metric-row reveal stagger-2">
+        <div class="rt-metric-card">
+          <div class="rt-metric-card__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <span class="rt-metric-card__value counter" data-target="20" data-prefix="+">+20</span>
+          <span class="rt-metric-card__label">Años de experiencia</span>
+        </div>
+        <div class="rt-metric-card">
+          <div class="rt-metric-card__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          </div>
+          <span class="rt-metric-card__value">24/7</span>
+          <span class="rt-metric-card__label">Soporte técnico activo</span>
+        </div>
+        <div class="rt-metric-card">
+          <div class="rt-metric-card__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="6" width="20" height="12" rx="2" stroke="currentColor" stroke-width="2"/><path d="M6 6v4M10 6v2M14 6v4M18 6v2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <span class="rt-metric-card__value">±0.5%</span>
+          <span class="rt-metric-card__label">Precisión volumétrica</span>
+        </div>
+        <div class="rt-metric-card">
+          <div class="rt-metric-card__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <span class="rt-metric-card__value">FDA</span>
+          <span class="rt-metric-card__label">Cumplimiento normativo</span>
+        </div>
+      </div>
+
+      <!-- 3 M3 service cards with 3D tilt -->
+      <div class="rt-service-grid reveal stagger-3">
+
+        <div class="rt-service-card tilt-card">
+          <div class="rt-service-card__top">
+            <div class="rt-service-card__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <span class="rt-service-card__num">01</span>
+          </div>
+          <p class="rt-service-card__title">Diagnóstico In Situ</p>
+          <p class="rt-service-card__text">Resolución de problemas complejos de compresión como el <em>"capping"</em> (separación de la corona) o <em>"lamination"</em> directamente en su línea de producción.</p>
+          <div class="rt-service-card__chips">
+            <span class="m3-chip chip-pop chip-pop--1">Capping</span>
+            <span class="m3-chip chip-pop chip-pop--2">Lamination</span>
+            <span class="m3-chip chip-pop chip-pop--3">Sticking</span>
+          </div>
+        </div>
+
+        <div class="rt-service-card tilt-card">
+          <div class="rt-service-card__top">
+            <div class="rt-service-card__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="2" y="6" width="20" height="12" rx="2" stroke="currentColor" stroke-width="2"/><path d="M6 6v4M10 6v2M14 6v4M18 6v2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <span class="rt-service-card__num">02</span>
+          </div>
+          <p class="rt-service-card__title">Calibración de Precisión</p>
+          <p class="rt-service-card__text">Ajustes técnicos en sistemas de llenado para mantener rangos de exactitud volumétrica del <strong class="text-primary">±0.5%</strong>, cumpliendo los estándares más exigentes de la industria.</p>
+          <div class="rt-service-card__chips">
+            <span class="m3-chip chip-pop chip-pop--1">±0.5% Precisión</span>
+            <span class="m3-chip chip-pop chip-pop--2">Ajuste de válvulas</span>
+          </div>
+        </div>
+
+        <div class="rt-service-card rt-service-card--accent tilt-card">
+          <div class="rt-service-card__top">
+            <div class="rt-service-card__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <span class="rt-service-card__num">03</span>
+          </div>
+          <p class="rt-service-card__title">Disponibilidad 24/7</p>
+          <p class="rt-service-card__text">Soporte continuo para minimizar detenciones no programadas. Nuestros ingenieros están disponibles <strong>las 24 horas del día, los 7 días de la semana.</strong></p>
+          <div class="rt-service-card__chips">
+            <span class="m3-chip chip-pop chip-pop--1">Soporte remoto</span>
+            <span class="m3-chip chip-pop chip-pop--2">Visita programada</span>
+            <span class="m3-chip chip-pop chip-pop--3">Urgencias</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════
+       SECCIÓN 2: CAPACITACIÓN EN PLANTA
+       ═══════════════════════════════════════════════════ -->
+  <section class="pg-section pg-section--alt" aria-labelledby="s2-title">
+    <div class="pg-inner">
+
+      <p class="eyebrow-shimmer reveal">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77 5.82 21.02 7 14.14 2 9.27l6.91-1.01L12 2z" fill="currentColor"/></svg>
+        Capacitación · Programas In Situ
+      </p>
+
+      <div class="rt-s2-layout">
+        <!-- Left: text + modules -->
+        <div class="rt-s2-left">
+          <div class="reveal stagger-1">
+            <h2 id="s2-title" class="pg-title">Empodere a su Equipo <em class="text-primary">de Producción.</em></h2>
+            <p class="pg-body">El conocimiento es la mejor herramienta para prolongar la vida útil de sus equipos. Ofrecemos programas de formación técnica integral impartidos directamente en sus instalaciones.</p>
+          </div>
+
+          <div class="rt-modules-list">
+            <div class="rt-module reveal-left stagger-2">
+              <div class="rt-module__number">01</div>
+              <div class="rt-module__body">
+                <div class="rt-module__header">
+                  <p class="rt-module__title">Ciencia de las Tabletas</p>
+                  <span class="m3-chip rt-module__chip">Teórico · Práctico</span>
+                </div>
+                <p class="rt-module__text">Diseño, formulación y solución de problemas de producción. Fundamentos teóricos y prácticos para un proceso de compresión libre de defectos.</p>
+              </div>
+            </div>
+            <div class="rt-module reveal-left stagger-3">
+              <div class="rt-module__number">02</div>
+              <div class="rt-module__body">
+                <div class="rt-module__header">
+                  <p class="rt-module__title">Operación Segura</p>
+                  <span class="m3-chip rt-module__chip">In Situ</span>
+                </div>
+                <p class="rt-module__text">Montaje y desmontaje correcto de punzones y matrices para evitar daños mecánicos y prolongar la vida útil.</p>
+              </div>
+            </div>
+            <div class="rt-module reveal-left stagger-4">
+              <div class="rt-module__number">03</div>
+              <div class="rt-module__body">
+                <div class="rt-module__header">
+                  <p class="rt-module__title">Procesos de Llenado</p>
+                  <span class="m3-chip rt-module__chip">Changeover</span>
+                </div>
+                <p class="rt-module__text">Cambio de formato eficiente y limpieza de unidades de acero inoxidable 316 para equipos de llenado de líquidos.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: M3 Feature summary card -->
+        <div class="rt-s2-feature reveal stagger-2">
+          <div class="rt-feature-card">
+            <div class="rt-feature-card__glow" aria-hidden="true"></div>
+            <div class="rt-feature-card__top">
+              <div class="rt-feature-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77 5.82 21.02 7 14.14 2 9.27l6.91-1.01L12 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+              </div>
+              <span class="rt-feature-card__eyebrow">Formación de Clase Mundial</span>
+            </div>
+            <h3 class="rt-feature-card__title">Certificación en Buenas Prácticas</h3>
+            <p class="rt-feature-card__body">Todos nuestros programas están alineados con los estándares GMP, FDA y INVIMA, garantizando que su equipo opere con los más altos estándares de la industria farmacéutica global.</p>
+            <div class="rt-feature-pillars">
+              <div class="rt-feature-pillar">
+                <div class="rt-feature-pillar__icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+                </div>
+                <span>GMP Alineado</span>
+              </div>
+              <div class="rt-feature-pillar">
+                <div class="rt-feature-pillar__icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </div>
+                <span>FDA Compliant</span>
+              </div>
+              <div class="rt-feature-pillar">
+                <div class="rt-feature-pillar__icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </div>
+                <span>In-Plant Team</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════
+       SECCIÓN 3: MANTENIMIENTO PREVENTIVO
+       ═══════════════════════════════════════════════════ -->
+  <section class="pg-section" aria-labelledby="s3-title">
+    <div class="pg-inner">
+
+      <p class="eyebrow-shimmer reveal">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77 5.82 21.02 7 14.14 2 9.27l6.91-1.01L12 2z" fill="currentColor"/></svg>
+        Mantenimiento · Protocolos Estandarizados
+      </p>
+
+      <div class="rt-maintenance-header reveal stagger-1">
+        <h2 id="s3-title" class="pg-title">Optimización del Ciclo de <em class="text-primary">Vida del Equipo.</em></h2>
+        <p class="pg-body">Un mantenimiento adecuado reduce drásticamente los costos operativos a largo plazo. Implementamos protocolos estandarizados de clase mundial adaptados a su maquinaria.</p>
+      </div>
+
+      <div class="rt-protocol-grid">
+
+        <!-- Card 1: 7 Pasos con step-tracker visual -->
+        <div class="rt-protocol-card reveal-left stagger-2">
+          <div class="rt-protocol-card__eyebrow">
+            <span class="rt-protocol-pill rt-protocol-pill--blue">Punzonería · I Holland</span>
+          </div>
+          <h3 class="rt-protocol-card__title">Los 7 Pasos PharmaCare®</h3>
+          <p class="rt-protocol-card__text">El estándar de oro en cuidado de herramientas de compresión, aplicado paso a paso en sus instalaciones.</p>
+
+          <!-- STEP TRACKER VISUAL -->
+          <ol class="rt-step-tracker" aria-label="7 Pasos PharmaCare">
+            <li class="rt-step-item">
+              <div class="rt-step-item__indicator">
+                <span class="rt-step-circle">1</span>
+                <span class="rt-step-line" aria-hidden="true"></span>
+              </div>
+              <div class="rt-step-item__body">
+                <p class="rt-step-item__name">Limpiar</p>
+                <p class="rt-step-item__detail">Ultrasonido especializado</p>
+              </div>
+            </li>
+            <li class="rt-step-item">
+              <div class="rt-step-item__indicator">
+                <span class="rt-step-circle">2</span>
+                <span class="rt-step-line" aria-hidden="true"></span>
+              </div>
+              <div class="rt-step-item__body">
+                <p class="rt-step-item__name">Evaluar</p>
+                <p class="rt-step-item__detail">Inspección visual y dimensional</p>
+              </div>
+            </li>
+            <li class="rt-step-item">
+              <div class="rt-step-item__indicator">
+                <span class="rt-step-circle">3</span>
+                <span class="rt-step-line" aria-hidden="true"></span>
+              </div>
+              <div class="rt-step-item__body">
+                <p class="rt-step-item__name">Reparar</p>
+                <p class="rt-step-item__detail">Pulido correctivo certificado</p>
+              </div>
+            </li>
+            <li class="rt-step-item">
+              <div class="rt-step-item__indicator">
+                <span class="rt-step-circle">4</span>
+                <span class="rt-step-line" aria-hidden="true"></span>
+              </div>
+              <div class="rt-step-item__body">
+                <p class="rt-step-item__name">Medir</p>
+                <p class="rt-step-item__detail">Control dimensional de precisión</p>
+              </div>
+            </li>
+            <li class="rt-step-item">
+              <div class="rt-step-item__indicator">
+                <span class="rt-step-circle">5</span>
+                <span class="rt-step-line" aria-hidden="true"></span>
+              </div>
+              <div class="rt-step-item__body">
+                <p class="rt-step-item__name">Pulir</p>
+                <p class="rt-step-item__detail">Acabado de espejo farmacéutico</p>
+              </div>
+            </li>
+            <li class="rt-step-item">
+              <div class="rt-step-item__indicator">
+                <span class="rt-step-circle">6</span>
+                <span class="rt-step-line" aria-hidden="true"></span>
+              </div>
+              <div class="rt-step-item__body">
+                <p class="rt-step-item__name">Lubricar</p>
+                <p class="rt-step-item__detail">Protección activa anticorrosión</p>
+              </div>
+            </li>
+            <li class="rt-step-item rt-step-item--last">
+              <div class="rt-step-item__indicator">
+                <span class="rt-step-circle rt-step-circle--final">7</span>
+              </div>
+              <div class="rt-step-item__body">
+                <p class="rt-step-item__name">Almacenar</p>
+                <p class="rt-step-item__detail">Resguardo seguro y trazable</p>
+              </div>
+            </li>
+          </ol>
+          <a class="rt-protocol-card__link" href="/punzoneria">
+            Ver el proceso completo
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+          </a>
+        </div>
+
+        <!-- Card 2: Filamatic checklist -->
+        <div class="rt-protocol-card reveal-right stagger-3">
+          <div class="rt-protocol-card__eyebrow">
+            <span class="rt-protocol-pill rt-protocol-pill--teal">Llenadoras · Filamatic</span>
+          </div>
+          <h3 class="rt-protocol-card__title">Mantenimiento Filamatic</h3>
+          <p class="rt-protocol-card__text">Verificación integral de todos los sistemas críticos de los equipos de llenado de líquidos para garantizar la dosificación precisa y el cumplimiento GMP.</p>
+          <ul class="rt-check-list">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Inspección y reemplazo de <strong>sellos y juntas tóricas</strong></span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Calibración de <strong>válvulas de dosificación</strong></span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span><strong>Lubricación controlada</strong> de componentes mecánicos</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Verificación del sistema neumático y eléctrico</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Pruebas de precisión volumétrica post-mantenimiento</span>
+            </li>
+          </ul>
+
+          <!-- Decorative animated SVG trend line -->
+          <div class="rt-trend-wrap" aria-hidden="true">
+            <svg class="rt-trend-svg" viewBox="0 0 280 60" fill="none">
+              <polyline class="rt-trend-line" points="0,50 40,38 80,42 120,20 160,28 200,10 240,15 280,4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle class="rt-trend-dot" cx="280" cy="4" r="4" fill="currentColor"/>
+            </svg>
+            <span class="rt-trend-label">Eficiencia operativa ↑</span>
+          </div>
+
+          <a class="rt-protocol-card__link" href="/llenadoras">
+            Ver equipos Filamatic
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════
+       SECCIÓN 4: AUDITORÍA Y TRAZABILIDAD
+       ═══════════════════════════════════════════════════ -->
+  <section class="pg-section pg-section--alt" aria-labelledby="s4-title">
+    <div class="pg-inner">
+
+      <p class="eyebrow-shimmer reveal">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77 5.82 21.02 7 14.14 2 9.27l6.91-1.01L12 2z" fill="currentColor"/></svg>
+        Auditoría y Trazabilidad · Cumplimiento FDA / INVIMA
+      </p>
+
+      <div class="rt-audit-layout">
+        <div class="rt-audit-text reveal stagger-1">
+          <h2 id="s4-title" class="pg-title">Soluciones Digitales y <em class="text-primary">Cumplimiento FDA.</em></h2>
+          <p class="pg-body">Le ayudamos a integrar herramientas tecnológicas para que su planta supere las auditorías de calidad más exigentes de INVIMA y la FDA.</p>
+        </div>
+
+        <div class="rt-audit-cards reveal stagger-2">
+
+          <!-- Audit card with SCAN-LINE hover effect -->
+          <div class="rt-audit-card scan-card">
+            <div class="rt-audit-card__scan" aria-hidden="true"></div>
+            <div class="rt-audit-card__icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="2"/><path d="M8 10h8M8 14h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <p class="rt-audit-card__title">Software IH-TMS</p>
+              <p class="rt-audit-card__text">Implementación y puesta en marcha del sistema IH-TMS de I Holland para trazabilidad total del ciclo de vida de sus herramientas de compresión.</p>
+              <div class="rt-audit-card__chips">
+                <span class="m3-chip">Trazabilidad Total</span>
+                <span class="m3-chip">Ciclo de Vida</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="rt-audit-card scan-card">
+            <div class="rt-audit-card__scan" aria-hidden="true"></div>
+            <div class="rt-audit-card__icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <p class="rt-audit-card__title">Cumplimiento CFR 21 Parte 11</p>
+              <p class="rt-audit-card__text">Asesoría completa para garantizar que sus registros electrónicos y firmas digitales sean íntegros, seguros y auditables según los estándares de la FDA.</p>
+              <div class="rt-audit-card__chips">
+                <span class="m3-chip">Firmas Digitales</span>
+                <span class="m3-chip">Registros Electrónicos</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- IH-TMS Highlight banner with counters -->
+        <div class="rt-audit-banner reveal stagger-3">
+          <div class="rt-audit-banner__icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="rt-audit-banner__content">
+            <div class="rt-audit-banner__stats">
+              <span class="m3-chip" style="background:rgba(0,82,154,.15);color:var(--md-primary);border:1px solid var(--md-primary);">100% Trazabilidad</span>
+              <span class="m3-chip" style="background:rgba(0,82,154,.15);color:var(--md-primary);border:1px solid var(--md-primary);">CFR 21 Parte 11</span>
+              <span class="m3-chip" style="background:rgba(0,82,154,.15);color:var(--md-primary);border:1px solid var(--md-primary);">INVIMA Ready</span>
+            </div>
+            <p class="rt-audit-banner__title">Sistema IH-TMS — CFR 21 Parte 11 Compliant</p>
+            <p class="rt-audit-banner__body">El software IH-TMS incorpora gestión documental, firmas electrónicas y trazabilidad completa para superar las inspecciones INVIMA y FDA con total confianza. Reduzca tiempos de inactividad y mejore la productividad general de sus operaciones.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════
+       SECCIÓN 5: CTA FINAL
+       ═══════════════════════════════════════════════════ -->
+  <section class="pg-section pg-section--blue" id="contacto">
+    <div class="pg-inner">
+      <div class="blue-cta reveal">
+        <p class="eyebrow-shimmer" style="background:rgba(158,202,255,.12);border-color:rgba(158,202,255,.28);color:#9ECAFF;animation:none;">
+          Diagnóstico Sin Costo · Technopharmed
+        </p>
+        <h2 class="blue-cta__title">¿Enfrenta un Desafío Técnico<br/>en su Producción?</h2>
+        <p class="blue-cta__body">Déjenos ayudarle. Nuestro equipo comercial y técnico está listo para realizar un diagnóstico de sus procesos y proponer la solución más eficiente para su operación.</p>
+        <div class="chip-row" style="justify-content:center; margin-bottom:2rem;">
+          <span class="m3-chip" style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;">Diagnóstico in situ</span>
+          <span class="m3-chip" style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;">Capacitación técnica</span>
+          <span class="m3-chip" style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;">Mantenimiento preventivo</span>
+          <span class="m3-chip" style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;">Cumplimiento normativo</span>
+        </div>
+        <md-filled-button href="/contactenos">Agendar una Visita Técnica</md-filled-button>
+      </div>
+    </div>
+  </section>
 
 </Layout>
 
+
+<!-- ═════════════════════════════════════
+     JAVASCRIPT: Animations & Interactions
+═════════════════════════════════════ -->
+<script>
+  /* ══ SVG TREND LINE draw on scroll ══ */
+  const trendLine = document.querySelector<SVGPolylineElement>('.rt-trend-line');
+  if (trendLine) {
+    const len = trendLine.getTotalLength?.() ?? 400;
+    trendLine.style.strokeDasharray  = String(len);
+    trendLine.style.strokeDashoffset = String(len);
+    const trendObs = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        trendLine.style.transition = 'stroke-dashoffset 1.8s cubic-bezier(0.4,0,0.2,1)';
+        trendLine.style.strokeDashoffset = '0';
+        trendObs.disconnect();
+      }
+    }, { threshold: 0.4 });
+    trendObs.observe(trendLine);
+  }
+
+  /* ══ STEP TRACKER — stagger entrance ══ */
+  const stepItems = document.querySelectorAll<HTMLElement>('.rt-step-item');
+  const stepObs = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+      stepItems.forEach((item, i) => {
+        setTimeout(() => item.classList.add('step-visible'), i * 80);
+      });
+      stepObs.disconnect();
+    }
+  }, { threshold: 0.2 });
+  if (stepItems.length) stepObs.observe(stepItems[0].closest('ol') as Element);
+</script>
+
+
 <style is:global>
-  .development-page {
-    min-height: 60vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #fff;
+  /* ──────────────────────────────────────────────────
+     RESPALDO TÉCNICO — Estilos específicos de esta página
+     (Las utilidades compartidas viven en Layout.astro)
+  ────────────────────────────────────────────────── */
+
+  /* ──────────────────────────────────────────────────
+     HERO
+  ────────────────────────────────────────────────── */
+  .rt-hero {
+    position: relative; min-height: 72vh;
+    display: flex; align-items: center; justify-content: center; overflow: hidden;
+    background:
+      radial-gradient(ellipse 120% 80% at 50% 100%, rgba(0,82,154,0.35) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 50% 0%,   rgba(0,53,112,0.5)  0%, transparent 70%),
+      linear-gradient(180deg, #001D36 0%, #002D5A 50%, #003570 100%);
+  }
+  .rt-hero__grid-bg {
+    position: absolute; inset: 0; pointer-events: none; z-index: 0;
+    background-image:
+      radial-gradient(circle, rgba(158,202,255,0.18) 1px, transparent 1px),
+      radial-gradient(circle, rgba(158,202,255,0.08) 1px, transparent 1px);
+    background-size: 40px 40px, 80px 80px; background-position: 0 0, 20px 20px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 80%);
+  }
+  .rt-hero__center {
+    position: relative; z-index: 2;
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+    gap: 1.75rem; max-width: 760px; padding: 5rem 2rem 6rem; width: 100%;
+  }
+  .rt-icon-wrap { position: relative; width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; margin-bottom: .5rem; }
+  .rt-icon-ring { position: absolute; border-radius: 50%; border-style: solid; border-color: rgba(158,202,255,0.25); }
+  .rt-icon-ring--outer { inset: -16px; border-width: 1.5px; animation: rtIconPulse 3s ease-in-out infinite; }
+  .rt-icon-ring--mid   { inset: -6px;  border-width: 1px; border-style: dashed; animation: rtIconPulse 3s ease-in-out infinite .5s, rtSpin 20s linear infinite; }
+  .rt-icon-badge {
+    width: 90px; height: 90px; border-radius: 28px;
+    background: linear-gradient(135deg, rgba(0,82,154,0.6) 0%, rgba(0,53,112,0.9) 100%);
+    backdrop-filter: blur(12px); border: 1.5px solid rgba(158,202,255,0.3);
+    box-shadow: 0 0 0 6px rgba(0,82,154,0.15), 0 16px 40px rgba(0,0,0,0.3);
+    display: flex; align-items: center; justify-content: center; color: #9ECAFF;
+    animation: rtIconFloat 4s ease-in-out infinite;
+  }
+  /* @keyframes rtIconPulse, rtIconFloat, rtSpin, rtFadeUp → definidos en Layout.astro */
+
+  .rt-eyebrow {
+    display: inline-flex; align-items: center; gap: .5rem;
+    background: rgba(158,202,255,.1); border: 1px solid rgba(158,202,255,.25);
+    padding: .4rem 1.2rem; border-radius: 9999px;
+    color: #9ECAFF; font-size: .72rem; font-weight: 600;
+    letter-spacing: .14em; text-transform: uppercase; backdrop-filter: blur(8px);
+    animation: rtFadeUp .6s cubic-bezier(0,0,0,1) .2s both;
+  }
+  .rt-title {
+    font-size: clamp(2.4rem, 5.5vw, 3.8rem); font-weight: 900; line-height: 1.08;
+    color: #fff; letter-spacing: -.02em;
+    animation: rtFadeUp .6s cubic-bezier(0,0,0,1) .35s both;
+  }
+  .rt-title em { font-style: normal; color: #9ECAFF; display: block; }
+  .rt-subtitle {
+    font-size: 1.05rem; color: rgba(255,255,255,.72); line-height: 1.78; max-width: 580px;
+    animation: rtFadeUp .6s cubic-bezier(0,0,0,1) .5s both;
+  }
+  .rt-hero-stats {
+    display: flex; align-items: center;
+    background: rgba(255,255,255,.06); backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,.12); border-radius: 9999px;
+    padding: .7rem 1.5rem; flex-wrap: wrap; justify-content: center;
+    animation: rtFadeUp .6s cubic-bezier(0,0,0,1) .65s both;
+  }
+  .rt-hero-stat { display: flex; flex-direction: column; align-items: center; gap: .18rem; padding: .3rem 1.1rem; color: #9ECAFF; }
+  .rt-hero-stat svg { opacity: .75; }
+  .rt-hero-stat__val { font-size: 1.25rem; font-weight: 800; color: #fff; line-height: 1; }
+  .rt-hero-stat__lbl { font-size: .62rem; font-weight: 700; color: rgba(255,255,255,.5); letter-spacing: .1em; text-transform: uppercase; }
+  .rt-hero-stat-div  { width: 1px; height: 38px; background: rgba(255,255,255,.15); flex-shrink: 0; }
+  .rt-hero-actions {
+    display: flex; gap: .75rem; flex-wrap: wrap; justify-content: center;
+    animation: rtFadeUp .6s cubic-bezier(0,0,0,1) .8s both;
+  }
+  .rt-hero-actions md-filled-button {
+    --md-filled-button-container-color: #fff;
+    --md-filled-button-hover-container-color: #F0F4F8;
+    --md-filled-button-label-text-color: var(--md-primary);
+    --md-filled-button-hover-label-text-color: var(--md-primary);
+    --md-filled-button-container-shape: 9999px;
+    --md-filled-button-leading-space: 2.5rem;
+    --md-filled-button-trailing-space: 2.5rem;
+  }
+  .rt-hero-actions md-outlined-button {
+    --md-outlined-button-outline-color: rgba(255,255,255,.4);
+    --md-outlined-button-label-text-color: #fff;
+    --md-outlined-button-hover-outline-color: rgba(255,255,255,.7);
+    --md-outlined-button-hover-label-text-color: #fff;
+    --md-outlined-button-container-shape: 9999px;
+    --md-outlined-button-leading-space: 2rem;
+    --md-outlined-button-trailing-space: 2rem;
+  }
+  .rt-hero__wave { position: absolute; bottom: -1px; left: 0; right: 0; z-index: 5; pointer-events: none; }
+  .rt-hero__wave svg { display: block; width: 100%; }
+
+  /* ──────────────────────────────────────────────────
+     S1 — METRIC COUNTER ROW
+  ────────────────────────────────────────────────── */
+  .rt-metric-row {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+  @media (max-width: 768px) { .rt-metric-row { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 420px) { .rt-metric-row { grid-template-columns: 1fr; } }
+
+  .rt-metric-card {
+    background: var(--md-primary-container);
+    border: 1px solid var(--md-primary);
+    border-radius: var(--r-xl, 1.25rem);
+    padding: 1.5rem 1.25rem;
+    display: flex; flex-direction: column; align-items: center; gap: .5rem; text-align: center;
+    transition: transform 300ms, box-shadow 300ms;
+    position: relative; overflow: hidden;
+  }
+  .rt-metric-card::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.06) 100%);
+    pointer-events: none;
+  }
+  .rt-metric-card:hover { transform: translateY(-4px); box-shadow: var(--el-3); }
+  .rt-metric-card__icon {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--md-primary); color: var(--md-on-primary);
+    display: flex; align-items: center; justify-content: center;
+    animation: globalGlow 3s ease-in-out infinite;
+  }
+  /* @keyframes globalGlow → definido en Layout.astro */
+  .rt-metric-card__value { font-size: 1.8rem; font-weight: 900; color: var(--md-on-primary-container); line-height: 1; letter-spacing: -.02em; }
+  .rt-metric-card__label { font-size: .78rem; font-weight: 600; color: color-mix(in srgb, var(--md-on-primary-container) 70%, transparent); text-align: center; }
+
+  /* ──────────────────────────────────────────────────
+     S1 — SERVICE CARDS
+  ────────────────────────────────────────────────── */
+  .rt-s1-header { max-width: 720px; margin-bottom: 2rem; }
+  .rt-service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  @media (max-width: 900px) { .rt-service-grid { grid-template-columns: 1fr; } }
+
+  .rt-service-card {
+    background: var(--md-surface); border: 1px solid var(--md-outline-variant);
+    border-radius: var(--r-xl, 1.25rem); padding: 2rem;
+    box-shadow: var(--el-1); display: flex; flex-direction: column; gap: 1rem;
+    transition: box-shadow 300ms, transform 300ms;
+    position: relative; overflow: hidden;
+    perspective: 800px; transform-style: preserve-3d;
+  }
+  .rt-service-card::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--md-primary), var(--md-tertiary, #006876));
+    opacity: 0; transition: opacity 300ms;
+  }
+  .rt-service-card:hover::after { opacity: 1; }
+
+  .rt-service-card--accent { background: var(--md-primary-container); border-color: var(--md-primary); }
+  .rt-service-card--accent .rt-service-card__title { color: var(--md-on-primary-container); }
+  .rt-service-card--accent .rt-service-card__text  { color: color-mix(in srgb, var(--md-on-primary-container) 80%, transparent); }
+  .rt-service-card--accent .rt-service-card__icon  { background: var(--md-primary); color: var(--md-on-primary); }
+  .rt-service-card--accent .m3-chip { background: rgba(0,82,154,.12); color: var(--md-on-primary-container); border: 1px solid rgba(0,82,154,.2); }
+
+  .rt-service-card__top   { display: flex; justify-content: space-between; align-items: flex-start; }
+  .rt-service-card__icon  { width: 52px; height: 52px; border-radius: var(--r-md); background: var(--md-primary-container); color: var(--md-primary); display: flex; align-items: center; justify-content: center; }
+  .rt-service-card__num   { font-size: .7rem; font-weight: 800; letter-spacing: .12em; color: var(--md-on-surface-variant); opacity: .4; }
+  .rt-service-card__title { font-size: 1.1rem; font-weight: 800; color: var(--md-on-surface); letter-spacing: -.01em; margin: 0; }
+  .rt-service-card__text  { font-size: .9rem; color: var(--md-on-surface-variant); line-height: 1.7; margin: 0; flex: 1; }
+  .rt-service-card__chips { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: auto; }
+
+  /* ──────────────────────────────────────────────────
+     S2 — TRAINING: 2-COLUMN + FEATURE CARD
+  ────────────────────────────────────────────────── */
+  .rt-s2-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+  @media (max-width: 860px) { .rt-s2-layout { grid-template-columns: 1fr; } .rt-s2-feature { display: none; } }
+
+  .rt-modules-list { display: flex; flex-direction: column; gap: .75rem; margin-top: 1.5rem; }
+  .rt-module {
+    display: flex; gap: 1.25rem; align-items: flex-start;
+    background: var(--md-surface); border: 1px solid var(--md-outline-variant);
+    border-left: 4px solid var(--md-primary);
+    border-radius: 0 var(--r-lg) var(--r-lg) 0; padding: 1.25rem 1.5rem;
+    box-shadow: var(--el-1);
+    transition: transform 250ms, box-shadow 250ms, border-left-color 250ms, background 250ms;
+  }
+  .rt-module:hover { transform: translateX(5px); box-shadow: var(--el-2); border-left-color: var(--md-tertiary, #006876); background: var(--md-surface-container); }
+  .rt-module__number { font-size: 1.5rem; font-weight: 900; color: var(--md-primary); opacity: .5; line-height: 1; min-width: 2.2rem; flex-shrink: 0; transition: opacity 200ms; }
+  .rt-module:hover .rt-module__number { opacity: 1; }
+  .rt-module__header { display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; margin-bottom: .3rem; }
+  .rt-module__title  { font-size: .95rem; font-weight: 800; color: var(--md-on-surface); margin: 0; }
+  .rt-module__chip   { font-size: .65rem !important; padding: .15rem .6rem !important; }
+  .rt-module__text   { font-size: .88rem; color: var(--md-on-surface-variant); line-height: 1.62; margin: 0; }
+
+  /* Feature card right-side */
+  .rt-feature-card {
+    background: var(--md-surface-container-highest, #E6EAEF);
+    border: 1px solid var(--md-outline-variant);
+    border-radius: var(--r-xl, 1.25rem);
     padding: 2rem;
+    box-shadow: var(--el-2);
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column; gap: 1.25rem;
+    transition: box-shadow 300ms, transform 300ms;
   }
-  
-  .development-content {
-    text-align: center;
+  .rt-feature-card:hover { transform: translateY(-4px); box-shadow: var(--el-3); }
+  .rt-feature-card__glow {
+    position: absolute; width: 250px; height: 250px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,82,154,.12) 0%, transparent 70%);
+    top: -60px; right: -60px; pointer-events: none;
+    animation: rtIconFloat 5s ease-in-out infinite;
   }
-  
-  .development-logo {
-    width: 240px;
-    height: auto;
-    display: block;
-    margin: 0 auto;
+  .rt-feature-card__top { display: flex; align-items: center; gap: 1rem; }
+  .rt-feature-icon {
+    width: 56px; height: 56px; border-radius: var(--r-md);
+    background: var(--md-primary); color: var(--md-on-primary);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
   }
-  
-  .development-title {
-    font-size: clamp(1.8rem, 4vw, 2.8rem);
-    font-weight: 800;
-    color: var(--md-on-surface);
-    line-height: 1.2;
-    letter-spacing: -.02em;
-    margin-top: 0;
-    padding: 0;
+  .rt-feature-card__eyebrow { font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--md-primary); }
+  .rt-feature-card__title { font-size: 1.2rem; font-weight: 800; color: var(--md-on-surface); margin: 0; letter-spacing: -.01em; }
+  .rt-feature-card__body { font-size: .9rem; color: var(--md-on-surface-variant); line-height: 1.7; margin: 0; }
+
+  .rt-feature-pillars { display: flex; flex-direction: column; gap: .6rem; margin-top: .5rem; }
+  .rt-feature-pillar {
+    display: flex; align-items: center; gap: .75rem;
+    padding: .75rem 1rem; border-radius: var(--r-md);
+    background: var(--md-surface); border: 1px solid var(--md-outline-variant);
+    font-size: .88rem; font-weight: 600; color: var(--md-on-surface);
+    transition: background 200ms, border-color 200ms, transform 200ms;
   }
+  .rt-feature-pillar:hover { background: var(--md-primary-container); border-color: var(--md-primary); transform: translateX(3px); }
+  .rt-feature-pillar__icon {
+    width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
+    background: var(--md-primary-container); color: var(--md-primary);
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  /* ──────────────────────────────────────────────────
+     S3 — PROTOCOL CARDS & STEP TRACKER
+  ────────────────────────────────────────────────── */
+  .rt-maintenance-header { max-width: 720px; margin-bottom: 2.5rem; }
+  .rt-protocol-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  @media (max-width: 768px) { .rt-protocol-grid { grid-template-columns: 1fr; } }
+
+  .rt-protocol-card {
+    background: var(--md-surface); border: 1px solid var(--md-outline-variant);
+    border-radius: var(--r-xl, 1.25rem); padding: 2rem 2rem 1.75rem;
+    box-shadow: var(--el-1); display: flex; flex-direction: column; gap: 1rem;
+    transition: box-shadow 300ms, transform 300ms;
+    position: relative; overflow: hidden;
+  }
+  /* Animated gradient border on hover — same as sol-card */
+  .rt-protocol-card::before {
+    content: ''; position: absolute; inset: -2px; border-radius: calc(var(--r-xl, 1.25rem) + 2px);
+    background: linear-gradient(135deg, var(--md-primary), var(--md-tertiary, #006876), var(--md-secondary, #616200), var(--md-primary));
+    background-size: 300% 300%; opacity: 0; z-index: -1;
+    animation: gradShift 3s ease infinite;
+    transition: opacity 300ms;
+  }
+  /* @keyframes gradShift → definido en Layout.astro */
+  .rt-protocol-card:hover { box-shadow: var(--el-3); transform: translateY(-4px); }
+  .rt-protocol-card:hover::before { opacity: 1; }
+
+  .rt-protocol-card__eyebrow { display: flex; }
+  .rt-protocol-pill { font-size: .7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: .3rem .9rem; border-radius: 9999px; border: 1px solid; }
+  .rt-protocol-pill--blue { background: var(--md-primary-container); color: var(--md-on-primary-container); border-color: var(--md-primary); }
+  .rt-protocol-pill--teal { background: #E0F2F1; color: #00695C; border-color: #4DB6AC; }
+  .rt-protocol-card__title { font-size: 1.2rem; font-weight: 800; color: var(--md-on-surface); margin: 0; letter-spacing: -.01em; }
+  .rt-protocol-card__text  { font-size: .9rem; color: var(--md-on-surface-variant); line-height: 1.7; margin: 0; }
+  .rt-protocol-card__link {
+    display: inline-flex; align-items: center; gap: .4rem;
+    font-size: .82rem; font-weight: 700; color: var(--md-primary);
+    text-decoration: none; letter-spacing: .05em; transition: gap 200ms; margin-top: auto;
+  }
+  .rt-protocol-card__link:hover { gap: .7rem; }
+
+  /* ── Step Tracker ── */
+  .rt-step-tracker { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0; }
+  .rt-step-item {
+    display: flex; gap: 1rem; align-items: flex-start;
+    opacity: 0; transform: translateX(-16px);
+    transition: opacity 350ms cubic-bezier(0,0,0,1), transform 350ms cubic-bezier(0,0,0,1);
+  }
+  .rt-step-item.step-visible { opacity: 1; transform: translateX(0); }
+  .rt-step-item__indicator { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; }
+  .rt-step-circle {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--md-primary-container); color: var(--md-primary);
+    border: 2px solid var(--md-primary);
+    display: flex; align-items: center; justify-content: center;
+    font-size: .75rem; font-weight: 800; line-height: 1;
+    transition: background 250ms, transform 250ms, box-shadow 250ms;
+    flex-shrink: 0;
+  }
+  .rt-step-item:hover .rt-step-circle {
+    background: var(--md-primary); color: var(--md-on-primary);
+    transform: scale(1.2);
+    box-shadow: 0 0 0 6px rgba(0,82,154,0.15);
+  }
+  .rt-step-circle--final { background: var(--md-primary); color: var(--md-on-primary); }
+  .rt-step-line {
+    width: 2px; flex: 1; min-height: 20px;
+    background: linear-gradient(to bottom, var(--md-primary), rgba(0,82,154,.2));
+    margin: 4px 0;
+  }
+  .rt-step-item__body { padding: .2rem 0 1rem; }
+  .rt-step-item--last .rt-step-item__body { padding-bottom: 0; }
+  .rt-step-item__name   { font-size: .9rem; font-weight: 800; color: var(--md-on-surface); margin: 0 0 .1rem; }
+  .rt-step-item__detail { font-size: .8rem; color: var(--md-on-surface-variant); margin: 0; }
+
+  /* ── Trend line ── */
+  .rt-trend-wrap {
+    background: var(--md-surface-container); border: 1px solid var(--md-outline-variant);
+    border-radius: var(--r-md); padding: .75rem 1rem;
+    display: flex; flex-direction: column; gap: .4rem;
+  }
+  .rt-trend-svg { width: 100%; height: 60px; color: var(--md-primary); }
+  .rt-trend-line { stroke-dasharray: 400; stroke-dashoffset: 400; }
+  .rt-trend-dot  { opacity: 0; transition: opacity 300ms 1.8s; }
+  .rt-trend-svg:has(.rt-trend-line[style*="dashoffset: 0"]) .rt-trend-dot { opacity: 1; }
+  .rt-trend-label { font-size: .75rem; font-weight: 600; color: var(--md-primary); letter-spacing: .04em; }
+
+  /* Checklist */
+  .rt-check-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .55rem; flex: 1; }
+  .rt-check-list li { display: flex; align-items: flex-start; gap: .75rem; font-size: .88rem; color: var(--md-on-surface-variant); line-height: 1.55; transition: color 200ms; }
+  .rt-check-list li:hover { color: var(--md-on-surface); }
+  .rt-check-list li svg { color: #00897B; flex-shrink: 0; margin-top: .15rem; }
+
+  /* ──────────────────────────────────────────────────
+     S4 — AUDIT CARDS WITH SCAN LINE
+  ────────────────────────────────────────────────── */
+  .rt-audit-layout { display: flex; flex-direction: column; gap: 2rem; }
+  .rt-audit-text   { max-width: 680px; }
+  .rt-audit-cards  { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+  @media (max-width: 640px) { .rt-audit-cards { grid-template-columns: 1fr; } }
+
+  .rt-audit-card {
+    display: flex; gap: 1.25rem; align-items: flex-start;
+    background: var(--md-surface); border: 1px solid var(--md-outline-variant);
+    border-radius: var(--r-xl); padding: 1.75rem; box-shadow: var(--el-1);
+    transition: box-shadow 300ms, transform 300ms;
+    position: relative; overflow: hidden;
+  }
+  .rt-audit-card:hover { box-shadow: var(--el-2); transform: translateY(-3px); }
+
+  /* Scan line effect */
+  .rt-audit-card__scan {
+    position: absolute; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--md-primary), transparent);
+    top: 0; opacity: 0;
+    transition: opacity 200ms;
+    pointer-events: none;
+  }
+  .scan-card:hover .rt-audit-card__scan {
+    opacity: 1;
+    animation: scanDown 1.2s ease-in-out;
+  }
+  @keyframes scanDown {
+    0%   { top: 0%;   opacity: 1; }
+    80%  { top: 95%;  opacity: .8; }
+    100% { top: 100%; opacity: 0; }
+  }
+
+  .rt-audit-card__icon { width: 52px; height: 52px; flex-shrink: 0; border-radius: var(--r-md); background: var(--md-primary-container); color: var(--md-primary); display: flex; align-items: center; justify-content: center; }
+  .rt-audit-card__title { font-size: 1rem; font-weight: 800; color: var(--md-on-surface); margin: 0 0 .5rem; }
+  .rt-audit-card__text  { font-size: .88rem; color: var(--md-on-surface-variant); line-height: 1.68; margin: 0 0 .75rem; }
+  .rt-audit-card__chips { display: flex; flex-wrap: wrap; gap: .4rem; }
+
+  /* Banner */
+  .rt-audit-banner {
+    display: flex; gap: 1.25rem; align-items: flex-start;
+    background: var(--md-primary-container); border: 1px solid var(--md-primary);
+    border-radius: var(--r-xl); padding: 1.75rem 2rem;
+    transition: box-shadow 300ms, transform 300ms;
+  }
+  .rt-audit-banner:hover { box-shadow: var(--el-2); transform: translateY(-2px); }
+  .rt-audit-banner__icon {
+    width: 52px; height: 52px; flex-shrink: 0; border-radius: var(--r-md);
+    background: var(--md-primary); color: var(--md-on-primary);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .rt-audit-banner__content { display: flex; flex-direction: column; gap: .6rem; }
+  .rt-audit-banner__stats   { display: flex; flex-wrap: wrap; gap: .4rem; }
+  .rt-audit-banner__title   { font-size: 1rem; font-weight: 800; color: var(--md-on-primary-container); margin: 0; }
+  .rt-audit-banner__body    { font-size: .9rem; color: color-mix(in srgb, var(--md-on-primary-container) 80%, transparent); line-height: 1.7; margin: 0; }
+
+  /* .blue-cta, .blue-cta__title, .blue-cta__body → definidos en Layout.astro */
 </style>

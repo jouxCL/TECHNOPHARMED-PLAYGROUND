@@ -247,7 +247,7 @@ import Layout from '../layouts/Layout.astro';
     
 
     <script>
-      /* ══ HERO PARTICLE CANVAS – Enhanced ══ */
+      /* ══ HERO PARTICLE CANVAS ══ */
       const heroEl = document.querySelector('.hero') as HTMLElement;
       if (heroEl) {
         const canvas = document.createElement('canvas');
@@ -261,7 +261,6 @@ import Layout from '../layouts/Layout.astro';
         resize();
         window.addEventListener('resize', resize);
 
-        /* Mouse tracking for repulsion */
         const mouse = { x: -9999, y: -9999 };
         heroEl.addEventListener('mousemove', (e: MouseEvent) => {
           const rect = heroEl.getBoundingClientRect();
@@ -275,9 +274,9 @@ import Layout from '../layouts/Layout.astro';
           baseR: number; r: number;
           vy: number; vx: number;
           alpha: number;
-          phase: number; /* for sine pulse */
+          phase: number;
           speed: number;
-          hue: number;   /* slight color tint variation */
+          hue: number;
         }
         const COUNT = 80;
         const particles: Particle[] = Array.from({ length: COUNT }, () => ({
@@ -290,7 +289,7 @@ import Layout from '../layouts/Layout.astro';
           alpha: Math.random() * 0.55 + 0.15,
           phase: Math.random() * Math.PI * 2,
           speed: Math.random() * 0.02 + 0.015,
-          hue: Math.random() * 30 - 15, /* -15 to +15 degrees around blue */
+          hue: Math.random() * 30 - 15,
         }));
 
         let tick = 0;
@@ -302,7 +301,6 @@ import Layout from '../layouts/Layout.astro';
           tick++;
           ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-          /* ─ Draw connecting lines ─ */
           for (let i = 0; i < particles.length; i++) {
             for (let j = i + 1; j < particles.length; j++) {
               const dx = particles[i].x - particles[j].x;
@@ -320,13 +318,10 @@ import Layout from '../layouts/Layout.astro';
             }
           }
 
-          /* ─ Draw & move particles ─ */
           particles.forEach(p => {
-            /* Pulsing radius via sine wave */
             p.phase += p.speed;
             p.r = p.baseR + Math.sin(p.phase) * (p.baseR * 0.5);
 
-            /* Mouse repulsion */
             const dx = p.x - mouse.x;
             const dy = p.y - mouse.y;
             const dist = Math.sqrt(dx * dx + dy * dy);
@@ -336,19 +331,15 @@ import Layout from '../layouts/Layout.astro';
               p.y += (dy / dist) * force;
             }
 
-            /* Movement */
             p.y += p.vy;
             p.x += p.vx;
             if (p.y < -10) { p.y = canvas.height + 10; p.x = Math.random() * canvas.width; }
             if (p.x < -10) p.x = canvas.width + 10;
             if (p.x > canvas.width + 10) p.x = -10;
 
-            /* Glow via shadowBlur */
             ctx.save();
             ctx.shadowColor = `hsla(${210 + p.hue}, 100%, 80%, 0.7)`;
             ctx.shadowBlur = p.r * 5;
-
-            /* Draw circle */
             ctx.beginPath();
             ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
             ctx.fillStyle = `hsla(${210 + p.hue}, 100%, 85%, ${p.alpha})`;
@@ -360,19 +351,7 @@ import Layout from '../layouts/Layout.astro';
         };
         animate();
       }
-
-      /* ══ CARD TILT (subtle 3D perspective on mouse move) ══ */
-      document.querySelectorAll<HTMLElement>('.commitment-card').forEach(card => {
-        card.addEventListener('mousemove', (e: MouseEvent) => {
-          const rect = card.getBoundingClientRect();
-          const x = (e.clientX - rect.left) / rect.width - 0.5;
-          const y = (e.clientY - rect.top)  / rect.height - 0.5;
-          card.style.transform = `translateY(-5px) rotateY(${x*6}deg) rotateX(${-y*6}deg)`;
-        });
-        card.addEventListener('mouseleave', () => {
-          card.style.transform = '';
-        });
-      });
+      /* Las tarjetas con tilt 3D (.commitment-card) son manejadas globalmente por Layout.astro */
     </script>
 </Layout>
 
@@ -443,29 +422,9 @@ import Layout from '../layouts/Layout.astro';
         animation: breathe 5s ease-in-out infinite;
       }
 
-      @keyframes slowSpin   { to { transform: rotate(360deg); } }
-      @keyframes slowSpinRev  { to { transform: rotate(-360deg); } }
-      @keyframes linePulse  { 0%,100%{opacity:.3} 50%{opacity:1} }
-      @keyframes breathe    { 0%,100%{transform:scale(1)} 50%{transform:scale(1.18)} }
-      @keyframes floatY     { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-18px)} }
-      @keyframes floatX     { 0%,100%{transform:translateX(0)} 50%{transform:translateX(14px)} }
-      @keyframes morphBlob  {
-        0%   { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-        33%  { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
-        66%  { border-radius: 50% 60% 40% 30% / 40% 70% 60% 50%; }
-        100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-      }
-      @keyframes shimmerSlide { from{transform:translateX(-100%)} to{transform:translateX(200%)} }
-      @keyframes glowPulse  { 0%,100%{box-shadow:0 0 20px rgba(0,82,154,.2)} 50%{box-shadow:0 0 50px rgba(0,82,154,.5)} }
-      @keyframes rotateDash { to { stroke-dashoffset: -200; } }
-      @keyframes popIn      { from{opacity:0;transform:scale(.5)} to{opacity:1;transform:scale(1)} }
-      @keyframes gradShift  {
-        0%   { background-position: 0% 50%; }
-        50%  { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-      }
+      /* ── Hero deco keyframes → definidos en Layout.astro ── */
 
-      /* ── Extra hero deco: third ring + blob + small dots top-right ── */
+      /* ── Extra hero deco shapes ── */
       .hero-deco__ring-3 {
         position:absolute; width:280px; height:280px; border-radius:50%;
         border: 1px dashed rgba(158,202,255,0.07);
@@ -617,12 +576,6 @@ import Layout from '../layouts/Layout.astro';
       /* ── Wave ── */
       .wave { width:100%; overflow:hidden; line-height:0; display:block; }
       .wave svg { display:block; width:100%; }
-
-      /* ════════════════════════════════════
-         SECTION LAYOUT
-         ════════════════════════════════════ */
-      .section { padding: 5rem 2rem; }
-      .section-inner { max-width: 1200px; margin: 0 auto; }
       .section-eyebrow {
         font-size:.72rem; font-weight:600; letter-spacing:.14em;
         text-transform:uppercase; color:var(--md-primary); margin-bottom:.5rem;
@@ -641,10 +594,6 @@ import Layout from '../layouts/Layout.astro';
         font-size:1rem; color:var(--md-on-surface-variant);
         line-height:1.75; max-width:560px; margin-bottom:3rem;
       }
-
-      /* ════════════════════════════════════
-         SOLUTIONS
-         ════════════════════════════════════ */
       .solutions-section { background: var(--md-surface-container); position:relative; overflow:hidden; }
 
       /* Background geometric accent */
@@ -989,5 +938,4 @@ import Layout from '../layouts/Layout.astro';
       }
       .cta-actions { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
 
-      
 </style>

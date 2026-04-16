@@ -1,8 +1,7 @@
-fix: actualización de información corporativa y mejora de UI en directorio
+feat: rediseño Servicio Técnico y Tableteadoras
 
-- Se cambió la dirección física a la nueva oficina en Palogrande y se actualizó el mapa de Google Maps.
-- Se eliminaron todas las referencias a Laura Uribe.
-- Se definieron los roles de "Gerencia Técnica" y "Gerencia Administrativa".
-- Nueva Funcionalidad de Contacto: Se implementó un botón de "Canales de Atención" con un modal interactivo que detalla las responsabilidades de cada correo corporativo.
-- Se actualizaron todos los correos al dominio .net y se mantuvo el dominio web oficial .com.co.
-- Se configuró el nuevo favicon oficial de la página.
+- Respaldo Técnico: creacion de la pagina.
+- Tableteadoras: Finalización de la página generica.
+  - Integración del video real "Tableteadoras.mp4" en el hero.
+  - Centralización de utilidades CSS (reveal animations, shimmers, keyframes) en el Layout principal para reducir duplicidad.
+- Limpieza de estilos antiguos y actualización de configuración de Astro.

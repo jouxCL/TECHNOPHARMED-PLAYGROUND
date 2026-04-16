@@ -1,16 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import HeroPage from '../components/HeroPage.astro';
+import PageOrbs from '../components/PageOrbs.astro';
 ---
 
 <Layout title="Llenadoras de Líquidos – Technopharmed" description="FILAMATIC – automatización de llenado de líquidos para la industria farmacéutica. Llenadoras semiautomáticas Heavy Duty, sistemas inline y Monobloc.">
 
-  <!-- Animated background orbs -->
-  <div class="page-orbs" aria-hidden="true">
-    <div class="page-orb page-orb--1"></div>
-    <div class="page-orb page-orb--2"></div>
-    <div class="page-orb page-orb--3"></div>
-  </div>
+  <PageOrbs />
 
   <HeroPage
     eyebrow="Línea de Llenadoras · Filamatic"
@@ -321,15 +317,9 @@ import HeroPage from '../components/HeroPage.astro';
 
 <style is:global>
   /* ──────────────────────────────────────────────────
-     PAGE LAYOUT UTILITIES
+     LLENADORAS — Estilos específicos de esta página
+     (Las utilidades compartidas viven en Layout.astro)
   ────────────────────────────────────────────────── */
-  .pg-section          { padding: 5rem 2rem; position: relative; z-index: 1; }
-  .pg-section--alt     { background: var(--md-surface-container); }
-  .pg-section--blue    { background: linear-gradient(135deg, #001D36 0%, #003570 55%, #00529A 100%); }
-  .pg-inner            { max-width: 1100px; margin: 0 auto; }
-  .pg-title            { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; color: var(--md-on-surface); line-height: 1.2; margin-bottom: 1rem; }
-  .pg-body             { font-size: 1rem; color: var(--md-on-surface-variant); line-height: 1.78; margin-bottom: .75rem; max-width: 680px; }
-  .text-primary        { color: var(--md-primary); font-style: normal; }
 
 
 
@@ -560,19 +550,7 @@ import HeroPage from '../components/HeroPage.astro';
     background: rgba(255,255,255,.18); border-color: rgba(255,255,255,.35); color: #fff; transform: none;
   }
 
-  /* ──────────────────────────────────────────────────
-     CTA BLUE SECTION
-  ────────────────────────────────────────────────── */
-  .blue-cta { text-align: center; }
-  .blue-cta__title { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 900; color: #fff; line-height: 1.15; margin-bottom: 1rem; }
-  .blue-cta__body  { font-size: 1.05rem; color: rgba(255,255,255,.78); line-height: 1.75; max-width: 600px; margin: 0 auto 1.75rem; }
-  .blue-cta md-filled-button {
-    --md-filled-button-container-color: #fff;
-    --md-filled-button-hover-container-color: #F0F4F8;
-    --md-filled-button-label-text-color: var(--md-primary);
-    --md-filled-button-hover-label-text-color: var(--md-primary);
-    --md-filled-button-container-shape: 9999px;
-  }
+  /* .blue-cta → definido en Layout.astro */
 </style>
 
 <script>

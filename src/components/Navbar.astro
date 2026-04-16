@@ -19,8 +19,8 @@ function isActive(href: string): boolean {
 
 <style>
   .navbar {
-    background: #fff;
-    border-bottom: 1px solid #e5e5e5;
+    background: var(--md-surface);
+    border-bottom: 1px solid var(--md-outline-variant);
     width: 100%;
     position: sticky;
     top: 0;
@@ -70,7 +70,7 @@ function isActive(href: string): boolean {
     font-size: 0.85rem;
     font-weight: 800;
     letter-spacing: 0.05em;
-    color: #333;
+    color: var(--md-on-surface);
     text-decoration: none;
     white-space: nowrap;
     border-bottom: 3px solid transparent;
@@ -78,25 +78,25 @@ function isActive(href: string): boolean {
   }
 
   .navbar__nav a:hover {
-    color: #0054a6;
-    border-bottom-color: #0054a6;
+    color: var(--md-primary);
+    border-bottom-color: var(--md-primary);
   }
 
   /* ─── LINK ACTIVO ─── */
   .navbar__nav a.is-active {
-    color: #0054a6;
-    border-bottom-color: #0054a6;
+    color: var(--md-primary);
+    border-bottom-color: var(--md-primary);
     font-weight: 900;
   }
 
   /* ─── ÚLTIMO LINK (Contáctenos): siempre destaca ─── */
   .navbar__nav a.nav--highlight {
-    color: #0054a6;
+    color: var(--md-primary);
   }
   .navbar__nav a.nav--highlight:hover,
   .navbar__nav a.nav--highlight.is-active {
-    color: #003d80;
-    border-bottom-color: #003d80;
+    color: var(--md-on-primary-container);
+    border-bottom-color: var(--md-on-primary-container);
   }
 
   /* ─── MOBILE TOGGLE ─── */
@@ -106,7 +106,7 @@ function isActive(href: string): boolean {
     border: none;
     cursor: pointer;
     padding: 0.5rem;
-    color: #333;
+    color: var(--md-on-surface);
   }
 
   @media (max-width: 900px) {
@@ -117,11 +117,11 @@ function isActive(href: string): boolean {
       top: 73px;
       left: 0;
       width: 100%;
-      background: #fff;
+      background: var(--md-surface);
       flex-direction: column;
-      border-bottom: 1px solid #e5e5e5;
-      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
-      display: none; /* Hidden by default */
+      border-bottom: 1px solid var(--md-outline-variant);
+      box-shadow: var(--el-3);
+      display: none;
     }
 
     .navbar__nav.is-open {
@@ -132,7 +132,7 @@ function isActive(href: string): boolean {
       height: 60px;
       line-height: 60px;
       padding: 0 2rem;
-      border-bottom: 1px solid #f5f5f5;
+      border-bottom: 1px solid var(--md-surface-container);
     }
     
     .navbar__nav a:last-child {

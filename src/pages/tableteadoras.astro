@@ -1,46 +1,342 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import HeroPage from '../components/HeroPage.astro';
+import PageOrbs from '../components/PageOrbs.astro';
 ---
 
-<Layout title="Tableteadoras – Technopharmed" description="Soluciones avanzadas en compresión de tabletas farmacéuticas para toda escala.">
+<Layout title="Tableteadoras – Technopharmed" description="Tecnología de vanguardia en compresión de tabletas farmacéuticas. Soluciones avanzadas para I+D, producción piloto e industrial con los más altos estándares GMP.">
 
-  <div class="development-page">
-    <div class="development-content">
-      <img src="/logos/logo1.svg" alt="Technopharmed Logo" class="development-logo" />
-      <p class="development-title">Página en construcción</p>
+  <PageOrbs />
+
+  <!-- ═══════════════════════════════════════════════════
+       HERO
+       ═══════════════════════════════════════════════════ -->
+  <HeroPage
+    eyebrow="Línea de Tableteadoras · Compresión Farmacéutica"
+    title="Soluciones Avanzadas en <em>Compresión de Tabletas.</em>"
+    subtitle="Tecnología de vanguardia diseñada para optimizar sus procesos de producción de dosis sólidas, garantizando la máxima eficiencia, precisión y confiabilidad en cada ciclo."
+    ctaLabel="Solicitar Asesoría Técnica"
+    ctaHref="/contactenos"
+    videoSrc="/videos/Tableteadoras.mp4"
+  />
+
+
+  <!-- ═══════════════════════════════════════════════════
+       SECCIÓN 1: QUÉ ES UNA TABLETEADORA
+       ═══════════════════════════════════════════════════ -->
+  <section class="pg-section" aria-labelledby="s1-title">
+    <div class="pg-inner">
+
+      <p class="eyebrow-shimmer reveal">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77 5.82 21.02 7 14.14 2 9.27l6.91-1.01L12 2z" fill="currentColor"/></svg>
+        Tecnología de Compresión · Industria Farmacéutica
+      </p>
+
+      <div class="tab-intro reveal stagger-1">
+        <h2 id="s1-title" class="pg-title">Excelencia en Fabricación de <em class="text-primary">Dosis Sólidas.</em></h2>
+        <p class="pg-body">
+          Una máquina de compresión de tabletas es un dispositivo especializado esencial en la industria farmacéutica para comprimir polvo en tabletas de tamaño y peso uniformes.
+        </p>
+      </div>
+
+      <!-- 2-column: Imágenes tableteadoras -->
+      <div class="tab-img-grid reveal stagger-2">
+
+        <!-- IMAGEN 1 -->
+        <figure class="tab-machine-container">
+          <img
+            src="/images/Tableteadoras/TableteadoraGenerica.png"
+            alt="Máquina tableteadora rotativa farmacéutica de última generación, vista general"
+            class="tab-machine-img"
+          />
+        </figure>
+
+        <!-- IMAGEN 2 -->
+        <figure class="tab-machine-container">
+          <img
+            src="/images/Tableteadoras/TableteadoraGenerica2.png"
+            alt="Máquina tableteadora de alta velocidad, detalle del sistema de punzones y matrices"
+            class="tab-machine-img"
+          />
+        </figure>
+
+      </div>
+
+      <!-- 3 Key Points -->
+      <div class="tab-keypoints reveal stagger-3">
+
+        <div class="tab-keypoint">
+          <div class="tab-keypoint__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" fill="currentColor" opacity=".85"/></svg>
+          </div>
+          <div class="tab-keypoint__body">
+            <p class="tab-keypoint__title">Funcionamiento</p>
+            <p class="tab-keypoint__text">Estos equipos operan aplicando alta presión a través de juegos de punzones y matrices, moldeando el polvo hasta convertirlo en tabletas sólidas de alta densidad.</p>
+          </div>
+        </div>
+
+        <div class="tab-keypoint">
+          <div class="tab-keypoint__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M13 2.05V4.05C17.39 4.59 20.5 8.58 19.96 12.97C19.5 16.61 16.64 19.5 13 19.93V21.93C18.5 21.38 22.5 16.5 21.95 11C21.5 6.25 17.73 2.5 13 2.05M11 2.06C9.05 2.25 7.19 3 5.67 4.26L7.1 5.74C8.22 4.84 9.57 4.26 11 4.06V2.06M4.26 5.67C3 7.19 2.25 9.04 2.05 11H4.05C4.24 9.58 4.8 8.23 5.69 7.1L4.26 5.67M2.06 13C2.26 14.96 3.03 16.81 4.27 18.33L5.69 16.9C4.81 15.77 4.24 14.42 4.06 13H2.06M7.1 18.37L5.67 19.74C7.18 21 9.04 21.79 11 22V20C9.58 19.82 8.23 19.25 7.1 18.37M12 7L8 11H11V17H13V11H16L12 7Z" fill="currentColor" opacity=".85"/></svg>
+          </div>
+          <div class="tab-keypoint__body">
+            <p class="tab-keypoint__title">Productividad</p>
+            <p class="tab-keypoint__text">Su diseño asegura una producción de alta velocidad con una precisión absoluta, factor crítico para la manufactura farmacéutica a gran escala.</p>
+          </div>
+        </div>
+
+        <div class="tab-keypoint">
+          <div class="tab-keypoint__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="currentColor" opacity=".85"/></svg>
+          </div>
+          <div class="tab-keypoint__body">
+            <p class="tab-keypoint__title">Calidad y Control</p>
+            <p class="tab-keypoint__text">Las prensas modernas integran sistemas de control automatizados que permiten mantener una calidad constante y el cumplimiento de los estándares internacionales de la industria.</p>
+          </div>
+        </div>
+
+      </div>
     </div>
-  </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════
+       SECCIÓN 2: NUESTRA OFERTA
+       ═══════════════════════════════════════════════════ -->
+  <section class="pg-section pg-section--alt" aria-labelledby="s2-title">
+    <div class="pg-inner">
+
+      <p class="eyebrow-shimmer reveal">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77 5.82 21.02 7 14.14 2 9.27l6.91-1.01L12 2z" fill="currentColor"/></svg>
+        Portafolio · Nuestra Oferta
+      </p>
+
+      <div class="tab-offer-intro reveal stagger-1">
+        <h2 id="s2-title" class="pg-title">Versatilidad y Tecnología <em class="text-primary">a su Servicio.</em></h2>
+        <p class="pg-body">
+          Technopharmed pone a su disposición una amplia gama de soluciones que se adaptan a diversos requerimientos de producción:
+        </p>
+      </div>
+
+      <!-- Offer cards grid -->
+      <div class="tab-offer-grid reveal stagger-2">
+
+        <div class="tab-offer-card">
+          <div class="tab-offer-card__icon-wrap" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z" stroke="currentColor" stroke-width=".5" fill="currentColor" opacity=".85"/></svg>
+          </div>
+          <p class="tab-offer-card__label">I+D y Escala Piloto</p>
+          <p class="tab-offer-card__text">Equipos de desarrollo para investigación y lotes de pequeña escala, ideales para formulación y validación de procesos antes de la producción.</p>
+        </div>
+
+        <div class="tab-offer-card">
+          <div class="tab-offer-card__icon-wrap" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z" fill="currentColor" opacity=".85"/></svg>
+          </div>
+          <p class="tab-offer-card__label">Alta Velocidad</p>
+          <p class="tab-offer-card__text">Máquinas de producción con sistemas automatizados de control de peso y fuerza de compresión en tiempo real para líneas de alto rendimiento.</p>
+        </div>
+
+        <div class="tab-offer-card">
+          <div class="tab-offer-card__icon-wrap" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z" fill="currentColor" opacity=".85"/></svg>
+          </div>
+          <p class="tab-offer-card__label">Cabezales Intercambiables</p>
+          <p class="tab-offer-card__text">Sistemas con torretas y punzones intercambiables para máxima flexibilidad operativa, adaptándose a múltiples formatos de tableta sin necesidad de cambiar el equipo.</p>
+        </div>
+
+        <div class="tab-offer-card">
+          <div class="tab-offer-card__icon-wrap" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" fill="currentColor" opacity=".85"/></svg>
+          </div>
+          <p class="tab-offer-card__label">Cumplimiento CFR 21 Parte 11</p>
+          <p class="tab-offer-card__text">Equipos con trazabilidad digital, registros electrónicos y firmas validadas para garantizar el cumplimiento normativo FDA en todos los procesos farmacéuticos.</p>
+        </div>
+
+      </div>
+
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════
+       SECCIÓN 3: CTA
+       ═══════════════════════════════════════════════════ -->
+  <section class="pg-section pg-section--blue" id="contacto">
+    <div class="pg-inner">
+      <div class="blue-cta reveal">
+        <p class="eyebrow-shimmer" style="background:rgba(158,202,255,.12);border-color:rgba(158,202,255,.28);color:#9ECAFF;animation:none;">
+          Respaldo Técnico · Technopharmed
+        </p>
+        <h2 class="blue-cta__title">Encuentre el Equipo Ideal<br/>para su Planta.</h2>
+        <p class="blue-cta__body">
+          Contáctenos hoy mismo para discutir sus necesidades técnicas específicas. Nuestro equipo de expertos le ayudará a seleccionar la tableteadora perfecta para sus requerimientos de fabricación farmacéutica.
+        </p>
+        <div class="chip-row" style="justify-content:center; margin-bottom:2rem;">
+          <span class="m3-chip" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:#fff;">Evaluación de proceso</span>
+          <span class="m3-chip" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:#fff;">Selección de equipos</span>
+          <span class="m3-chip" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:#fff;">Asesoría normativa</span>
+          <span class="m3-chip" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:#fff;">Soporte posventa</span>
+        </div>
+        <md-filled-button href="/contactenos">Contactar a un Consultor Técnico</md-filled-button>
+      </div>
+    </div>
+  </section>
 
 </Layout>
 
 <style is:global>
-  .development-page {
-    min-height: 60vh;
+  /* ──────────────────────────────────────────────────
+     TABLETEADORAS — Estilos específicos de esta página
+     (Las utilidades compartidas viven en Layout.astro)
+  ────────────────────────────────────────────────── */
+  .chip-row { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .5rem; }
+
+  /* ──────────────────────────────────────────────────
+     SECTION INTROS
+  ────────────────────────────────────────────────── */
+  .tab-intro       { max-width: 720px; margin-bottom: 2.5rem; }
+  .tab-offer-intro { max-width: 720px; margin-bottom: 2.5rem; }
+
+  /* ──────────────────────────────────────────────────
+     IMAGE GRID (2 columnas)
+  ────────────────────────────────────────────────── */
+  .tab-img-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+  @media (max-width: 640px) { .tab-img-grid { grid-template-columns: 1fr; } }
+
+  /* Mismo patrón que .multipunzon-container / .multipunzon-img en punzoneria.astro */
+  .tab-machine-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
+    margin: 0;
+  }
+  .tab-machine-img {
+    width: 100%;
+    max-width: 612px;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    border-radius: var(--r-lg);
+    transition: transform 450ms var(--ease-emphasized), filter 450ms;
+    cursor: pointer;
+    filter: drop-shadow(0 6px 16px rgba(0,0,0,0.12));
+  }
+  .tab-machine-img:hover {
+    transform: translateY(-13.6px) scale(1.06);
+    filter: drop-shadow(0 20.4px 40.8px rgba(0,82,154,0.35));
+  }
+
+  /* ──────────────────────────────────────────────────
+     KEY POINTS (3 columnas)
+  ────────────────────────────────────────────────── */
+  .tab-keypoints {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin-top: 1rem;
+  }
+  @media (max-width: 768px) { .tab-keypoints { grid-template-columns: 1fr; } }
+
+  .tab-keypoint {
+    background: var(--md-surface);
+    border: 1px solid var(--md-outline-variant);
+    border-radius: var(--r-xl, 1.25rem);
+    padding: 1.75rem;
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    box-shadow: var(--el-1);
+    transition: box-shadow 300ms, transform 300ms;
+  }
+  .tab-keypoint:hover {
+    box-shadow: var(--el-3);
+    transform: translateY(-3px);
+  }
+
+  .tab-keypoint__icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--md-primary-container);
+    color: var(--md-primary);
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #fff;
-    padding: 2rem;
+    flex-shrink: 0;
   }
-  
-  .development-content {
-    text-align: center;
-  }
-  
-  .development-logo {
-    width: 240px;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-  }
-  
-  .development-title {
-    font-size: clamp(1.8rem, 4vw, 2.8rem);
+
+  .tab-keypoint__title {
+    font-size: 1rem;
     font-weight: 800;
     color: var(--md-on-surface);
-    line-height: 1.2;
-    letter-spacing: -.02em;
-    margin-top: 0;
-    padding: 0;
+    margin: 0 0 .4rem;
+    letter-spacing: -.01em;
   }
+  .tab-keypoint__text {
+    font-size: .9rem;
+    color: var(--md-on-surface-variant);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ──────────────────────────────────────────────────
+     OFFER CARDS GRID (2×2)
+  ────────────────────────────────────────────────── */
+  .tab-offer-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+  @media (max-width: 640px) { .tab-offer-grid { grid-template-columns: 1fr; } }
+
+  .tab-offer-card {
+    background: var(--md-surface);
+    border: 1px solid var(--md-outline-variant);
+    border-radius: var(--r-xl, 1.25rem);
+    padding: 2rem 2rem 1.75rem;
+    box-shadow: var(--el-1);
+    transition: box-shadow 300ms, transform 300ms;
+  }
+  .tab-offer-card:hover {
+    box-shadow: var(--el-3);
+    transform: translateY(-4px);
+  }
+
+  .tab-offer-card__icon-wrap {
+    width: 52px;
+    height: 52px;
+    border-radius: var(--r-md, .5rem);
+    background: var(--md-primary-container);
+    color: var(--md-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+  }
+
+  .tab-offer-card__label {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--md-on-surface);
+    letter-spacing: -.01em;
+    margin: 0 0 .6rem;
+  }
+
+  .tab-offer-card__text {
+    font-size: .9rem;
+    color: var(--md-on-surface-variant);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* .blue-cta → definido en Layout.astro */
 </style>
